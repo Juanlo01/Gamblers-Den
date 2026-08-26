@@ -10,8 +10,11 @@ using UnityEngine.UI;
 /// scene loads destroys itself in Awake().
 ///
 /// Wiring:
-///   - loadHideImage: full-screen Image used as a fade curtain (alpha 0<->1).
-///   - loadSymbImage: the spinner Image, rotated on its RectTransform's Z axis.
+///   - loadHideGroup: CanvasGroup on LoadHide. Its Alpha (0<->1) is the sole
+///     visibility control for LoadHide and everything under it, including
+///     LoadSymb — no other component's color/enabled state is touched.
+///   - loadSymbImage: the spinner Image (a child of LoadHide), rotated on its
+///     RectTransform's Z axis.
 ///   Both should live under the same prefab root as this script so they persist
 ///   together with it.
 ///
@@ -32,7 +35,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     [Header("UI References")]
-    [SerializeField] private Image loadHideImage;
+    [SerializeField] private CanvasGroup loadHideGroup;
     [SerializeField] private Image loadSymbImage;
 
     [Header("Timings")]
@@ -59,33 +62,24 @@ public class SceneLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // Start fully hidden / idle regardless of how it was left in the editor.
-        if (loadHideImage != null)
+        if (loadHideGroup != null)
         {
-            Color c = loadHideImage.color;
-            c.a = 0f;
-            loadHideImage.color = c;
-        }
-
-        if (loadSymbImage != null)
-        {
-            loadSymbImage.enabled = false;
+            loadHideGroup.alpha = 0f;
         }
     }
 
     private void Update()
     {
-        UpdateSymbVisibility();
-
         switch (state)
         {
             case LoaderState.ClosingFade:
-                if (loadHideImage == null)
+                if (loadHideGroup == null)
                 {
                     state = LoaderState.Changing;
                     break;
                 }
                 TickFadeTo(1f);
-                if (Mathf.Approximately(loadHideImage.color.a, 1f))
+                if (Mathf.Approximately(loadHideGroup.alpha, 1f))
                     state = LoaderState.Changing;
                 break;
 
@@ -98,13 +92,13 @@ public class SceneLoader : MonoBehaviour
                 break;
 
             case LoaderState.OpeningFade:
-                if (loadHideImage == null)
+                if (loadHideGroup == null)
                 {
                     state = LoaderState.Idle;
                     break;
                 }
                 TickFadeTo(0f);
-                if (Mathf.Approximately(loadHideImage.color.a, 0f))
+                if (Mathf.Approximately(loadHideGroup.alpha, 0f))
                     state = LoaderState.Idle;
                 break;
 
@@ -114,27 +108,24 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// LoadSymb is only visible while actively closing or opening — hidden while
-    /// idle, and hidden while "Changing" (the scene load itself is in flight).
-    /// </summary>
-    private void UpdateSymbVisibility()
-    {
-        if (loadSymbImage == null) return;
-
-        bool shouldBeVisible = state == LoaderState.ClosingFade
-                             || state == LoaderState.OpeningRotate
-                             || state == LoaderState.OpeningFade;
-
-        if (loadSymbImage.enabled != shouldBeVisible)
-            loadSymbImage.enabled = shouldBeVisible;
-    }
-
     // ---------------- Public API ----------------
 
-    /// <summary>Entry point: Close -> load "sceneName" -> Open. Ignored if already busy.</summary>
+    /// <summary>
+    /// Entry point: Close -> load "sceneName" -> Open. Ignored if already busy.
+    /// Safe to call on any per-scene _SCENE_LOADER copy (e.g. from a UI Button's
+    /// OnClick bound directly to that scene's instance): if this isn't the
+    /// surviving singleton, forwards to the one that is.
+    /// </summary>
     public void ChangeScene(string sceneName)
     {
+        if (this != Instance)
+        {
+            if (Instance != null) Instance.ChangeScene(sceneName);
+            return;
+        }
+
+        Time.timeScale = 1f;
+
         if (state != LoaderState.Idle) return;
         StartCoroutine(SceneChangeRoutine(sceneName));
     }
@@ -146,6 +137,12 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     public void CloseScene()
     {
+        if (this != Instance)
+        {
+            if (Instance != null) Instance.CloseScene();
+            return;
+        }
+
         if (loadSymbImage != null)
         {
             Vector3 e = loadSymbImage.rectTransform.localEulerAngles;
@@ -162,6 +159,12 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     public void OpenScene()
     {
+        if (this != Instance)
+        {
+            if (Instance != null) Instance.OpenScene();
+            return;
+        }
+
         float currentZ = loadSymbImage != null
             ? NormalizeAngle(loadSymbImage.rectTransform.localEulerAngles.z)
             : 0f;
@@ -186,7 +189,10 @@ public class SceneLoader : MonoBehaviour
         // whole time this runs, uninterrupted.
         Resources.UnloadUnusedAssets();
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        // Single mode always tears down and reloads a fresh copy of the target
+        // scene, even when sceneName matches the scene already active — do not
+        // early-out on that equality, ReplayButton depends on reloading in place.
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         while (asyncLoad != null && !asyncLoad.isDone)
             yield return null;
 
@@ -200,9 +206,7 @@ public class SceneLoader : MonoBehaviour
 
     private void TickFadeTo(float target)
     {
-        Color c = loadHideImage.color;
-        c.a = Mathf.MoveTowards(c.a, target, Time.deltaTime / fadeDuration);
-        loadHideImage.color = c;
+        loadHideGroup.alpha = Mathf.MoveTowards(loadHideGroup.alpha, target, Time.deltaTime / fadeDuration);
     }
 
     private void TickIndefiniteSpin()

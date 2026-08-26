@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 1993150411}
   - component: {fileID: 1993150410}
   - component: {fileID: 1993150409}
+  - component: {fileID: 6253406844799716960}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -754,16 +755,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7737594172585793026, guid: c6d1277147d3c57418484d39d306d4ab, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+      - m_Target: {fileID: 6253406844799716960}
+        m_TargetAssemblyTypeName: SceneChangeButton, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PokerGame
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1993150410
@@ -804,6 +805,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993150407}
   m_CullTransparentMesh: 1
+--- !u!114 &6253406844799716960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993150407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d48f0a749174420a4b016a112004720, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  sceneName: PokerGame
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
