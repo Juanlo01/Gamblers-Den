@@ -8,12 +8,17 @@ using TexasHoldem.AI.DummyPlayer;
 
 public class PokerGameManager : MonoBehaviour
 {
+    [SerializeField] private float npcActionDelaySeconds = 1.5f;
+
     void Start()
     {
+        var humanPlayer = new HumanPlayer("You");
         var players = new List<IPlayer>{
-            new SmartPlayer(),
-            new SmartPlayer(),
-            new SmartPlayer(),
+            humanPlayer,
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 1"),
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 2"),
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3"),
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 4")
         };
         var game = new TexasHoldemGame(players, initialMoney: 1000);
 
