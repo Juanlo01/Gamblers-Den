@@ -17,8 +17,7 @@ public class PokerGameManager : MonoBehaviour
             humanPlayer,
             new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 1"),
             new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 2"),
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3"),
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 4")
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3")
         };
         var game = new TexasHoldemGame(players, initialMoney: 1000);
 
