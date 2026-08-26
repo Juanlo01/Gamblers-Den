@@ -1,4 +1,6 @@
+using System.Linq;
 using System.Threading;
+using TexasHoldem.Logic.Helpers;
 using TexasHoldem.Logic.Players;
 
 public class HumanPlayer : BasePlayer
@@ -7,6 +9,7 @@ public class HumanPlayer : BasePlayer
     public override int BuyIn => -1; // use table default
 
     private readonly ManualResetEventSlim _waitHandle = new ManualResetEventSlim(false);
+    private readonly IHandEvaluator _handEvaluator = new HandEvaluator();
     private PlayerAction _pendingAction;
 
     public HumanPlayer(string name)
@@ -32,6 +35,17 @@ public class HumanPlayer : BasePlayer
         base.StartRound(context);
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowCommunityCards(context.CommunityCards, context.CurrentPot));
+
+        ThreadManager.Enqueue(() =>
+            PokerUIController.Instance.ShowMoney(context.MoneyLeft));
+
+        if (context.CommunityCards.Count >= 3)
+        {
+            var bestHand = _handEvaluator.GetBestHand(
+                new[] { FirstCard, SecondCard }.Concat(context.CommunityCards));
+            ThreadManager.Enqueue(() =>
+                PokerUIController.Instance.ShowHandType(bestHand.RankType));
+        }
     }
 
     public override void EndRound(IEndRoundContext context)
