@@ -8,10 +8,18 @@ public class CPU_Controller : MonoBehaviour{
     public Vector3 stageExit = new Vector3(3, 0, 0);
     CPU_Animator CA1;
     CPU_Animator CA2;
+
+    public PlayerTableStatus Status { get; private set; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         CA1 = NPC1.GetComponent<CPU_Animator>();
         CA2 = NPC2.GetComponent<CPU_Animator>();
+    }
+
+    // Called by PokerGameManager (via SlowedPlayer) whenever this seat's poker status changes.
+    public void UpdateStatus(PlayerTableStatus status){
+        Status = status;
     }
 
     // Update is called once per frame

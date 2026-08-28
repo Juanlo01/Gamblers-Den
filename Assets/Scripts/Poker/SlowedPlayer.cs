@@ -1,25 +1,61 @@
 using System.Threading;
 using TexasHoldem.Logic.Players;
 
-// Wraps an IPlayer (e.g. SmartPlayer) so its actions are announced in the UI
-// and the engine thread pauses briefly afterward, giving time to read them.
+// Wraps an IPlayer (e.g. SmartPlayer) so its actions are announced in the UI,
+// its table status is published to a CPU_Controller, and the engine thread
+// pauses briefly afterward, giving time to read them.
 public class SlowedPlayer : PlayerDecorator
 {
     private readonly int _delayMs;
     private readonly string _displayName;
+    private readonly CPU_Controller _cpuController;
 
-    public SlowedPlayer(IPlayer player, float delaySeconds, string displayName = null) : base(player)
+    private PlayerAction _lastAction;
+    private bool _isFolded;
+    private int _money;
+    private int _currentBet;
+    private TablePosition _position;
+
+    public SlowedPlayer(IPlayer player, float delaySeconds, string displayName = null, CPU_Controller cpuController = null) : base(player)
     {
         _delayMs = (int)(delaySeconds * 1000);
         _displayName = displayName;
+        _cpuController = cpuController;
     }
 
     public override string Name => _displayName ?? base.Name;
+
+    public override void StartHand(IStartHandContext context)
+    {
+        base.StartHand(context);
+
+        _isFolded = false;
+        _currentBet = 0;
+        _lastAction = null;
+        _money = context.MoneyLeft;
+        _position = PokerGameManager.Instance.GetPosition(Name, context.FirstPlayerName);
+        Publish();
+    }
+
+    public override void StartRound(IStartRoundContext context)
+    {
+        base.StartRound(context);
+
+        _currentBet = 0;
+        _money = context.MoneyLeft;
+        Publish();
+    }
 
     public override PlayerAction PostingBlind(IPostingBlindContext context)
     {
         var action = base.PostingBlind(context);
         Announce(action);
+
+        _lastAction = action;
+        _currentBet = action.Money;
+        _money = context.CurrentStackSize;
+        Publish();
+
         return action;
     }
 
@@ -27,6 +63,18 @@ public class SlowedPlayer : PlayerDecorator
     {
         var action = base.GetTurn(context);
         Announce(action);
+
+        _lastAction = action;
+        _isFolded = action.Type == PlayerActionType.Fold;
+        _currentBet = action.Type switch
+        {
+            PlayerActionType.Raise => context.CurrentMaxBet + action.Money,
+            PlayerActionType.CheckCall => context.CurrentMaxBet,
+            _ => _currentBet,
+        };
+        _money = context.MoneyLeft;
+        Publish();
+
         return action;
     }
 
@@ -34,5 +82,21 @@ public class SlowedPlayer : PlayerDecorator
     {
         ThreadManager.Enqueue(() => PokerUIController.Instance.ShowNpcAction(Name, action));
         Thread.Sleep(_delayMs);
+    }
+
+    private void Publish()
+    {
+        if (_cpuController == null) return;
+
+        var status = new PlayerTableStatus
+        {
+            LastAction = _lastAction,
+            IsFolded = _isFolded,
+            Money = _money,
+            CurrentBet = _currentBet,
+            Position = _position
+        };
+
+        ThreadManager.Enqueue(() => _cpuController.UpdateStatus(status));
     }
 }
