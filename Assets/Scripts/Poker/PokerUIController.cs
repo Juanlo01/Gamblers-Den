@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using TexasHoldem.Logic;
 using TexasHoldem.Logic.Cards;
 using TexasHoldem.Logic.Players;
 using TMPro;
@@ -13,12 +14,12 @@ public class PokerUIController : MonoBehaviour
     [Header("Action Panel")]
     [SerializeField] private GameObject actionPanel;
     [SerializeField] private Button foldButton;
-    [SerializeField] private Button checkButton;
-    [SerializeField] private Button callButton;
+    [SerializeField] private Button checkCallButton;
     [SerializeField] private Button raiseButton;
-    [SerializeField] private Button allInButton;
     [SerializeField] private Slider raiseSlider;
     [SerializeField] private TMP_Text raiseAmountLabel;
+
+    private TMP_Text _checkCallLabel;
 
     [Header("Cards")]
     [SerializeField] private TMP_Text holeCard1Text;
@@ -28,11 +29,14 @@ public class PokerUIController : MonoBehaviour
     [Header("Misc")]
     [SerializeField] private TMP_Text potText;
     [SerializeField] private TMP_Text statusText;
+    [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text handText;
 
     private void Awake()
     {
         Instance = this;
         actionPanel.SetActive(false);
+        _checkCallLabel = checkCallButton.GetComponentInChildren<TMP_Text>();
     }
 
     public void OnGameStarted()
@@ -44,6 +48,17 @@ public class PokerUIController : MonoBehaviour
     {
         holeCard1Text.text = CardMapper.ToDisplayText(first);
         holeCard2Text.text = CardMapper.ToDisplayText(second);
+        handText.text = "";
+    }
+
+    public void ShowMoney(int moneyLeft)
+    {
+        moneyText.text = $"Money: ${moneyLeft}";
+    }
+
+    public void ShowHandType(HandRankType rankType)
+    {
+        handText.text = HandRankMapper.ToDisplayText(rankType);
     }
 
     public void ShowCommunityCards(IReadOnlyCollection<Card> cards, int currentPot)
@@ -55,7 +70,7 @@ public class PokerUIController : MonoBehaviour
                 ? CardMapper.ToDisplayText(cardList[i])
                 : "";
         }
-        potText.text = $"Pot: {currentPot}";
+        potText.text = $"Pot\n${currentPot}";
     }
 
     public void OnRoundEnd()
@@ -93,18 +108,12 @@ public class PokerUIController : MonoBehaviour
         foldButton.onClick.RemoveAllListeners();
         foldButton.onClick.AddListener(() => Submit(player, PlayerAction.Fold()));
 
-        // Check vs Call mutually exclusive based on CanCheck
-        checkButton.gameObject.SetActive(context.CanCheck);
-        callButton.gameObject.SetActive(!context.CanCheck);
+        _checkCallLabel.text = context.CanCheck ? "Check" : "Call";
 
-        checkButton.onClick.RemoveAllListeners();
-        checkButton.onClick.AddListener(() => Submit(player, PlayerAction.CheckOrCall()));
-
-        callButton.onClick.RemoveAllListeners();
-        callButton.onClick.AddListener(() => Submit(player, PlayerAction.CheckOrCall()));
+        checkCallButton.onClick.RemoveAllListeners();
+        checkCallButton.onClick.AddListener(() => Submit(player, PlayerAction.CheckOrCall()));
 
         raiseButton.gameObject.SetActive(context.CanRaise);
-        allInButton.gameObject.SetActive(context.CanRaise);
         raiseSlider.gameObject.SetActive(context.CanRaise);
 
         if (context.CanRaise)
@@ -122,10 +131,6 @@ public class PokerUIController : MonoBehaviour
             raiseButton.onClick.RemoveAllListeners();
             raiseButton.onClick.AddListener(() =>
                 Submit(player, PlayerAction.Raise((int)raiseSlider.value)));
-
-            allInButton.onClick.RemoveAllListeners();
-            allInButton.onClick.AddListener(() =>
-                Submit(player, PlayerAction.Raise(maxRaise)));
         }
     }
 
