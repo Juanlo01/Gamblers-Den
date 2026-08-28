@@ -6700,6 +6700,7 @@ GameObject:
   - component: {fileID: 1778804616}
   - component: {fileID: 1778804617}
   - component: {fileID: 1778804618}
+  - component: {fileID: 1778804619}
   m_Layer: 5
   m_Name: ScoreHide
   m_TagString: Untagged
@@ -6772,6 +6773,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1778804619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778804615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2501c82c1ed27e43836e229d03892d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PokerScoreDisplay
+  pokerGameManager: {fileID: 1808573878}
+  currentScoreText: {fileID: 640139379}
+  bestScoreText: {fileID: 1431789575}
 --- !u!1 &1789142112
 GameObject:
   m_ObjectHideFlags: 0
@@ -6942,6 +6958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PokerGameManager
   npcActionDelaySeconds: 1.5
+  initialMoney: 1000
 --- !u!114 &1808573879
 MonoBehaviour:
   m_ObjectHideFlags: 0
