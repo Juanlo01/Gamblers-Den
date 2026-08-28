@@ -14,12 +14,19 @@ public class PokerUIController : MonoBehaviour
     [Header("Action Panel")]
     [SerializeField] private GameObject actionPanel;
     [SerializeField] private Button foldButton;
-    [SerializeField] private Button checkCallButton;
+    [SerializeField] private ButtonImageHandler foldImageHandler;
+    [SerializeField] private Button checkButton;
+    [SerializeField] private ButtonImageHandler checkImageHandler;
+    [SerializeField] private Button callButton;
+    [SerializeField] private ButtonImageHandler callImageHandler;
     [SerializeField] private Button raiseButton;
     [SerializeField] private Slider raiseSlider;
     [SerializeField] private TMP_Text raiseAmountLabel;
+    [SerializeField] private RaiseManager raiseManager;
 
-    private TMP_Text _checkCallLabel;
+    [Header("Raise Menu")]
+    [SerializeField] private Toggle raiseMenuToggle;
+    [SerializeField] private CanvasGroup raiseMenuGroup;
 
     [Header("Cards")]
     [SerializeField] private TMP_Text holeCard1Text;
@@ -36,7 +43,20 @@ public class PokerUIController : MonoBehaviour
     {
         Instance = this;
         actionPanel.SetActive(false);
-        _checkCallLabel = checkCallButton.GetComponentInChildren<TMP_Text>();
+
+        raiseMenuToggle.isOn = false;
+        raiseMenuToggle.onValueChanged.AddListener(SetRaiseMenuVisible);
+        SetRaiseMenuVisible(false);
+    }
+
+    private void SetRaiseMenuVisible(bool visible)
+    {
+        raiseMenuGroup.alpha = visible ? 1f : 0f;
+
+        foreach (var button in raiseMenuGroup.GetComponentsInChildren<Button>(true))
+        {
+            button.interactable = visible;
+        }
     }
 
     public void OnGameStarted()
@@ -54,6 +74,7 @@ public class PokerUIController : MonoBehaviour
     public void ShowMoney(int moneyLeft)
     {
         moneyText.text = $"Money: ${moneyLeft}";
+        raiseManager.SetMoney(moneyLeft);
     }
 
     public void ShowHandType(HandRankType rankType)
@@ -107,11 +128,15 @@ public class PokerUIController : MonoBehaviour
         // Fold always available
         foldButton.onClick.RemoveAllListeners();
         foldButton.onClick.AddListener(() => Submit(player, PlayerAction.Fold()));
+        foldImageHandler.SetDisabled(false);
 
-        _checkCallLabel.text = context.CanCheck ? "Check" : "Call";
+        checkButton.onClick.RemoveAllListeners();
+        checkButton.onClick.AddListener(() => Submit(player, PlayerAction.CheckOrCall()));
+        checkImageHandler.SetDisabled(!context.CanCheck);
 
-        checkCallButton.onClick.RemoveAllListeners();
-        checkCallButton.onClick.AddListener(() => Submit(player, PlayerAction.CheckOrCall()));
+        callButton.onClick.RemoveAllListeners();
+        callButton.onClick.AddListener(() => Submit(player, PlayerAction.CheckOrCall()));
+        callImageHandler.SetDisabled(context.CanCheck);
 
         raiseButton.gameObject.SetActive(context.CanRaise);
         raiseSlider.gameObject.SetActive(context.CanRaise);
@@ -130,7 +155,7 @@ public class PokerUIController : MonoBehaviour
 
             raiseButton.onClick.RemoveAllListeners();
             raiseButton.onClick.AddListener(() =>
-                Submit(player, PlayerAction.Raise((int)raiseSlider.value)));
+                Submit(player, PlayerAction.Raise(raiseManager.RaiseValue)));
         }
     }
 
