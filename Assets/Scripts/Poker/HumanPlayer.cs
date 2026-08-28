@@ -39,6 +39,9 @@ public class HumanPlayer : BasePlayer
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowMoney(context.MoneyLeft));
 
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.UpdateScore(context.MoneyLeft));
+
         if (context.CommunityCards.Count >= 3)
         {
             var bestHand = _handEvaluator.GetBestHand(
