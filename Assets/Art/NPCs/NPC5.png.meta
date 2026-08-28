@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 151fd0dbd1775404b85e6258a7963956
+guid: ba73c271210ecb849ad7e68fcdea8010
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -1000878417684533169
     second: NPC5_2
+  - first:
+      213: 8523093763526650965
+    second: NPC5_3
+  - first:
+      213: -4731854632417183736
+    second: NPC5_4
+  - first:
+      213: -2752080050741831145
+    second: NPC5_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -184,6 +193,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: NPC5_3
+      rect:
+        serializedVersion: 2
+        x: 2794
+        y: 84
+        width: 433
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c6a52ee9c184670800000000000000
+      internalID: 8523093763526650965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC5_4
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 84
+        width: 433
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 808bcf14843155eb0800000000000000
+      internalID: -4731854632417183736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC5_5
+      rect:
+        serializedVersion: 2
+        x: 4514
+        y: 84
+        width: 433
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a181666c5aec9d0800000000000000
+      internalID: -2752080050741831145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -201,6 +276,9 @@ TextureImporter:
       NPC5_0: -974701738471184004
       NPC5_1: 606392996414170057
       NPC5_2: -1000878417684533169
+      NPC5_3: 8523093763526650965
+      NPC5_4: -4731854632417183736
+      NPC5_5: -2752080050741831145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

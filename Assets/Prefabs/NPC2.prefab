@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6162426850634714131
 Transform:
   m_ObjectHideFlags: 0
@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2798204376743423770, guid: c02bd057ffeb05146bf6f2ed6fd25cf6, type: 3}
+  m_Sprite: {fileID: 8165316572449679646, guid: a10937beb199a5b46808f866bd3cb909, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.273275, y: 7.08}
+  m_Size: {x: 6.284275, y: 7.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,7 +104,7 @@ Animator:
   m_GameObject: {fileID: 469793910196763225}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 93f21bd42418710489f4dd3b804fa5a5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0baf47c8237ad654fb8658e969388786, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   coughOpportunity: 13
   catchOpportunity: 0
   isCheating: 0
+  caughtCheating: 0
   _animator: {fileID: 7982755457256235477}
 --- !u!65 &5930386802662734837
 BoxCollider:
