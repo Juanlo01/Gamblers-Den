@@ -79,9 +79,9 @@ public class PokerGameManager : MonoBehaviour
             new SlowedPlayer(MakeBot(bot1Seat, humanPlayer), npcActionDelaySeconds, "Bot 1"),
             new SlowedPlayer(MakeBot(bot2Seat, humanPlayer), npcActionDelaySeconds, "Bot 2"),
             new SlowedPlayer(MakeBot(bot3Seat, humanPlayer), npcActionDelaySeconds, "Bot 3")
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 1", bot1Controller, 1),
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 2", bot2Controller, 2),
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3", bot3Controller, 3)
+            // new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 1", bot1Controller, 1),
+            // new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 2", bot2Controller, 2),
+            // new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3", bot3Controller, 3)
         };
         seatOrder = players.Select(p => p.Name).ToList();
 

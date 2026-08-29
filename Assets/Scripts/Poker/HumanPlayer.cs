@@ -72,7 +72,7 @@ public class HumanPlayer : BasePlayer
     {
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowShowdown(context));
-            PokerUIController.Instance.ShowShowdown(context.ShowdownCards));
+            //PokerUIController.Instance.ShowShowdown(context.ShowdownCards));
 
         ThreadManager.Enqueue(() =>
             PokerGameManager.Instance.OnHandEnded(PokerGameManager.Instance.GetCurrentScore()));
