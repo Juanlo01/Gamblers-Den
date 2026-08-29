@@ -3,27 +3,21 @@ using UnityEngine;
 
 public class CPU_Controller : MonoBehaviour{
 
-    public GameObject NPC1;
-    public GameObject NPC2;
-    public GameObject NPC3;
-    public GameObject NPC4;
-    public GameObject NPC5;
+    public GameObject[] npcs;
     public Vector3 stageExit = new Vector3(3, 0, 0);
-    CPU_Animator CA1;
-    CPU_Animator CA2;
-    CPU_Animator CA3;
-    CPU_Animator CA4;
-    CPU_Animator CA5;
+    public float moveDuration = 5.0f;
+
+    CPU_Animator CA1, CA2, CA3, CA4, CA5;
 
     public PlayerTableStatus Status { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
-        CA1 = NPC1.GetComponent<CPU_Animator>();
-        CA2 = NPC2.GetComponent<CPU_Animator>();
-        CA3 = NPC3.GetComponent<CPU_Animator>();
-        CA4 = NPC4.GetComponent<CPU_Animator>();
-        CA5 = NPC5.GetComponent<CPU_Animator>();
+        CA1 = npcs[0].GetComponent<CPU_Animator>();
+        CA2 = npcs[1].GetComponent<CPU_Animator>();
+        CA3 = npcs[2].GetComponent<CPU_Animator>();
+        CA4 = npcs[3].GetComponent<CPU_Animator>();
+        CA5 = npcs[4].GetComponent<CPU_Animator>();
     }
 
     // Called by PokerGameManager (via SlowedPlayer) whenever this seat's poker status changes.
@@ -33,61 +27,96 @@ public class CPU_Controller : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if (CA1.caughtCheating == true && NPC1.activeSelf){
-            StartCoroutine(Caught());
-            CA1._animator.SetBool("isCaught", true);
-        }
-        else if (CA2.caughtCheating == true && NPC2.activeSelf){
-            CA2._animator.SetBool("isCaught", true);
-            StartCoroutine(Caught());
-        }
-        else if (CA3.caughtCheating == true && NPC3.activeSelf){
-            CA3._animator.SetBool("isCaught", true);
-            StartCoroutine(Caught());
-        }
-        else if (CA4.caughtCheating == true && NPC4.activeSelf){
-            CA4._animator.SetBool("isCaught", true);
-            StartCoroutine(Caught());
-        }
-        else if (CA5.caughtCheating == true && NPC5.activeSelf){
-            CA5._animator.SetBool("isCaught", true);
-            StartCoroutine(Caught());
-        }
+            
+    }
+
+    public void Transition(){
+        if (CA1.caughtCheating == true && npcs[0].activeSelf){
+                StartCoroutine(Caught());
+                CA1._animator.SetBool("isCaught", true);
+            }
+        else if (CA2.caughtCheating == true && npcs[1].activeSelf){
+                CA2._animator.SetBool("isCaught", true);
+                StartCoroutine(Caught());
+            }
+        else if (CA3.caughtCheating == true && npcs[2].activeSelf){
+                CA3._animator.SetBool("isCaught", true);
+                StartCoroutine(Caught());
+            }
+        else if (CA4.caughtCheating == true && npcs[3].activeSelf){
+                CA4._animator.SetBool("isCaught", true);
+                StartCoroutine(Caught());
+            }
+        else if (CA5.caughtCheating == true && npcs[4].activeSelf){
+                CA5._animator.SetBool("isCaught", true);
+                StartCoroutine(Caught());
+            }
     }
 
     void SwapNPC(){
-        if (NPC1.activeSelf){
-            CA1.caughtCheating = false;
-            NPC1.SetActive(false);
-            NPC2.SetActive(true);
+        int randomIndex = Random.Range(0, npcs.Length);
+
+        for (int i = 0; i < npcs.Length; i++){
+            if (npcs[i].activeSelf){
+                npcs[i].SetActive(false);
+            }
         }
-        else if (NPC2.activeSelf){
-            CA2.caughtCheating = false;
-            NPC2.SetActive(false);
-            NPC3.SetActive(true);
+
+        npcs[randomIndex].SetActive(true);
+
+
+        // if (NPC1.activeSelf){
+        //     CA1.caughtCheating = false;
+        //     NPC1.SetActive(false);
+        //     NPC2.SetActive(true);
+        // }
+        // else if (NPC2.activeSelf){
+        //     CA2.caughtCheating = false;
+        //     NPC2.SetActive(false);
+        //     NPC3.SetActive(true);
+        // }
+        // else if (NPC3.activeSelf){
+        //     CA3.caughtCheating = false;
+        //     NPC3.SetActive(false);
+        //     NPC4.SetActive(true);
+        // }
+        // else if (NPC4.activeSelf){
+        //     CA4.caughtCheating = false;
+        //     NPC4.SetActive(false);
+        //     NPC5.SetActive(true);
+        // }
+        // else if (NPC5.activeSelf){
+        //     CA5.caughtCheating = false;
+        //     NPC5.SetActive(false);
+        //     NPC1.SetActive(true);
+        // }
+        
+    }
+
+    IEnumerator Move(Vector3 target, float duration){
+        Vector3 position = transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration){
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            float smoothedT = t * t * (3f - 2f * t);
+
+            transform.position = Vector3.Lerp(position, position - target, smoothedT);
+
+            yield return null;
         }
-        else if (NPC3.activeSelf){
-            CA3.caughtCheating = false;
-            NPC3.SetActive(false);
-            NPC4.SetActive(true);
-        }
-        else if (NPC4.activeSelf){
-            CA4.caughtCheating = false;
-            NPC4.SetActive(false);
-            NPC5.SetActive(true);
-        }
-        else if (NPC5.activeSelf){
-            CA5.caughtCheating = false;
-            NPC5.SetActive(false);
-            NPC1.SetActive(true);
-        }
+        
     }
 
     IEnumerator Caught(){
-        transform.position = Vector3.MoveTowards(transform.position, transform.position - stageExit, 2 * Time.deltaTime);
-        yield return new WaitForSeconds(10f);
+        StartCoroutine(Move(stageExit, moveDuration));
+        yield return new WaitForSeconds(7f);
         SwapNPC();
-        yield return new WaitForSeconds(10f);
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + stageExit, 2 * Time.deltaTime);
+        yield return new WaitForSeconds(7f);
+        StartCoroutine(Move(-stageExit, moveDuration));
+
+        //transform.position = Vector3.Lerp(transform.position, transform.position - stageExit, 2 * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, transform.position + stageExit, 2 * Time.deltaTime);
     }
 }
