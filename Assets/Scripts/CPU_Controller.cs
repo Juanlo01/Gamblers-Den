@@ -20,18 +20,42 @@ public class CPU_Controller : MonoBehaviour{
     [Tooltip("TMP showing this character's spoken line.")]
     public TMP_Text DialogueText;
 
-    // Placeholder line until dialogue is driven from yarnFile.
-    private const string PlaceholderLine = "Awfully confident for someone with such a weak hand.";
-
     public PlayerTableStatus Status { get; private set; }
+
+    // The CPU_Animator on whichever NPC model is currently on stage. Falls back
+    // to the first assigned one so identity still resolves before Start() runs.
+    public CPU_Animator ActiveAnimator{
+        get{
+            EnsureAnimators();
+
+            var slots = new[] { NPC1, NPC2, NPC3, NPC4, NPC5 };
+            var animators = new[] { CA1, CA2, CA3, CA4, CA5 };
+
+            for (int i = 0; i < slots.Length; i++){
+                if (slots[i] != null && slots[i].activeSelf && animators[i] != null) return animators[i];
+            }
+
+            for (int i = 0; i < animators.Length; i++){
+                if (animators[i] != null) return animators[i];
+            }
+
+            return null;
+        }
+    }
 
     // Name of whichever NPC model is currently on stage.
     public string CharacterName{
         get{
-            EnsureAnimators();
-            if (NPC2 != null && NPC2.activeSelf && CA2 != null) return CA2.Name;
-            if (CA1 != null) return CA1.Name;
-            return string.Empty;
+            var animator = ActiveAnimator;
+            return animator != null ? animator.Name : string.Empty;
+        }
+    }
+
+    // snake_case yarn id of whichever NPC model is currently on stage.
+    public string YarnId{
+        get{
+            var animator = ActiveAnimator;
+            return animator != null ? animator.YarnId : string.Empty;
         }
     }
 
@@ -49,16 +73,38 @@ public class CPU_Controller : MonoBehaviour{
     void EnsureAnimators(){
         if (CA1 == null && NPC1 != null) CA1 = NPC1.GetComponent<CPU_Animator>();
         if (CA2 == null && NPC2 != null) CA2 = NPC2.GetComponent<CPU_Animator>();
+        if (CA3 == null && NPC3 != null) CA3 = NPC3.GetComponent<CPU_Animator>();
+        if (CA4 == null && NPC4 != null) CA4 = NPC4.GetComponent<CPU_Animator>();
+        if (CA5 == null && NPC5 != null) CA5 = NPC5.GetComponent<CPU_Animator>();
     }
 
     // Picks this character's next line, pushes it into the assigned TMPs, and
     // hands it back so the caller can decide whether to open a dialogue box.
     // Returns an empty string when there is nothing to say.
     public string CallDialogue(){
-        string line = PlaceholderLine;
-        string speaker = CharacterName;
+        return CallDialogue(string.Empty);
+    }
 
-        Debug.Log($"[Dialogue] CallDialogue() on '{name}' -> name=\"{speaker}\", line=\"{line}\"", this);
+    // Asks DialogueManager for this character's own reaction to "action".
+    // Returns "" when no yarn node matches (or none are loaded) - there is no
+    // fallback line, so the seat simply stays quiet rather than inventing one.
+    public string CallDialogue(string action){
+        var manager = DialogueManager.Instance;
+        if (manager == null || string.IsNullOrEmpty(YarnId)){
+            return string.Empty;
+        }
+
+        var selection = manager.RequestSelfReaction(YarnId, action);
+        if (selection == null){
+            return string.Empty;
+        }
+
+        return Speak(selection.SpeakerDisplayName, selection.Text);
+    }
+
+    // Pushes an already-chosen line into this seat's TMPs and hands it back.
+    public string Speak(string speaker, string line){
+        Debug.Log($"[Dialogue] Speak() on '{name}' -> name=\"{speaker}\", line=\"{line}\"", this);
 
         if (DialogueText != null){
             DialogueText.text = line;

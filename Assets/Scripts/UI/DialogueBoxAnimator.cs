@@ -21,7 +21,7 @@ using UnityEngine;
 /// blocksRaycasts is tied to visibility so a faded-out speaker cannot sit over
 /// the table swallowing clicks.
 /// </summary>
-public class DialogueRunner : MonoBehaviour
+public class DialogueBoxAnimator : MonoBehaviour
 {
     [Header("CPU 1")]
     [SerializeField] private RectTransform CPU1_Textbox;
@@ -68,6 +68,20 @@ public class DialogueRunner : MonoBehaviour
 
     private readonly System.Collections.Generic.Dictionary<CanvasGroup, Coroutine> _fading =
         new System.Collections.Generic.Dictionary<CanvasGroup, Coroutine>();
+
+    // Speaking lock: the CPU whose boxes are currently open (0 = nobody). Only
+    // one character may be on screen at a time, so a second OpenDialogue is
+    // refused until the holder has finished closing. Released at the END of the
+    // close animation, not when CloseDialogue is called, so a new speaker can
+    // never fade in over the top of one still fading out.
+    private int _speakingSeat;
+    private Coroutine _releaseRoutine;
+
+    /// <summary>True while any CPU's dialogue is open or still closing.</summary>
+    public bool IsDialogueOpen => _speakingSeat != 0;
+
+    /// <summary>Which CPU (1-3) currently holds the speaking lock, or 0.</summary>
+    public int SpeakingSeat => _speakingSeat;
 
     private void Awake()
     {
@@ -129,9 +143,18 @@ public class DialogueRunner : MonoBehaviour
     /// Opens CPU <paramref name="cpuIndex"/>'s (1-3) name and text boxes, each
     /// sized to fit the string it is given.
     /// </summary>
-    public void OpenDialogue(int cpuIndex, string speakerName, string text)
+    public bool OpenDialogue(int cpuIndex, string speakerName, string text)
     {
         Debug.Log($"[DialogueRunner] OpenDialogue(cpu={cpuIndex}, name=\"{speakerName}\", text=\"{text}\")", this);
+
+        // Speaking lock - refuse while another CPU holds the floor.
+        if (_speakingSeat != 0 && _speakingSeat != cpuIndex)
+        {
+            Debug.Log(
+                $"[DialogueRunner] REFUSED: CPU {cpuIndex} cannot speak, CPU {_speakingSeat} still has the floor.",
+                this);
+            return false;
+        }
 
         var textbox = GetTextbox(cpuIndex);
         var namebox = GetNamebox(cpuIndex);
@@ -139,8 +162,17 @@ public class DialogueRunner : MonoBehaviour
         if (textbox == null && namebox == null)
         {
             Debug.LogWarning($"[DialogueRunner] ABORT: no boxes assigned for CPU {cpuIndex}.", this);
-            return;
+            return false;
         }
+
+        // Re-opening the same seat cancels a close that was already under way.
+        if (_releaseRoutine != null)
+        {
+            StopCoroutine(_releaseRoutine);
+            _releaseRoutine = null;
+        }
+
+        _speakingSeat = cpuIndex;
 
         if (textbox == null) Debug.LogWarning($"[DialogueRunner] CPU {cpuIndex} has no Textbox assigned.", this);
         if (namebox == null) Debug.LogWarning($"[DialogueRunner] CPU {cpuIndex} has no Namebox assigned.", this);
@@ -150,6 +182,7 @@ public class DialogueRunner : MonoBehaviour
         AnimateTo(textbox, cpuIndex, WidthFractionFor(textbox, text, textboxPadding, "textbox"), openDuration);
         AnimateTo(namebox, cpuIndex, WidthFractionFor(namebox, speakerName, nameboxPadding, "namebox"), openDuration);
         FadeTo(cpuIndex, 1f, openDuration);
+        return true;
     }
 
     /// <summary>Retracts CPU <paramref name="cpuIndex"/>'s (1-3) boxes to zero width.</summary>
@@ -160,6 +193,59 @@ public class DialogueRunner : MonoBehaviour
         AnimateTo(GetTextbox(cpuIndex), cpuIndex, 0f, closeDuration);
         AnimateTo(GetNamebox(cpuIndex), cpuIndex, 0f, closeDuration);
         FadeTo(cpuIndex, 0f, closeDuration);
+
+        if (_speakingSeat == cpuIndex)
+        {
+            ReleaseAfterClose();
+        }
+    }
+
+    /// <summary>
+    /// Closes every CPU's dialogue and frees the speaking lock. Used when the
+    /// floor has to be cleared outright, such as when the player's turn begins.
+    /// </summary>
+    public void CloseAll()
+    {
+        Debug.Log("[DialogueRunner] CloseAll()", this);
+
+        for (int cpu = 1; cpu <= 3; cpu++)
+        {
+            AnimateTo(GetTextbox(cpu), cpu, 0f, closeDuration);
+            AnimateTo(GetNamebox(cpu), cpu, 0f, closeDuration);
+            FadeTo(cpu, 0f, closeDuration);
+        }
+
+        ReleaseAfterClose();
+    }
+
+    private void ReleaseAfterClose()
+    {
+        if (_releaseRoutine != null)
+        {
+            StopCoroutine(_releaseRoutine);
+        }
+
+        if (!isActiveAndEnabled)
+        {
+            _speakingSeat = 0;
+            _releaseRoutine = null;
+            return;
+        }
+
+        _releaseRoutine = StartCoroutine(ReleaseRoutine());
+    }
+
+    private IEnumerator ReleaseRoutine()
+    {
+        float elapsed = 0f;
+        while (elapsed < closeDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        _speakingSeat = 0;
+        _releaseRoutine = null;
     }
 
     // ---------------- Fading ----------------
