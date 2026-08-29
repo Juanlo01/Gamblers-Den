@@ -4,6 +4,11 @@ using FMOD;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+#if UNITY_WEBGL && !UNITY_EDITOR
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+#endif
 using Debug = UnityEngine.Debug;
 
 namespace SimpleAudioSystem
@@ -13,6 +18,10 @@ namespace SimpleAudioSystem
         private const string MasterVolumeKey = "SimpleAudio.Master";
         private const string MusicVolumeKey = "SimpleAudio.Music";
         private const string SFXVolumeKey = "SimpleAudio.SFX";
+        private const string MainMenuSceneName = "StartMenu";
+        private const string GameplaySceneName = "PokerGame";
+        private const string MainMenuMusicId = "mus_main_menu";
+        private const string GameplayMusicId = "mus_gameplay";
 
         [SerializeField]
         private AudioDatabase audioDatabase;
@@ -47,6 +56,16 @@ namespace SimpleAudioSystem
         private bool warnedBlankId;
         private bool warnedNotReady;
         private bool shuttingDown;
+        private bool audioUnlocked;
+#if UNITY_WEBGL && !UNITY_EDITOR
+        private bool audioUnlockAttempted;
+#endif
+        private bool sceneChangeGestureInProgress;
+        private bool sceneTransitionRequested;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        private IDisposable webGLUnlockSubscription;
+#endif
 
         public static AudioManager Instance { get; private set; }
 
@@ -71,6 +90,52 @@ namespace SimpleAudioSystem
             LoadVolumes();
             ResolveBuses();
             ApplyLoadedVolumes();
+
+            SceneManager.sceneLoaded += HandleSceneLoaded;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+            // This callback fires once from a real mouse, touch, or keyboard press.
+            // WebGL must resume FMOD from that gesture instead of relying on autoplay.
+            webGLUnlockSubscription = InputSystem.onAnyButtonPress.CallOnce(
+                HandleFirstWebGLButtonPress);
+#else
+            audioUnlocked = true;
+#endif
+        }
+
+        private void Start()
+        {
+            ApplyMusicForScene(SceneManager.GetActiveScene());
+        }
+
+        /// <summary>
+        /// Called on pointer-down by scene-change buttons so a Play press can unlock
+        /// WebGL audio without briefly starting menu music before the scene changes.
+        /// </summary>
+        public void BeginSceneChangeGesture()
+        {
+            sceneChangeGestureInProgress = true;
+            UnlockAudioFromUserGesture();
+        }
+
+        /// <summary>
+        /// Called on pointer-up. If the press was cancelled instead of becoming a
+        /// click, menu music is allowed to start on the following frame.
+        /// </summary>
+        public void EndSceneChangeGesture()
+        {
+            sceneChangeGestureInProgress = false;
+            StartCoroutine(ApplyMusicAfterCurrentInputEvent());
+        }
+
+        /// <summary>
+        /// Marks an actual scene-change click before SceneLoader begins its fade.
+        /// This is also the keyboard-submit fallback for WebGL audio unlock.
+        /// </summary>
+        public void PrepareForSceneChange()
+        {
+            sceneTransitionRequested = true;
+            UnlockAudioFromUserGesture();
         }
 
         public bool PlayOneShot(string id)
@@ -299,6 +364,97 @@ namespace SimpleAudioSystem
             sfxVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(SFXVolumeKey, 1f));
         }
 
+        private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            sceneChangeGestureInProgress = false;
+            sceneTransitionRequested = false;
+            ApplyMusicForScene(scene);
+        }
+
+        private void ApplyMusicForScene(Scene scene)
+        {
+            if (!audioUnlocked)
+            {
+                return;
+            }
+
+            if (string.Equals(scene.name, MainMenuSceneName, StringComparison.Ordinal))
+            {
+                PlayMusic(MainMenuMusicId);
+            }
+            else if (string.Equals(scene.name, GameplaySceneName, StringComparison.Ordinal))
+            {
+                // A newly loaded/reloaded game must get a new FMOD instance so its
+                // Track 1 -> Track 2 timeline always begins at Track 1.
+                if (hasCurrentMusic)
+                {
+                    StopAndReleaseCurrentMusic(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                }
+
+                PlayMusic(GameplayMusicId);
+            }
+        }
+
+        private void UnlockAudioFromUserGesture()
+        {
+            if (audioUnlocked)
+            {
+                return;
+            }
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if (audioUnlockAttempted)
+            {
+                return;
+            }
+
+            audioUnlockAttempted = true;
+            RESULT resumeResult;
+            try
+            {
+                resumeResult = RuntimeManager.CoreSystem.mixerResume();
+            }
+            catch (Exception exception)
+            {
+                Debug.LogWarning(
+                    $"AudioManager could not resume FMOD WebGL audio: {exception.Message}",
+                    this);
+                return;
+            }
+
+            if (resumeResult != RESULT.OK)
+            {
+                Debug.LogWarning(
+                    $"AudioManager could not resume FMOD WebGL audio: {resumeResult}.",
+                    this);
+                return;
+            }
+#endif
+
+            audioUnlocked = true;
+        }
+
+        private System.Collections.IEnumerator ApplyMusicAfterCurrentInputEvent()
+        {
+            // Allow UI pointer/click or keyboard-submit handlers from this input
+            // event to mark an imminent scene transition before choosing music.
+            yield return null;
+
+            if (!sceneChangeGestureInProgress && !sceneTransitionRequested)
+            {
+                ApplyMusicForScene(SceneManager.GetActiveScene());
+            }
+        }
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        private void HandleFirstWebGLButtonPress(InputControl control)
+        {
+            webGLUnlockSubscription = null;
+            UnlockAudioFromUserGesture();
+            StartCoroutine(ApplyMusicAfterCurrentInputEvent());
+        }
+#endif
+
         private void ResolveBuses()
         {
             hasMasterBus = TryResolveBus(masterBusPath, out masterBus);
@@ -405,6 +561,11 @@ namespace SimpleAudioSystem
                 return;
             }
 
+            SceneManager.sceneLoaded -= HandleSceneLoaded;
+#if UNITY_WEBGL && !UNITY_EDITOR
+            webGLUnlockSubscription?.Dispose();
+            webGLUnlockSubscription = null;
+#endif
             Shutdown();
             Instance = null;
         }

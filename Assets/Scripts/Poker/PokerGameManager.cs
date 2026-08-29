@@ -59,13 +59,6 @@ public class PokerGameManager : MonoBehaviour
 
     void Start()
     {
-        if (AudioManager.Instance != null)
-        {
-            // A scene replay must restart FMOD's Track 1 -> Track 2 sequence.
-            AudioManager.Instance.StopMusic();
-            AudioManager.Instance.PlayMusic("mus_gameplay");
-        }
-
         currentScore = initialMoney;
         bestScore = initialMoney;
         lastHandEndMoney = initialMoney;
