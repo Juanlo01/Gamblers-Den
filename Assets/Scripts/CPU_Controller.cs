@@ -6,6 +6,23 @@ public class CPU_Controller : MonoBehaviour{
 
     public GameObject[] npcs;
     public Vector3 stageExit = new Vector3(3, 0, 0);
+    CPU_Animator CA1;
+    CPU_Animator CA2;
+
+    // Mirrors NPC1.activeSelf, updated only from the main thread (Start/SwapNPC).
+    // GameObject.activeSelf itself is Unity API and cannot be read from the
+    // poker engine's background thread, so ActiveCheatState reads this instead.
+    private volatile bool _npc1IsActive;
+
+    // Whichever NPC is currently occupying this seat - read fresh so it
+    // survives a swap, used by the poker engine's CheatingPlayer decorator.
+    // Null until this seat's own Start() has run (CA1/CA2 assigned).
+    public CheatState ActiveCheatState
+    {
+        get
+        {
+            var active = _npc1IsActive ? CA1 : CA2;
+            return active != null ? active.CheatState : null;
     public float moveDuration = 5.0f;
 
     CPU_Animator CA1, CA2, CA3, CA4, CA5;
@@ -61,6 +78,9 @@ public class CPU_Controller : MonoBehaviour{
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
+        CA1 = NPC1.GetComponent<CPU_Animator>();
+        CA2 = NPC2.GetComponent<CPU_Animator>();
+        _npc1IsActive = NPC1.activeSelf;
         CA1 = npcs[0].GetComponent<CPU_Animator>();
         CA2 = npcs[1].GetComponent<CPU_Animator>();
         CA3 = npcs[2].GetComponent<CPU_Animator>();
@@ -161,6 +181,17 @@ public class CPU_Controller : MonoBehaviour{
     }
 
     void SwapNPC(){
+        if (NPC1.activeSelf){
+            CA1.caughtCheating = false;
+            NPC1.SetActive(false);
+            NPC2.SetActive(true);
+            _npc1IsActive = false;
+        }
+        else if (NPC2.activeSelf){
+            CA2.caughtCheating = false;
+            NPC2.SetActive(false);
+            NPC1.SetActive(true);
+            _npc1IsActive = true;
         int randomIndex = Random.Range(0, npcs.Length);
 
         for (int i = 0; i < npcs.Length; i++){

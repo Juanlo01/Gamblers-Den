@@ -7,5 +7,7 @@
     public interface IEndHandContext
     {
         Dictionary<string, ICollection<Card>> ShowdownCards { get; }
+
+        IReadOnlyDictionary<string, int> Winnings { get; }
     }
 }
