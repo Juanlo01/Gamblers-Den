@@ -28,7 +28,7 @@ public class CPU_Controller : MonoBehaviour{
         get{
             EnsureAnimators();
 
-            var slots = new[] { NPC1, NPC2, NPC3, NPC4, NPC5 };
+            var slots = new[] { npcs[0], npcs[1], npcs[2], npcs[3], npcs[4] };
             var animators = new[] { CA1, CA2, CA3, CA4, CA5 };
 
             for (int i = 0; i < slots.Length; i++){
@@ -71,11 +71,11 @@ public class CPU_Controller : MonoBehaviour{
     // CallDialogue can be reached before Start(), so resolve on demand rather
     // than relying on Start() having run.
     void EnsureAnimators(){
-        if (CA1 == null && NPC1 != null) CA1 = NPC1.GetComponent<CPU_Animator>();
-        if (CA2 == null && NPC2 != null) CA2 = NPC2.GetComponent<CPU_Animator>();
-        if (CA3 == null && NPC3 != null) CA3 = NPC3.GetComponent<CPU_Animator>();
-        if (CA4 == null && NPC4 != null) CA4 = NPC4.GetComponent<CPU_Animator>();
-        if (CA5 == null && NPC5 != null) CA5 = NPC5.GetComponent<CPU_Animator>();
+        if (CA1 == null && npcs[0] != null) CA1 = npcs[0].GetComponent<CPU_Animator>();
+        if (CA2 == null && npcs[1] != null) CA2 = npcs[1].GetComponent<CPU_Animator>();
+        if (CA3 == null && npcs[2] != null) CA3 = npcs[2].GetComponent<CPU_Animator>();
+        if (CA4 == null && npcs[3] != null) CA4 = npcs[3].GetComponent<CPU_Animator>();
+        if (CA5 == null && npcs[4] != null) CA5 = npcs[4].GetComponent<CPU_Animator>();
     }
 
     // Picks this character's next line, pushes it into the assigned TMPs, and
