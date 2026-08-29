@@ -70,12 +70,8 @@ public class SlowedPlayer : PlayerDecorator
         if (_seatIndex > 0)
         {
             int seat = _seatIndex;
-            UnityEngine.Debug.Log($"[Dialogue] SlowedPlayer '{Name}' queueing turn START for seat {seat} (engine thread)");
-            ThreadManager.Enqueue(() =>
-            {
-                UnityEngine.Debug.Log($"[Dialogue] -> main thread: OnCpuTurnStarted({seat})");
-                PokerGameManager.Instance.OnCpuTurnStarted(seat);
-            });
+            string yarnAction = ToYarnAction(action, context);
+            ThreadManager.Enqueue(() => PokerGameManager.Instance.OnCpuTurnStarted(seat, yarnAction));
         }
 
         Announce(action);
@@ -83,12 +79,7 @@ public class SlowedPlayer : PlayerDecorator
         if (_seatIndex > 0)
         {
             int seat = _seatIndex;
-            UnityEngine.Debug.Log($"[Dialogue] SlowedPlayer '{Name}' queueing turn END for seat {seat} (engine thread)");
-            ThreadManager.Enqueue(() =>
-            {
-                UnityEngine.Debug.Log($"[Dialogue] -> main thread: OnCpuTurnEnded({seat})");
-                PokerGameManager.Instance.OnCpuTurnEnded(seat);
-            });
+            ThreadManager.Enqueue(() => PokerGameManager.Instance.OnCpuTurnEnded(seat));
         }
 
         _lastAction = action;
@@ -103,6 +94,29 @@ public class SlowedPlayer : PlayerDecorator
         Publish();
 
         return action;
+    }
+
+    // Maps the engine's action types onto the vocabulary the yarn "react_to"
+    // headers use: raise, fold, all_in, call, check. The engine has no separate
+    // check/call or all-in type, so they are derived the same way the UI does it.
+    public static string ToYarnAction(PlayerAction action, IGetTurnContext context)
+    {
+        if (action == null) return "none";
+
+        switch (action.Type)
+        {
+            case PlayerActionType.Fold:
+                return "fold";
+
+            case PlayerActionType.Raise:
+                return action.Money >= context.MoneyLeft ? "all_in" : "raise";
+
+            case PlayerActionType.CheckCall:
+                return context.MoneyToCall <= 0 ? "check" : "call";
+
+            default:
+                return "none";
+        }
     }
 
     private void Announce(PlayerAction action)

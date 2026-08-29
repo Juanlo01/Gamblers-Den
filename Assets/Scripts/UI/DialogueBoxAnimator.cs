@@ -21,7 +21,7 @@ using UnityEngine;
 /// blocksRaycasts is tied to visibility so a faded-out speaker cannot sit over
 /// the table swallowing clicks.
 /// </summary>
-public class DialogueRunner : MonoBehaviour
+public class DialogueBoxAnimator : MonoBehaviour
 {
     [Header("CPU 1")]
     [SerializeField] private RectTransform CPU1_Textbox;

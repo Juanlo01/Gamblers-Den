@@ -6,6 +6,11 @@ public class CPU_Animator : MonoBehaviour{
     // Display name for this character, shown on the dialogue nameplate.
     [field: SerializeField] public string Name { get; set; }
 
+    // snake_case id used by the .yarn scripts (e.g. "general_niu"). Kept separate
+    // from Name because that is the human-facing "General Niu" on the nameplate.
+    // Must match one of DialogueManager.AllNpcIds.
+    [field: SerializeField] public string YarnId { get; set; }
+
     int cheatingOpportunity = 0;
     public int sweatOpportunity = 3;
     public int dartOpportunity = 13;
