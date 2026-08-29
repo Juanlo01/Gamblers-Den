@@ -23,7 +23,7 @@ public class CPU_Controller : MonoBehaviour{
             return active != null ? active.CheatState : null;
         }
     }
-    
+
     public float moveDuration = 5.0f;
 
     CPU_Animator CA1, CA2, CA3, CA4, CA5;
@@ -149,11 +149,6 @@ public class CPU_Controller : MonoBehaviour{
     // Called by PokerGameManager (via SlowedPlayer) whenever this seat's poker status changes.
     public void UpdateStatus(PlayerTableStatus status){
         Status = status;
-    }
-
-    // Update is called once per frame
-    void Update(){
-            
     }
 
     public void Transition(){
