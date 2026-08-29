@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 1400387227}
   - {fileID: 2119484619}
   stageExit: {x: 4, y: 0, z: 0}
+  moveDuration: 3
 --- !u!4 &237728521
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,6 +1245,7 @@ MonoBehaviour:
   - {fileID: 267908900}
   - {fileID: 535186662}
   stageExit: {x: 8, y: 0, z: 0}
+  moveDuration: 3
 --- !u!1 &512795406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,6 +5091,7 @@ MonoBehaviour:
   - {fileID: 1120471814}
   - {fileID: 1544130839}
   stageExit: {x: -4, y: 0, z: 0}
+  moveDuration: 3
 --- !u!1 &1669772551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4316445154898472597, guid: 5bf87890fdce91f44b5b725eeeab4d6c, type: 3}
@@ -6719,19 +6722,23 @@ PrefabInstance:
       objectReference: {fileID: 552440588}
     - target: {fileID: 6530715760323954534, guid: 96c55764f819a3b42958f4ef53d15a42, type: 3}
       propertyPath: dartOpportunity
-      value: 13
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6530715760323954534, guid: 96c55764f819a3b42958f4ef53d15a42, type: 3}
       propertyPath: blinkOpportunity
-      value: 13
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530715760323954534, guid: 96c55764f819a3b42958f4ef53d15a42, type: 3}
+      propertyPath: coughOpportunity
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6530715760323954534, guid: 96c55764f819a3b42958f4ef53d15a42, type: 3}
       propertyPath: shakeOpportunity
-      value: 13
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6530715760323954534, guid: 96c55764f819a3b42958f4ef53d15a42, type: 3}
       propertyPath: sweatOpportunity
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6904,6 +6911,26 @@ PrefabInstance:
       propertyPath: sweatDrop
       value: 
       objectReference: {fileID: 370086013}
+    - target: {fileID: 2312607828149959526, guid: 339c884775484ca4b8b1ad4b8f6cb89a, type: 3}
+      propertyPath: dartOpportunity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312607828149959526, guid: 339c884775484ca4b8b1ad4b8f6cb89a, type: 3}
+      propertyPath: blinkOpportunity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312607828149959526, guid: 339c884775484ca4b8b1ad4b8f6cb89a, type: 3}
+      propertyPath: coughOpportunity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312607828149959526, guid: 339c884775484ca4b8b1ad4b8f6cb89a, type: 3}
+      propertyPath: shakeOpportunity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312607828149959526, guid: 339c884775484ca4b8b1ad4b8f6cb89a, type: 3}
+      propertyPath: sweatOpportunity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4869434971436007706, guid: 339c884775484ca4b8b1ad4b8f6cb89a, type: 3}
       propertyPath: m_Name
       value: NPC3
@@ -7330,6 +7357,14 @@ PrefabInstance:
       propertyPath: sweatDrop
       value: 
       objectReference: {fileID: 1031520150}
+    - target: {fileID: 3617332341475236301, guid: 1fdaa36020af0ff4097a11b6a77ffc73, type: 3}
+      propertyPath: coughOpportunity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617332341475236301, guid: 1fdaa36020af0ff4097a11b6a77ffc73, type: 3}
+      propertyPath: sweatOpportunity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9120407912926723250, guid: 1fdaa36020af0ff4097a11b6a77ffc73, type: 3}
       propertyPath: m_Name
       value: NPC1
