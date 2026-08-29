@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{af0a9278-f9b3-453b-bc54-a2072755d4f1}">
+		<property name="assetPath">
+			<value>PokerChip_Slide_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.47469387755102038</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{991dba09-fb77-40cc-b79d-b7fb6718d193}</destination>
+		</relationship>
+	</object>
+</objects>

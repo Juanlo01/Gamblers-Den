@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8c16ad61-3eac-4c5a-ba90-3aecdbe682be}">
+		<property name="assetPath">
+			<value>Fold_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.2294557823129253</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{991dba09-fb77-40cc-b79d-b7fb6718d193}</destination>
+		</relationship>
+	</object>
+</objects>

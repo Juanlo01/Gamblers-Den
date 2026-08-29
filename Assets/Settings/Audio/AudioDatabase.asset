@@ -12,4 +12,139 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a545b6e87d64370beb94db43bf2e87, type: 3}
   m_Name: AudioDatabase
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAudioSystem.AudioDatabase
-  entries: []
+  entries:
+  - id: mus_gameplay
+    eventReference:
+      Guid:
+        Data1: 344482475
+        Data2: 1165932514
+        Data3: -436502105
+        Data4: 313702428
+      Path: event:/Music/Mus_Gameplay
+    category: 0
+  - id: mus_main_menu
+    eventReference:
+      Guid:
+        Data1: -2027868828
+        Data2: 1114154360
+        Data3: 993018272
+        Data4: -397923865
+      Path: event:/Music/Mus_MainMenu
+    category: 0
+  - id: card_deal
+    eventReference:
+      Guid:
+        Data1: -1771124948
+        Data2: 1260671828
+        Data3: -1020921949
+        Data4: -1619469888
+      Path: event:/SFX/SFX_Card_Deal
+    category: 1
+  - id: card_flip
+    eventReference:
+      Guid:
+        Data1: -1594420487
+        Data2: 1139514011
+        Data3: 898388353
+        Data4: 51833888
+      Path: event:/SFX/SFX_Card_Flip
+    category: 1
+  - id: card_shuffle
+    eventReference:
+      Guid:
+        Data1: -1066093746
+        Data2: 1243180976
+        Data3: 737106362
+        Data4: 883325958
+      Path: event:/SFX/SFX_Card_Shuffle
+    category: 1
+  - id: chip_hit
+    eventReference:
+      Guid:
+        Data1: -618252942
+        Data2: 1234477745
+        Data3: 108429185
+        Data4: -980155612
+      Path: event:/SFX/SFX_Chip_Hit
+    category: 1
+  - id: chip_move
+    eventReference:
+      Guid:
+        Data1: -239100839
+        Data2: 1083100431
+        Data3: -1203681125
+        Data4: 1649240277
+      Path: event:/SFX/SFX_Chip_Move
+    category: 1
+  - id: chip_slide
+    eventReference:
+      Guid:
+        Data1: 678680147
+        Data2: 1152609733
+        Data3: -2058563431
+        Data4: -172515777
+      Path: event:/SFX/SFX_Chip_Slide
+    category: 1
+  - id: cough
+    eventReference:
+      Guid:
+        Data1: -1536074105
+        Data2: 1289073231
+        Data3: -9456223
+        Data4: -1375096882
+      Path: event:/SFX/SFX_Cough
+    category: 1
+  - id: move_all_in
+    eventReference:
+      Guid:
+        Data1: 1125988013
+        Data2: 1233432853
+        Data3: 634586001
+        Data4: 1785906025
+      Path: event:/SFX/SFX_Move_All-In
+    category: 1
+  - id: move_check
+    eventReference:
+      Guid:
+        Data1: -2121420450
+        Data2: 1289711212
+        Data3: 1238408627
+        Data4: -1812818213
+      Path: event:/SFX/SFX_Move_Check
+    category: 1
+  - id: move_fold
+    eventReference:
+      Guid:
+        Data1: 1685309315
+        Data2: 1085856028
+        Data3: 714402961
+        Data4: -1646345810
+      Path: event:/SFX/SFX_Move_Fold
+    category: 1
+  - id: move_call
+    eventReference:
+      Guid:
+        Data1: -342999132
+        Data2: 1137287823
+        Data3: -204732285
+        Data4: 1252357432
+      Path: event:/SFX/SFX_Move_Call
+    category: 1
+  - id: move_raise
+    eventReference:
+      Guid:
+        Data1: -232666633
+        Data2: 1319507462
+        Data3: 571847069
+        Data4: -226038832
+      Path: event:/SFX/SFX_Move_Raise
+    category: 1
+  - id: button_click
+    eventReference:
+      Guid:
+        Data1: 1302203904
+        Data2: 1129649780
+        Data3: 650427315
+        Data4: 933866148
+      Path: event:/UI/Button_Click
+    category: 1

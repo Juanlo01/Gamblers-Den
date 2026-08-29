@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using SimpleAudioSystem;
 
 /// <summary>
 /// Put on a UI Button (or any object) whose OnClick should trigger a scene
@@ -10,12 +12,23 @@ using UnityEngine;
 /// component lives on a plain scene object that's never duplicated or
 /// destroyed, and resolves SceneLoader.Instance at click-time instead.
 /// </summary>
-public class SceneChangeButton : MonoBehaviour
+public class SceneChangeButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private string sceneName;
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        AudioManager.Instance?.BeginSceneChangeGesture();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        AudioManager.Instance?.EndSceneChangeGesture();
+    }
+
     public void ChangeScene()
     {
+        AudioManager.Instance?.PrepareForSceneChange();
         SceneLoader.Instance.ChangeScene(sceneName);
     }
 }
