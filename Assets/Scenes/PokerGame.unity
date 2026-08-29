@@ -1359,6 +1359,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162905770}
   m_CullTransparentMesh: 1
+--- !u!1001 &214015230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6682994564944546401, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_Name
+      value: _AUDIO_MANAGER
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.55728
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3728
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.67621
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682994564944546402, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17e96f26bac2449ab298a4ffcb9c7229, type: 3}
 --- !u!1 &215130853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1638,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   NPC1: {fileID: 755074631}
   NPC2: {fileID: 2480731206716224500}
+  NPC3: {fileID: 0}
+  NPC4: {fileID: 0}
+  NPC5: {fileID: 0}
   stageExit: {x: 4, y: 0, z: 0}
 --- !u!4 &237728521
 Transform:
@@ -3250,6 +3310,7 @@ GameObject:
   - component: {fileID: 475636356}
   - component: {fileID: 475636355}
   - component: {fileID: 475636354}
+  - component: {fileID: 475636358}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3375,6 +3436,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 1.028, y: 0, z: 0}
+--- !u!114 &475636358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475636353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &495188165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,6 +3498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CPU_Controller
   NPC1: {fileID: 835363715}
   NPC2: {fileID: 5786925949483416469}
+  NPC3: {fileID: 0}
+  NPC4: {fileID: 0}
+  NPC5: {fileID: 0}
   stageExit: {x: 8, y: 0, z: 0}
 --- !u!1 &512637615
 GameObject:
@@ -10126,6 +10204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CPU_Controller
   NPC1: {fileID: 623302937}
   NPC2: {fileID: 3921782124423121037}
+  NPC3: {fileID: 0}
+  NPC4: {fileID: 0}
+  NPC5: {fileID: 0}
   stageExit: {x: -4, y: 0, z: 0}
 --- !u!1 &1674451506
 GameObject:
@@ -13236,6 +13317,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 564663980}
+  - {fileID: 214015230}
   - {fileID: 60672825}
   - {fileID: 548225424}
   - {fileID: 286706463}
