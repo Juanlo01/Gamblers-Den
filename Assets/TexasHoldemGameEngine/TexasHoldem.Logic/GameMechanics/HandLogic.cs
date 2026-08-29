@@ -24,6 +24,8 @@
 
         private Dictionary<string, ICollection<Card>> showdownCards;
 
+        private readonly Dictionary<string, int> winnings;
+
         public HandLogic(IList<InternalPlayer> players, int handNumber, int smallBlind)
         {
             this.handNumber = handNumber;
@@ -33,6 +35,14 @@
             this.communityCards = new List<Card>(5);
             this.bettingLogic = new BettingLogic(this.players, smallBlind);
             this.showdownCards = new Dictionary<string, ICollection<Card>>();
+            this.winnings = new Dictionary<string, int>();
+        }
+
+        private void AddWinnings(string playerName, int amount)
+        {
+            this.winnings[playerName] = this.winnings.TryGetValue(playerName, out var existing)
+                ? existing + amount
+                : amount;
         }
 
         public void Play()
@@ -75,7 +85,7 @@
 
             foreach (var player in this.players)
             {
-                player.EndHand(new EndHandContext(this.showdownCards));
+                player.EndHand(new EndHandContext(this.showdownCards, this.winnings));
             }
         }
 
@@ -85,6 +95,7 @@
             {
                 var winner = this.players.FirstOrDefault(x => x.PlayerMoney.InHand);
                 winner.PlayerMoney.Money += pot;
+                this.AddWinnings(winner.Name, pot);
             }
             else
             {
@@ -105,15 +116,19 @@
                     if (betterHand > 0)
                     {
                         this.players[0].PlayerMoney.Money += pot;
+                        this.AddWinnings(this.players[0].Name, pot);
                     }
                     else if (betterHand < 0)
                     {
                         this.players[1].PlayerMoney.Money += pot;
+                        this.AddWinnings(this.players[1].Name, pot);
                     }
                     else
                     {
                         this.players[0].PlayerMoney.Money += pot / 2;
                         this.players[1].PlayerMoney.Money += pot / 2;
+                        this.AddWinnings(this.players[0].Name, pot / 2);
+                        this.AddWinnings(this.players[1].Name, pot / 2);
                     }
                 }
                 else
@@ -166,6 +181,7 @@
                                     foreach (var nominee in nominees)
                                     {
                                         this.players.First(x => x.Name == nominee).PlayerMoney.Money += prize;
+                                        this.AddWinnings(nominee, prize);
                                     }
                                 }
                                 else

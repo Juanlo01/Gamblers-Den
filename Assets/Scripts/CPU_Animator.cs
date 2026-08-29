@@ -12,6 +12,9 @@ public class CPU_Animator : MonoBehaviour{
     public bool isCheating;
     public bool caughtCheating;
 
+    // Shared with the poker engine's CheatingPlayer decorator for this bot.
+    public CheatState CheatState { get; } = new CheatState();
+
     public Animator _animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
@@ -70,6 +73,9 @@ public class CPU_Animator : MonoBehaviour{
         ClearCheatStates();
         yield return new WaitForSeconds(2.0f);
         catchOpportunity = false; // Times up! Can no longer be caught
+        if (!caughtCheating){
+            CheatState.Active = true; // Got away with it - the poker engine gets a one-shot edge
+        }
         isCheating = false; // Can start cheating again
     }
 }

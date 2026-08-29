@@ -78,10 +78,9 @@ public class PokerUIController : MonoBehaviour
         statusText.text = $"Round ended.";
     }
 
-    public void ShowShowdown(Dictionary<string, ICollection<Card>> showdownCards)
+    public void ShowShowdown(IEndHandContext context)
     {
-        statusText.text = "Showdown: " + string.Join(" | ",
-            showdownCards.Select(kv => $"{kv.Key}: {string.Join(", ", kv.Value.Select(CardMapper.ToDisplayText))}"));
+        statusText.text = string.Join(", ", context.Winnings.Select(kv => $"{kv.Key} wins ${kv.Value}"));
     }
 
     public void ShowGameOver(string winnerName)

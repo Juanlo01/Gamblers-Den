@@ -8,6 +8,10 @@
 
     public class TexasHoldemGame : ITexasHoldemGame
     {
+        // MODIFIED (project): how long to pause after each hand ends, giving
+        // players time to read the showdown/winner status.
+        private const int HandEndPauseMs = 4000;
+
         protected static readonly int[] SmallBlinds =
             {
                 1, 2, 3, 5, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100, 150, 200, 300,
@@ -135,6 +139,11 @@
                 IHandLogic hand = new HandLogic(shifted, this.HandsPlayed, smallBlind);
 
                 hand.Play();
+
+                // MODIFIED (project): pause after the pot is awarded so players
+                // have time to read the showdown/winner status before the next
+                // hand's blinds and dealing overwrite it.
+                System.Threading.Thread.Sleep(HandEndPauseMs);
 
                 // this.Rebuy();
                 // MODIFIED (project): removed automatic Rebuy() so the game ends

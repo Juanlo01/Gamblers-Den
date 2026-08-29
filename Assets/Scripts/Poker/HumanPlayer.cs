@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Threading;
+using TexasHoldem.Logic.Cards;
 using TexasHoldem.Logic.Helpers;
 using TexasHoldem.Logic.Players;
 
@@ -57,7 +58,7 @@ public class HumanPlayer : BasePlayer
     public override void EndHand(IEndHandContext context)
     {
         ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowShowdown(context.ShowdownCards));
+            PokerUIController.Instance.ShowShowdown(context));
     }
 
     public override void EndGame(IEndGameContext context)
@@ -89,5 +90,14 @@ public class HumanPlayer : BasePlayer
     {
         _pendingAction = action;
         _waitHandle.Set();
+    }
+
+    // Cheat window: lets a CheatingPlayer see the human's actual hole cards.
+    // FirstCard/SecondCard are protected on BasePlayer - this is the one
+    // deliberate hole through that encapsulation.
+    public void PeekHoleCards(out Card first, out Card second)
+    {
+        first = FirstCard;
+        second = SecondCard;
     }
 }
