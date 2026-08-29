@@ -1,0 +1,43 @@
+title: Init
+---
+// --- Character Presence (true = at the table this session) ---
+<<declare $beauty_xu = false>>
+<<declare $eunuch_cai = false>>
+<<declare $general_niu = false>>
+<<declare $general_tian = false>>
+<<declare $ghost_bride = false>>
+<<declare $guard = false>>
+<<declare $lord_xie = false>>
+<<declare $madam_song = false>>
+<<declare $mr_li = false>>
+<<declare $mr_zhu = false>>
+<<declare $poet = false>>
+<<declare $rogue = false>>
+<<declare $shaman = false>>
+<<declare $wanderer = false>>
+<<declare $yusen_zhou = false>>
+
+// --- Game State (engine sets these, yarn reads only) ---
+<<declare $game_phase = "idle">>
+<<declare $round_number = 0>>
+<<declare $hands_played = 0>>
+
+// --- Pot & Stakes ---
+<<declare $pot_level = "low">>
+<<declare $someone_all_in = false>>
+
+// --- Table Attrition ---
+// NPC seats still in the hand + player. Starts at 4, decrements on fold.
+<<declare $players_remaining = 4>>
+
+// --- Player State ---
+<<declare $player_last_action = "none">>
+<<declare $player_chips = "comfortable">>
+<<declare $player_streak = 0>>
+<<declare $player_folded = false>>
+
+// --- Dialogue Trigger Context ---
+<<declare $trigger = "idle">>
+<<declare $acting_npc = "">>
+<<declare $acting_npc_action = "none">>
+===
