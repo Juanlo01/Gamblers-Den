@@ -24,8 +24,15 @@ public class PokerGameManager : MonoBehaviour
     [SerializeField] private DialogueBoxAnimator dialogueRunner;
     [SerializeField] private DialogueManager dialogueManager;
 
+    [Header("Endgame")]
+    [SerializeField] private PauseMenu pauseMenu;
+
+    [Tooltip("Player money at or below this triggers the endgame screen (0 = only a literal bust).")]
+    [SerializeField] private int minimumBuyIn = 0;
+
     private int currentScore;
     private int bestScore;
+    private bool gameOverTriggered;
 
     // Seat order the table was dealt in, used to work out each player's
     // position relative to whoever holds the button in the current hand.
@@ -39,6 +46,10 @@ public class PokerGameManager : MonoBehaviour
     private int lastHandEndMoney;
     private string playerLastAction = "none";
     private bool someoneAllIn;
+
+    // While the player is deciding, the table stays quiet: existing dialogue is
+    // closed and no new line may open, so nothing pops up over their prompt.
+    private bool playerTurnActive;
 
     void Awake()
     {
@@ -215,9 +226,21 @@ public class PokerGameManager : MonoBehaviour
         PlayFromPool(new[] { "idle", "pair", "lore", "trio" });
     }
 
+    /// <summary>The player's turn began - clear the floor and hold it clear.</summary>
+    public void OnPlayerTurnStarted()
+    {
+        playerTurnActive = true;
+
+        if (dialogueRunner != null)
+        {
+            dialogueRunner.CloseAll();
+        }
+    }
+
     /// <summary>The human acted. Section 2E: folding thins the table.</summary>
     public void OnPlayerAction(string action)
     {
+        playerTurnActive = false;
         playerLastAction = action;
         if (action == "all_in") someoneAllIn = true;
 
@@ -251,16 +274,24 @@ public class PokerGameManager : MonoBehaviour
         string yarnId = controller.YarnId;
         Sync("npc_action", yarnId, string.IsNullOrEmpty(action) ? "none" : action);
 
-        // The acting NPC's own line, chosen from their target: self nodes.
-        string line = controller.CallDialogue(action);
-        bool spokeForSelf = !string.IsNullOrEmpty(line);
+        // Only ask for a line if it could actually be shown - the floor has to be
+        // free and it must not be the player's turn. Checked before CallDialogue
+        // so a node is not spent on its cooldown for a line that never plays.
+        bool canSpeak = dialogueRunner != null && !playerTurnActive && !dialogueRunner.IsDialogueOpen;
+        bool spokeForSelf = false;
 
-        if (spokeForSelf && dialogueRunner != null)
+        if (canSpeak)
         {
-            dialogueRunner.OpenDialogue(seatIndex, controller.CharacterName, line);
+            // The acting NPC's own line, chosen from their target: self nodes.
+            string line = controller.CallDialogue(action);
+            if (!string.IsNullOrEmpty(line))
+            {
+                spokeForSelf = dialogueRunner.OpenDialogue(seatIndex, controller.CharacterName, line);
+            }
         }
 
-        // Now they are out, if they folded - after their own line, never before.
+        // Table bookkeeping runs whether or not anyone spoke - this is game
+        // state, not presentation. Still after their own line, never before.
         if (action == "fold" && dialogueManager != null && !string.IsNullOrEmpty(yarnId))
         {
             dialogueManager.OnNpcFold(yarnId);
@@ -281,6 +312,11 @@ public class PokerGameManager : MonoBehaviour
     private void PlayFromPool(string[] categories, string actionFilter = "")
     {
         if (dialogueManager == null || dialogueRunner == null) return;
+
+        // Stay quiet during the player's turn, and never talk over whoever
+        // already has the floor - checked before picking so the chosen node
+        // is not burned on its cooldown for a line that never plays.
+        if (playerTurnActive || dialogueRunner.IsDialogueOpen) return;
 
         var selection = dialogueManager.RequestDialogue(categories, actionFilter);
         if (selection == null) return;
@@ -319,6 +355,22 @@ public class PokerGameManager : MonoBehaviour
         if (currentScore > bestScore)
         {
             bestScore = currentScore;
+        }
+
+        // Game over: the player can no longer meaningfully continue. Guarded so
+        // this fires once - UpdateScore runs every round for the rest of the game.
+        if (!gameOverTriggered && currentScore <= minimumBuyIn)
+        {
+            gameOverTriggered = true;
+
+            if (pauseMenu != null)
+            {
+                pauseMenu.OpenEndgame();
+            }
+            else
+            {
+                Debug.LogWarning("[PokerGameManager] Player is out of money but no PauseMenu is assigned.", this);
+            }
         }
     }
 

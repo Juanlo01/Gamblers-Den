@@ -106,6 +106,10 @@ public class HumanPlayer : BasePlayer
     {
         _waitHandle.Reset();
 
+        // Clear the table's chatter before handing control over.
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.OnPlayerTurnStarted());
+
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowActionPrompt(context, this));
 

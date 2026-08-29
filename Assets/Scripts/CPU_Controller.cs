@@ -26,9 +26,6 @@ public class CPU_Controller : MonoBehaviour{
     [Tooltip("TMP showing this character's spoken line.")]
     public TMP_Text DialogueText;
 
-    // Placeholder line until dialogue is driven from yarnFile.
-    private const string PlaceholderLine = "Awfully confident for someone with such a weak hand.";
-
     public PlayerTableStatus Status { get; private set; }
 
     // The CPU_Animator on whichever NPC model is currently on stage. Falls back
@@ -96,22 +93,21 @@ public class CPU_Controller : MonoBehaviour{
         return CallDialogue(string.Empty);
     }
 
-    // Asks DialogueManager for this character's own reaction to "action", falling
-    // back to the placeholder when no yarn node matches (or none are loaded).
+    // Asks DialogueManager for this character's own reaction to "action".
+    // Returns "" when no yarn node matches (or none are loaded) - there is no
+    // fallback line, so the seat simply stays quiet rather than inventing one.
     public string CallDialogue(string action){
-        string speaker = CharacterName;
-        string line = PlaceholderLine;
-
         var manager = DialogueManager.Instance;
-        if (manager != null && !string.IsNullOrEmpty(YarnId)){
-            var selection = manager.RequestSelfReaction(YarnId, action);
-            if (selection != null){
-                line = selection.Text;
-                speaker = selection.SpeakerDisplayName;
-            }
+        if (manager == null || string.IsNullOrEmpty(YarnId)){
+            return string.Empty;
         }
 
-        return Speak(speaker, line);
+        var selection = manager.RequestSelfReaction(YarnId, action);
+        if (selection == null){
+            return string.Empty;
+        }
+
+        return Speak(selection.SpeakerDisplayName, selection.Text);
     }
 
     // Pushes an already-chosen line into this seat's TMPs and hands it back.

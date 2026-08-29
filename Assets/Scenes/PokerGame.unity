@@ -12763,6 +12763,8 @@ MonoBehaviour:
   bot3Controller: {fileID: 1663638236}
   dialogueRunner: {fileID: 1464375800}
   dialogueManager: {fileID: 1808573881}
+  pauseMenu: {fileID: 60672824}
+  minimumBuyIn: 0
 --- !u!114 &1808573879
 MonoBehaviour:
   m_ObjectHideFlags: 0
