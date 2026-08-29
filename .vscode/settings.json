@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Gamblers-Den.slnx"
+    "dotnet.defaultSolution": "Gambler's Den.slnx"
 }
