@@ -29,9 +29,9 @@ public class PokerUIController : MonoBehaviour
     [SerializeField] private CanvasGroup raiseMenuGroup;
 
     [Header("Cards")]
-    [SerializeField] private TMP_Text holeCard1Text;
-    [SerializeField] private TMP_Text holeCard2Text;
-    [SerializeField] private List<TMP_Text> communityCardTexts;
+    [SerializeField] private Image holeCard1Image;
+    [SerializeField] private Image holeCard2Image;
+    [SerializeField] private List<Image> communityCardImages;
 
     [Header("Misc")]
     [SerializeField] private TMP_Text potText;
@@ -42,6 +42,7 @@ public class PokerUIController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        CardSpriteLibrary.Preload();
         actionPanel.SetActive(false);
 
         raiseMenuToggle.isOn = false;
@@ -66,8 +67,8 @@ public class PokerUIController : MonoBehaviour
 
     public void ShowHoleCards(Card first, Card second)
     {
-        holeCard1Text.text = CardMapper.ToDisplayText(first);
-        holeCard2Text.text = CardMapper.ToDisplayText(second);
+        holeCard1Image.sprite = CardSpriteLibrary.GetSprite(first);
+        holeCard2Image.sprite = CardSpriteLibrary.GetSprite(second);
         handText.text = "";
     }
 
@@ -85,11 +86,11 @@ public class PokerUIController : MonoBehaviour
     public void ShowCommunityCards(IReadOnlyCollection<Card> cards, int currentPot)
     {
         var cardList = cards.ToList();
-        for (int i = 0; i < communityCardTexts.Count; i++)
+        for (int i = 0; i < communityCardImages.Count; i++)
         {
-            communityCardTexts[i].text = i < cardList.Count
-                ? CardMapper.ToDisplayText(cardList[i])
-                : "";
+            communityCardImages[i].sprite = i < cardList.Count
+                ? CardSpriteLibrary.GetSprite(cardList[i])
+                : CardSpriteLibrary.GetBackSprite();
         }
         potText.text = $"Pot\n${currentPot}";
     }
