@@ -2665,6 +2665,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PokerUIController
   actionPanel: {fileID: 1145112407}
+  toolPanel: {fileID: 426722228}
+  toolPanelBackground: {fileID: 778090838}
+  hoverPanel: {fileID: 859979380}
   foldButton: {fileID: 1312631220}
   foldImageHandler: {fileID: 1312631223}
   checkButton: {fileID: 314417921}
