@@ -11,8 +11,8 @@ using TexasHoldem.Logic.Players;
 // - Post-flop, if it can see the human's hole cards (the "peek" cheat),
 //   it compares its own real hand against the human's real hand and
 //   plays accordingly - pressing when ahead, backing off when behind.
-// - Otherwise (pre-flop, or no human reference wired up) it falls back
-//   to a purely behavioral nudge using only info already on IGetTurnContext:
+// - Otherwise (pre-flop, or no human reference wired up) is a
+//   nudge using only info already on IGetTurnContext:
 //   a cheap fold becomes a call, a raise gets pressed harder.
 //
 // Either way it only ever compares against the human specifically - it
@@ -51,14 +51,14 @@ public class CheatingPlayer : PlayerDecorator
     {
         var action = base.GetTurn(context);
 
-        // Resolved fresh each turn: whichever NPC currently occupies the seat.
         var cheat = _seat != null ? _seat.ActiveCheatState : null;
         if (cheat == null || !cheat.Active)
         {
             return action;
         }
 
-        cheat.Active = false; // one-shot: spend the cheat on this decision
+        cheat.Active = false;
+        Debug.Log("[Cheat] Uncaught cheat is being cashed in this turn.");
 
         if (_human != null && _communityCards.Count >= 3)
         {
@@ -99,8 +99,7 @@ public class CheatingPlayer : PlayerDecorator
             }
         }
         else if (honestAction.Type == PlayerActionType.Raise)
-        {
-            // Behind the human's actual hand - don't overcommit into it.
+        { 
             Debug.Log("[Cheat] Behind the human - downgrading a raise into a call.");
             return PlayerAction.CheckOrCall();
         }
@@ -116,16 +115,21 @@ public class CheatingPlayer : PlayerDecorator
 
     private static PlayerAction Nudge(PlayerAction honestAction, IGetTurnContext context)
     {
+        Debug.Log($"[Cheat] No peek available (pre-flop) - falling back to a behavioral nudge. Honest action was {honestAction}.");
+
         if (honestAction.Type == PlayerActionType.Fold && context.MoneyToCall <= context.CurrentPot / 4)
         {
+            Debug.Log("[Cheat] Turning a cheap fold into a call.");
             return PlayerAction.CheckOrCall();
         }
 
         if (honestAction.Type == PlayerActionType.Raise && context.CanRaise)
         {
+            Debug.Log($"[Cheat] Doubling raise to {honestAction.Money * 2}.");
             return PlayerAction.Raise(honestAction.Money * 2);
         }
 
+        Debug.Log("[Cheat] Nothing to nudge this turn.");
         return honestAction;
     }
 }

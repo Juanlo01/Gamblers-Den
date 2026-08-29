@@ -13,6 +13,9 @@ public class PokerUIController : MonoBehaviour
 
     [Header("Action Panel")]
     [SerializeField] private GameObject actionPanel;
+    [SerializeField] private GameObject toolPanel;
+    [SerializeField] private GameObject toolPanelBackground;
+    [SerializeField] private GameObject hoverPanel;
     [SerializeField] private Button foldButton;
     [SerializeField] private ButtonImageHandler foldImageHandler;
     [SerializeField] private Button checkButton;
@@ -29,9 +32,9 @@ public class PokerUIController : MonoBehaviour
     [SerializeField] private CanvasGroup raiseMenuGroup;
 
     [Header("Cards")]
-    [SerializeField] private TMP_Text holeCard1Text;
-    [SerializeField] private TMP_Text holeCard2Text;
-    [SerializeField] private List<TMP_Text> communityCardTexts;
+    [SerializeField] private Image holeCard1Image;
+    [SerializeField] private Image holeCard2Image;
+    [SerializeField] private List<Image> communityCardImages;
 
     [Header("Misc")]
     [SerializeField] private TMP_Text potText;
@@ -42,11 +45,19 @@ public class PokerUIController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        actionPanel.SetActive(false);
+        SetToolPanelVisible(false);
+        CardSpriteLibrary.Preload();
 
         raiseMenuToggle.isOn = false;
         raiseMenuToggle.onValueChanged.AddListener(SetRaiseMenuVisible);
         SetRaiseMenuVisible(false);
+    }
+
+    private void SetToolPanelVisible(bool visible)
+    {
+        toolPanel.SetActive(visible);
+        toolPanelBackground.SetActive(visible);
+        hoverPanel.SetActive(visible);
     }
 
     private void SetRaiseMenuVisible(bool visible)
@@ -57,6 +68,10 @@ public class PokerUIController : MonoBehaviour
         {
             button.interactable = visible;
         }
+
+        // raiseSlider lives outside raiseMenuGroup's hierarchy, so it needs its
+        // own explicit toggle to follow the same open/closed state.
+        raiseSlider.gameObject.SetActive(visible);
     }
 
     public void OnGameStarted()
@@ -66,8 +81,8 @@ public class PokerUIController : MonoBehaviour
 
     public void ShowHoleCards(Card first, Card second)
     {
-        holeCard1Text.text = CardMapper.ToDisplayText(first);
-        holeCard2Text.text = CardMapper.ToDisplayText(second);
+        holeCard1Image.sprite = CardSpriteLibrary.GetSprite(first);
+        holeCard2Image.sprite = CardSpriteLibrary.GetSprite(second);
         handText.text = "";
     }
 
@@ -85,11 +100,11 @@ public class PokerUIController : MonoBehaviour
     public void ShowCommunityCards(IReadOnlyCollection<Card> cards, int currentPot)
     {
         var cardList = cards.ToList();
-        for (int i = 0; i < communityCardTexts.Count; i++)
+        for (int i = 0; i < communityCardImages.Count; i++)
         {
-            communityCardTexts[i].text = i < cardList.Count
-                ? CardMapper.ToDisplayText(cardList[i])
-                : "";
+            communityCardImages[i].sprite = i < cardList.Count
+                ? CardSpriteLibrary.GetSprite(cardList[i])
+                : CardSpriteLibrary.GetBackSprite();
         }
         potText.text = $"Pot\n${currentPot}";
     }
@@ -106,7 +121,7 @@ public class PokerUIController : MonoBehaviour
 
     public void ShowGameOver(string winnerName)
     {
-        actionPanel.SetActive(false);
+        SetToolPanelVisible(false);
         statusText.text = $"Game over. Winner: {winnerName}";
     }
 
@@ -122,7 +137,12 @@ public class PokerUIController : MonoBehaviour
 
     public void ShowActionPrompt(IGetTurnContext context, HumanPlayer player)
     {
-        actionPanel.SetActive(true);
+        SetToolPanelVisible(true);
+
+        // Raise bar starts collapsed each turn - the player opens it by clicking Raise.
+        raiseMenuToggle.gameObject.SetActive(context.CanRaise);
+        raiseMenuToggle.isOn = false;
+        SetRaiseMenuVisible(false);
 
         // Fold always available
         foldButton.onClick.RemoveAllListeners();
@@ -138,7 +158,6 @@ public class PokerUIController : MonoBehaviour
         callImageHandler.SetDisabled(context.CanCheck);
 
         raiseButton.gameObject.SetActive(context.CanRaise);
-        raiseSlider.gameObject.SetActive(context.CanRaise);
 
         if (context.CanRaise)
         {
@@ -162,6 +181,8 @@ public class PokerUIController : MonoBehaviour
     {
         statusText.text = $"You: {action}";
         player.SubmitAction(action);
-        actionPanel.SetActive(false);
+        SetToolPanelVisible(false);
+        raiseMenuToggle.isOn = false;
+        SetRaiseMenuVisible(false);
     }
 }

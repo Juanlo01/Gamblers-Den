@@ -7,23 +7,25 @@ public class CPU_Controller : MonoBehaviour{
     public GameObject[] npcs;
     public Vector3 stageExit = new Vector3(3, 0, 0);
 
-    // Mirrors NPC1.activeSelf, updated only from the main thread (Start/SwapNPC).
-    // GameObject.activeSelf itself is Unity API and cannot be read from the
-    // poker engine's background thread, so ActiveCheatState reads this instead.
-    private volatile bool _npc1IsActive;
+    // Index into npcs[]/CA1..CA5 of whichever NPC currently occupies this seat.
+    // Updated only from the main thread (Start/SwapNPC). GameObject.activeSelf
+    // itself is Unity API and cannot be read from the poker engine's background
+    // thread, so ActiveCheatState reads this cached index instead.
+    private volatile int _activeIndex;
 
     // Whichever NPC is currently occupying this seat - read fresh so it
     // survives a swap, used by the poker engine's CheatingPlayer decorator.
-    // Null until this seat's own Start() has run (CA1/CA2 assigned).
+    // Null until this seat's own Start() has run (CA1..CA5 assigned).
     public CheatState ActiveCheatState
     {
         get
         {
-            var active = _npc1IsActive ? CA1 : CA2;
+            var animators = new[] { CA1, CA2, CA3, CA4, CA5 };
+            var active = _activeIndex >= 0 && _activeIndex < animators.Length ? animators[_activeIndex] : null;
             return active != null ? active.CheatState : null;
         }
     }
-    
+
     public float moveDuration = 5.0f;
 
     CPU_Animator CA1, CA2, CA3, CA4, CA5;
@@ -84,7 +86,13 @@ public class CPU_Controller : MonoBehaviour{
         CA3 = npcs[2].GetComponent<CPU_Animator>();
         CA4 = npcs[3].GetComponent<CPU_Animator>();
         CA5 = npcs[4].GetComponent<CPU_Animator>();
-        _npc1IsActive = npcs[0].activeSelf;
+
+        for (int i = 0; i < npcs.Length; i++){
+            if (npcs[i].activeSelf){
+                _activeIndex = i;
+                break;
+            }
+        }
     }
 
     // CallDialogue can be reached before Start(), so resolve on demand rather
@@ -151,11 +159,6 @@ public class CPU_Controller : MonoBehaviour{
         Status = status;
     }
 
-    // Update is called once per frame
-    void Update(){
-            
-    }
-
     public void Transition(){
         if (CA1.caughtCheating == true && npcs[0].activeSelf){
                 StartCoroutine(Caught());
@@ -202,6 +205,7 @@ public class CPU_Controller : MonoBehaviour{
         }
 
         npcs[randomIndex].SetActive(true);
+        _activeIndex = randomIndex;
 
 
         // if (NPC1.activeSelf){
