@@ -1,0 +1,982 @@
+// never felt mutual love, grew up from a poor family.
+// Attended her aranged marriage but noticed her sworn lover never showed up, she ran away after being disappointed because she had started to like him but got jumped by bandits in her search for him.
+// file: ghost_bride, speaker: Ghost Bride
+
+// ============================================================
+// IDLE — Between hands. Love metaphors, wedding references.
+// ============================================================
+
+title: GhostBride_Idle_Musing_01
+tags: idle
+speaker: ghost_bride
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle1
+Ghost Bride: [auto/] I keep smoothing the wrinkles out of this dress. Force of habit. It was supposed to be the most beautiful thing I ever wore.
+//END: idle1
+===
+
+title: GhostBride_Idle_Musing_02
+tags: idle
+speaker: ghost_bride
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle2
+Ghost Bride: [auto/] You know, waiting between hands feels a lot like standing at the altar. You just keep hoping the next one shows up.
+//END: idle2
+===
+
+title: GhostBride_Idle_Musing_03
+tags: idle
+speaker: ghost_bride
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle3
+Ghost Bride: [auto/] My mother used to say love finds you when you stop looking. I never stopped looking. Still hasn't found me.
+//END: idle3
+===
+
+title: GhostBride_Idle_Musing_04
+tags: idle
+speaker: ghost_bride
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle4
+Ghost Bride: [auto/] There is something about shuffling cards that reminds me of how quickly fate rearranges everything.
+//END: idle4
+===
+
+title: GhostBride_Idle_Musing_05
+tags: idle
+speaker: ghost_bride
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle5
+Ghost Bride: [auto/] I ran out into the dark for him. The road was so cold. This table is warmer, at least.
+//END: idle5
+===
+
+title: GhostBride_Idle_Musing_06
+tags: idle
+speaker: ghost_bride
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle6
+Ghost Bride: [auto/] Sometimes I catch my reflection in the chips and I think... I look exactly the same as that night. Funny how death preserves you at your worst moment.
+//END: idle6
+===
+
+// ============================================================
+// CASUAL — During play. Impulsive, gut feelings, marriage metaphors.
+// ============================================================
+
+title: GhostBride_Casual_Play_01
+tags: casual
+speaker: ghost_bride
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual1
+Ghost Bride: [auto/] I am betrothing these chips to this hand. If it betrays me, well, it would not be the first time.
+//END: casual1
+===
+
+title: GhostBride_Casual_Play_02
+tags: casual
+speaker: ghost_bride
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual2
+Ghost Bride: [auto/] My gut says call. My gut also told me to chase a man through bandit country, so take that as you will.
+//END: casual2
+===
+
+title: GhostBride_Casual_Play_03
+tags: casual
+speaker: ghost_bride
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual3
+Ghost Bride: [auto/] Committing to a bad hand is just like committing to a bad marriage. You keep paying and paying until there is nothing left.
+//END: casual3
+===
+
+title: GhostBride_Casual_Play_04
+tags: casual
+speaker: ghost_bride
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual4
+Ghost Bride: [auto/] I do not calculate odds. I feel them. Right here, in the chest where my heart used to beat.
+//END: casual4
+===
+
+title: GhostBride_Casual_Play_05
+tags: casual
+speaker: ghost_bride
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual5
+Ghost Bride: [auto/] People overthink this game. Sometimes you just have to throw the veil over your eyes and leap.
+//END: casual5
+===
+
+title: GhostBride_Casual_Play_06
+tags: casual
+speaker: ghost_bride
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual6
+Ghost Bride: [auto/] Every raise is a little proposal, is it not? You are asking the table to believe in you.
+//END: casual6
+===
+
+// ============================================================
+// REACT_ACTION — Reacting to raises, folds, all-ins.
+// ============================================================
+
+title: GhostBride_ReactAction_Raise_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: react1
+Ghost Bride: [auto/] A raise! Now that is someone who is not afraid of rejection. I respect that more than you know.
+//END: react1
+===
+
+title: GhostBride_ReactAction_Fold_02
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: react2
+Ghost Bride: [auto/] Folding? Just like that? You had your chance and you walked away from it. Some of us never got that luxury.
+//END: react2
+===
+
+title: GhostBride_ReactAction_AllIn_03
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: react3
+Ghost Bride: [auto/] All in. That is the kind of reckless devotion that gets you killed. I would know.
+//END: react3
+===
+
+title: GhostBride_ReactAction_Bluff_04
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: react4
+Ghost Bride: [auto/] I can smell a false promise from across the afterlife. That bet has the stink of a lie on it.
+//END: react4
+===
+
+title: GhostBride_ReactAction_Call_05
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: react5
+Ghost Bride: [auto/] A simple call. No grand gesture, just showing up. Honestly, that is all I ever wanted from anyone.
+//END: react5
+===
+
+// ============================================================
+// SHOWDOWN — Wins and losses.
+// ============================================================
+
+title: GhostBride_Showdown_Win_01
+tags: showdown
+speaker: ghost_bride
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show1
+Ghost Bride: [auto/] I won? I actually won. Maybe luck is finally learning to be faithful.
+//END: show1
+===
+
+title: GhostBride_Showdown_Win_02
+tags: showdown
+speaker: ghost_bride
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show2
+Ghost Bride: [auto/] See? Sometimes the bride catches the bouquet. Even a dead one.
+//END: show2
+===
+
+title: GhostBride_Showdown_Lose_03
+tags: showdown
+speaker: ghost_bride
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show3
+Ghost Bride: [auto/] Of course. Abandoned again. Even the cards leave me at the altar.
+//END: show3
+===
+
+title: GhostBride_Showdown_Lose_04
+tags: showdown
+speaker: ghost_bride
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show4
+Ghost Bride: [auto/] I have survived worse than a bad hand. I survived my own wedding day.
+//END: show4
+===
+
+title: GhostBride_Showdown_Lose_05
+tags: showdown
+speaker: ghost_bride
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show5
+Ghost Bride: [auto/] Losing does not scare me. I lost everything in one night. Chips are just chips.
+//END: show5
+===
+
+// ============================================================
+// PLAYER — Directed at the player.
+// ============================================================
+
+title: GhostBride_Player_Address_01
+tags: player
+speaker: ghost_bride
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player1
+Ghost Bride: [auto/] You have kind eyes. The last person I trusted had kind eyes too. Do not make me regret noticing.
+//END: player1
+===
+
+title: GhostBride_Player_Address_02
+tags: player
+speaker: ghost_bride
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player2
+Ghost Bride: [auto/] Are you the type who stays, or the type who vanishes when things get hard? I need to know before I invest any more chips in you.
+//END: player2
+===
+
+title: GhostBride_Player_Address_03
+tags: player
+speaker: ghost_bride
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player3
+Ghost Bride: [auto/] You play like someone with something to prove. I like that. Prove it, then.
+//END: player3
+===
+
+title: GhostBride_Player_Address_04
+tags: player
+speaker: ghost_bride
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player4
+Ghost Bride: [auto/] I keep watching you across the table and wondering... do you actually enjoy this? Or are you just afraid of being alone too?
+//END: player4
+===
+
+title: GhostBride_Player_Address_05
+tags: player
+speaker: ghost_bride
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player5
+Ghost Bride: [auto/] Do not look at me with pity. I am still standing. Well, hovering. The point is I am here and I am playing.
+//END: player5
+===
+
+// ============================================================
+// LORE — Her backstory.
+// ============================================================
+
+title: GhostBride_Lore_Marriage_01
+tags: lore
+speaker: ghost_bride
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore1
+Ghost Bride: [auto/] My father arranged the match. I hated it at first. But when I met the groom, I started to think maybe... maybe this could work. Then my sworn lover heard about it and promised to stop the wedding. I believed him.
+//END: lore1
+===
+
+title: GhostBride_Lore_Lover_02
+tags: lore
+speaker: ghost_bride
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore2
+Ghost Bride: [auto/] He never came. The ceremony began and his seat was empty. I kept looking at the door. Every footstep, every shadow. None of them were him.
+//END: lore2
+===
+
+title: GhostBride_Lore_Death_03
+tags: lore
+speaker: ghost_bride
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore3
+Ghost Bride: [auto/] I ran from the altar in this dress. Right out into the night, down roads I did not know. The bandits found me before he did. He never found me at all.
+//END: lore3
+===
+
+title: GhostBride_Lore_Dress_04
+tags: lore
+speaker: ghost_bride
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore4
+Ghost Bride: [auto/] This dress was supposed to mean the start of something. Now it is just what I was wearing when everything ended. I cannot take it off. Believe me, I have tried.
+//END: lore4
+===
+
+// ============================================================
+// PAIR — Beauty Xu (Tier 1, 10 nodes)
+// ============================================================
+
+title: GhostBride_Pair_BeautyXu_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu1
+Ghost Bride: [auto/] Xu, you and I are proof that being beautiful in this world is just an invitation for cruelty.
+//END: pair_xu1
+===
+
+title: GhostBride_Pair_BeautyXu_02
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu2
+Ghost Bride: [auto/] Stop folding every time someone raises at you, Xu. You spent your whole life bowing your head. You do not have to do that anymore.
+//END: pair_xu2
+===
+
+title: GhostBride_Pair_BeautyXu_03
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu3
+Ghost Bride: [auto/] If anyone at this table gives you trouble, Xu, I will haunt them so hard they will wish they were alive again just so they could die from the fright.
+//END: pair_xu3
+===
+
+title: GhostBride_Pair_BeautyXu_04
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: between_hands
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu4
+Ghost Bride: [auto/] Your music lessons, my wedding preparations. We both spent our last living days doing something hopeful. That is the cruelest part.
+//END: pair_xu4
+===
+
+title: GhostBride_Pair_BeautyXu_05
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu5
+Ghost Bride: [auto/] Xu, I see how you flinch when someone moves too fast. I do the same thing. But here it is just cards. Nobody can hurt us with cards.
+//END: pair_xu5
+===
+
+title: GhostBride_Pair_BeautyXu_06
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu6
+Ghost Bride: [auto/] You keep telling me to find peace, Xu. I do not want peace. I want to feel something real. Even anger is better than nothing.
+//END: pair_xu6
+===
+
+title: GhostBride_Pair_BeautyXu_07
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: showdown
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu7
+Ghost Bride: [auto/] Look at that, Xu! We are still here, still playing. They took our lives but they could not take the fight out of us.
+//END: pair_xu7
+===
+
+title: GhostBride_Pair_BeautyXu_08
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: between_hands
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu8
+Ghost Bride: [auto/] Xu, if we had known each other in life, I would have walked you home every night. No alley would have been dark enough to scare me off.
+//END: pair_xu8
+===
+
+title: GhostBride_Pair_BeautyXu_09
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu9
+Ghost Bride: [auto/] You are too gentle for this table, Xu. But do not mistake gentle for weak. I have seen you play. You are sharper than anyone expects.
+//END: pair_xu9
+===
+
+title: GhostBride_Pair_BeautyXu_10
+tags: pair
+speaker: ghost_bride
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu10
+Ghost Bride: [auto/] Promise me something, Xu. Next time you have a strong hand, do not apologize for playing it. You deserve to win as much as anyone here.
+//END: pair_xu10
+===
+
+// ============================================================
+// PAIR — Eunuch Cai (Tier 2, 5 nodes)
+// ============================================================
+
+title: GhostBride_Pair_EunuchCai_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: eunuch_cai
+phase: any
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_cai1
+Ghost Bride: [auto/] Cai, we both got swallowed up by systems that were supposed to protect us. Marriage, the palace... all the same cage with different decorations.
+//END: pair_cai1
+===
+
+title: GhostBride_Pair_EunuchCai_02
+tags: pair
+speaker: ghost_bride
+category: pair
+target: eunuch_cai
+phase: any
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_cai2
+Ghost Bride: [auto/] Speak up, Cai! I can barely hear you over the cards. You do not serve an empress anymore. Your voice is your own now.
+//END: pair_cai2
+===
+
+title: GhostBride_Pair_EunuchCai_03
+tags: pair
+speaker: ghost_bride
+category: pair
+target: eunuch_cai
+phase: between_hands
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_cai3
+Ghost Bride: [auto/] You took the blame for a crime that was not yours. I ran after a man who was not worth it. We are both fools who gave too much to people who gave nothing back.
+//END: pair_cai3
+===
+
+title: GhostBride_Pair_EunuchCai_04
+tags: pair
+speaker: ghost_bride
+category: pair
+target: eunuch_cai
+phase: any
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_cai4
+Ghost Bride: [auto/] I know I am loud, Cai. I know I push too hard. But someone has to push you, because you will not push yourself.
+//END: pair_cai4
+===
+
+title: GhostBride_Pair_EunuchCai_05
+tags: pair
+speaker: ghost_bride
+category: pair
+target: eunuch_cai
+phase: any
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_cai5
+Ghost Bride: [auto/] You flinch every time you raise, like you are asking permission. Cai, the only person who needs to approve your bet is you.
+//END: pair_cai5
+===
+
+// ============================================================
+// TIER 3 PAIRS — 1 node each for remaining characters
+// ============================================================
+
+title: GhostBride_Pair_GeneralNiu_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: general_niu
+phase: any
+requires: $general_niu
+priority: 3
+---
+//START: pair_niu1
+Ghost Bride: [auto/] You say you never abandon a soldier, General. That is beautiful. I wish someone had made that promise about me.
+//END: pair_niu1
+===
+
+title: GhostBride_Pair_GeneralTian_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian1
+Ghost Bride: [auto/] A woman who commanded armies and answered to no one. General Tian, you lived the life I did not even know I was allowed to want.
+//END: pair_tian1
+===
+
+title: GhostBride_Pair_Guard_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: guard
+phase: any
+requires: $guard
+priority: 3
+---
+//START: pair_guard1
+Ghost Bride: [auto/] Save the gallant act, Guard. I have heard enough honeyed promises from men to last two lifetimes. Yours ring the most hollow of all.
+//END: pair_guard1
+===
+
+title: GhostBride_Pair_LordXie_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: lord_xie
+phase: any
+requires: $lord_xie
+priority: 3
+---
+//START: pair_xie1
+Ghost Bride: [auto/] Lord Xie, men like you decided my fate in a parlor over tea. Arranged my whole life like furniture. Forgive me if I do not bow.
+//END: pair_xie1
+===
+
+title: GhostBride_Pair_MadamSong_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: madam_song
+phase: any
+requires: $madam_song
+priority: 3
+---
+//START: pair_song1
+Ghost Bride: [auto/] You built an empire in a world that wanted you silent, Madam Song. I am wary of your methods, but I cannot deny I admire the result.
+//END: pair_song1
+===
+
+title: GhostBride_Pair_MrLi_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: mr_li
+phase: any
+requires: $mr_li
+priority: 3
+---
+//START: pair_li1
+Ghost Bride: [auto/] You count every chip like it is your last breath, Li. That greed in your eyes... I saw it once before, on a dark road, in much worse company.
+//END: pair_li1
+===
+
+title: GhostBride_Pair_MrZhu_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: mr_zhu
+phase: any
+requires: $mr_zhu
+priority: 3
+---
+//START: pair_zhu1
+Ghost Bride: [auto/] Falsely accused and killed for it. I know how that feels, Zhu. Fate decided we were guilty of something we never did and punished us anyway.
+//END: pair_zhu1
+===
+
+title: GhostBride_Pair_Poet_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: poet
+phase: any
+requires: $poet
+priority: 3
+---
+//START: pair_poet1
+Ghost Bride: [auto/] Your loneliness has a shape to it, Poet. I can see it from here. Mine looks the same, just dressed in white silk instead of verses.
+//END: pair_poet1
+===
+
+title: GhostBride_Pair_Rogue_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue1
+Ghost Bride: [auto/] Fierce and kind. That is a rare pairing, Rogue. I could have used someone like you on that road. Where were you when the bandits came?
+//END: pair_rogue1
+===
+
+title: GhostBride_Pair_Shaman_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: shaman
+phase: any
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman1
+Ghost Bride: [auto/] Your calm unsettles me, Shaman. How can you sit so still when the world took everything from you too? Teach me that, or stop doing it.
+//END: pair_shaman1
+===
+
+title: GhostBride_Pair_Wanderer_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: wanderer
+phase: any
+requires: $wanderer
+priority: 3
+---
+//START: pair_wanderer1
+Ghost Bride: [auto/] You could just leave when things got bad. Pack up and walk away. I envy that. I was always tethered to someone else's plan.
+//END: pair_wanderer1
+===
+
+title: GhostBride_Pair_YusenZhou_01
+tags: pair
+speaker: ghost_bride
+category: pair
+target: yusen_zhou
+phase: any
+requires: $yusen_zhou
+priority: 3
+---
+//START: pair_yusen1
+Ghost Bride: [auto/] You died protecting something you loved, Yusen. That kind of fierce loyalty... that is all I ever wanted in a partner. Where were people like you when I was alive?
+//END: pair_yusen1
+===
+
+// ============================================================
+// TRIO — Captured Souls (Ghost Bride + Beauty Xu + Poet)
+// ============================================================
+
+title: GhostBride_Trio_CapturedSouls_01
+tags: trio
+speaker: ghost_bride
+category: trio
+target: any
+phase: any
+requires: $beauty_xu and $poet
+priority: 4
+---
+//START: trio1
+Ghost Bride: [auto/] Look at the three of us. A bride, a musician, and a poet. We were wanted for what we looked like, what we sounded like, what we could be kept as. Not for who we were. Not once.
+//END: trio1
+===
+
+title: GhostBride_Trio_CapturedSouls_02
+tags: trio
+speaker: ghost_bride
+category: trio
+target: any
+phase: between_hands
+requires: $beauty_xu and $poet
+priority: 4
+---
+//START: trio2
+Ghost Bride: [auto/] Xu was stalked. Poet was caged. I was sold to a man I had never met. They wanted to own us. But here at this table, we own ourselves. Every chip, every choice. Ours.
+//END: trio2
+===
+
+// ============================================================
+// REACT_ACTION — Self-reactions (Ghost Bride reacting to her own play)
+// ============================================================
+
+title: GhostBride_ReactAction_SelfFold_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: self_fold1
+Ghost Bride: [auto/] I fold. For once, I am the one who gets to walk away first.
+//END: self_fold1
+===
+
+title: GhostBride_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: self_allin1
+Ghost Bride: [auto/] All in. I have thrown myself at worse odds than this and survived. Barely.
+//END: self_allin1
+===
+
+title: GhostBride_ReactAction_SelfRaise_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: self_raise1
+Ghost Bride: [auto/] I raise. Consider it a proposal. Try not to leave me standing there.
+//END: self_raise1
+===
+
+title: GhostBride_ReactAction_SelfCall_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: self_call1
+Ghost Bride: [auto/] I call. No hesitation. I have learned the hard way what happens when you do not show up.
+//END: self_call1
+===
+
+title: GhostBride_ReactAction_SelfCheck_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: self_check1
+Ghost Bride: [auto/] I will check. Just this once, let me be the one who waits and sees instead of chasing something into the dark.
+//END: self_check1
+===
+
+title: GhostBride_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: ghost_bride
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: self_general1
+Ghost Bride: [auto/] I play with my heart, not my head. It has cost me everything before. Let us see what it costs me tonight.
+//END: self_general1
+===
