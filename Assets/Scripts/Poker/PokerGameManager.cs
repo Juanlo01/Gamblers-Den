@@ -6,6 +6,7 @@ using TexasHoldem.Logic.GameMechanics;
 using TexasHoldem.Logic.Players;
 using TexasHoldem.AI.SmartPlayer;
 using TexasHoldem.AI.DummyPlayer;
+using SimpleAudioSystem;
 
 public class PokerGameManager : MonoBehaviour
 {
@@ -58,6 +59,13 @@ public class PokerGameManager : MonoBehaviour
 
     void Start()
     {
+        if (AudioManager.Instance != null)
+        {
+            // A scene replay must restart FMOD's Track 1 -> Track 2 sequence.
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic("mus_gameplay");
+        }
+
         currentScore = initialMoney;
         bestScore = initialMoney;
         lastHandEndMoney = initialMoney;
@@ -180,6 +188,8 @@ public class PokerGameManager : MonoBehaviour
     /// <summary>A new hand was dealt. Resets per-hand yarn state.</summary>
     public void OnHandStarted(int handNumber)
     {
+        AudioManager.Instance?.PlayOneShot("card_deal");
+
         handsPlayed = handNumber;
         gamePhase = "pre_flop";
         playerLastAction = "none";
@@ -199,6 +209,12 @@ public class PokerGameManager : MonoBehaviour
     {
         gamePhase = phase;
         currentPot = pot;
+
+        if (phase == "flop" || phase == "turn" || phase == "river")
+        {
+            AudioManager.Instance?.PlayOneShot("card_flip");
+        }
+
         Sync("phase_change");
 
         // Section 2F - not every phase change should produce a line.
@@ -243,6 +259,7 @@ public class PokerGameManager : MonoBehaviour
         playerTurnActive = false;
         playerLastAction = action;
         if (action == "all_in") someoneAllIn = true;
+        PlayActionSound(action);
 
         if (dialogueManager != null && action == "fold")
         {
@@ -268,6 +285,8 @@ public class PokerGameManager : MonoBehaviour
             Debug.LogWarning($"[Dialogue] ABORT: no CPU_Controller assigned for seat {seatIndex}.", this);
             return;
         }
+
+        PlayActionSound(action);
 
         if (action == "all_in") someoneAllIn = true;
 
@@ -346,6 +365,24 @@ public class PokerGameManager : MonoBehaviour
 
         Debug.Log($"[Dialogue] CloseDialogue({seatIndex})");
         dialogueRunner.CloseDialogue(seatIndex);
+    }
+
+    private static void PlayActionSound(string action)
+    {
+        string audioId = action switch
+        {
+            "all_in" => "move_all_in",
+            "check" => "move_check",
+            "fold" => "move_fold",
+            "call" => "move_call",
+            "raise" => "move_raise",
+            _ => null,
+        };
+
+        if (audioId != null)
+        {
+            AudioManager.Instance?.PlayOneShot(audioId);
+        }
     }
 
     // Called from the main thread whenever the human player's money changes.

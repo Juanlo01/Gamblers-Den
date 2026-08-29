@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using SimpleAudioSystem;
 
 public class CPU_Animator : MonoBehaviour{
 
@@ -81,6 +82,7 @@ public class CPU_Animator : MonoBehaviour{
             else if (cheatingOpportunity >= coughOpportunity && !isCheating){
                 isCheating = true;
                 _animator.SetBool("isCoughing", true);
+                AudioManager.Instance?.PlayOneShot("cough");
                 StartCoroutine(CatchOpportunity());
             }
             else if (cheatingOpportunity >= blinkOpportunity && !isCheating){
