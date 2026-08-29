@@ -1,0 +1,820 @@
+// Jack of all trades: World-weary martial artist, farmer, merchant, gambler, and more.
+// After finally deciding to settle down in a village the village was hit with the plague causing a permanent end to their wandering.
+// file: wanderer, speaker: Wanderer
+
+// ============================================================
+// IDLE — Between hands. Travel stories, comparisons, wistful observations.
+// ============================================================
+
+title: Wanderer_Idle_Musing_01
+tags: idle
+speaker: wanderer
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle1
+Wanderer: [auto/] I played a hand like this once in a port town so far south the stars looked wrong. Different cards, different faces, same feeling of waiting for something to happen.
+//END: idle1
+===
+
+title: Wanderer_Idle_Musing_02
+tags: idle
+speaker: wanderer
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle2
+Wanderer: [auto/] Between hands is the only kind of stillness I ever liked. Just long enough to catch your breath, not long enough to start thinking.
+//END: idle2
+===
+
+title: Wanderer_Idle_Musing_03
+tags: idle
+speaker: wanderer
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle3
+Wanderer: [auto/] I used to judge a town by three things: the weight of their bread, the strength of their wine, and how long it took someone to challenge me to a game. This place skipped straight to the third.
+//END: idle3
+===
+
+title: Wanderer_Idle_Musing_04
+tags: idle
+speaker: wanderer
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle4
+Wanderer: [auto/] Funny thing about roads. You walk them long enough and every inn starts to blur together. But the games, the hands, those I remember. Every single one.
+//END: idle4
+===
+
+title: Wanderer_Idle_Musing_05
+tags: idle
+speaker: wanderer
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle5
+Wanderer: [auto/] A farmer I worked for once told me that fields need to rest between harvests. Maybe that is what these pauses are. The table catching its breath.
+//END: idle5
+===
+
+title: Wanderer_Idle_Musing_06
+tags: idle
+speaker: wanderer
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle6
+Wanderer: [auto/] I have sat at tables made of driftwood, of jade, of crates stacked in an alley. The material never mattered. It is the company that makes or breaks the game.
+//END: idle6
+===
+
+// ============================================================
+// CASUAL — During play. Relaxed commentary, nothing fazes them.
+// ============================================================
+
+title: Wanderer_Casual_Play_01
+tags: casual
+speaker: wanderer
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual1
+Wanderer: [auto/] I have seen this exact hand before. Twice, actually. Once in a monastery and once on a fishing boat. Lost both times, so let us see if the third is the charm.
+//END: casual1
+===
+
+title: Wanderer_Casual_Play_02
+tags: casual
+speaker: wanderer
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual2
+Wanderer: [auto/] Poker is just haggling with worse odds. And I have haggled with people who would sell you your own boots back.
+//END: casual2
+===
+
+title: Wanderer_Casual_Play_03
+tags: casual
+speaker: wanderer
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual3
+Wanderer: [auto/] There is a rhythm to cards. Same rhythm as a fistfight, actually. Feint, read, commit. The stakes are just quieter.
+//END: casual3
+===
+
+title: Wanderer_Casual_Play_04
+tags: casual
+speaker: wanderer
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual4
+Wanderer: [auto/] A merchant in the western hills taught me that the worst deal is the one you overthink. I apply that to cards too. Mostly works. Mostly.
+//END: casual4
+===
+
+title: Wanderer_Casual_Play_05
+tags: casual
+speaker: wanderer
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual5
+Wanderer: [auto/] You know what I like about poker? Nobody cares where you have been. Just how you play right now. That is a rare courtesy.
+//END: casual5
+===
+
+title: Wanderer_Casual_Play_06
+tags: casual
+speaker: wanderer
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual6
+Wanderer: [auto/] I once won a donkey in a card game. Lost it in the next one. Easy come, easy go. That is the only philosophy that ever held up.
+//END: casual6
+===
+
+// ============================================================
+// REACT_ACTION — Reacting to raises, folds, plays.
+// ============================================================
+
+title: Wanderer_ReactAction_Raise_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: react1
+Wanderer: [auto/] Bold raise. Reminds me of a swordsman I met who always attacked first. He won more than he lost. Not by much, though.
+//END: react1
+===
+
+title: Wanderer_ReactAction_Fold_02
+tags: react_action
+speaker: wanderer
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: react2
+Wanderer: [auto/] Smart fold. Knowing when to walk away is the hardest skill there is. Took me a lifetime on the road to learn it. Well, most of a lifetime.
+//END: react2
+===
+
+title: Wanderer_ReactAction_AllIn_03
+tags: react_action
+speaker: wanderer
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: react3
+Wanderer: [auto/] All in. I have seen that kind of conviction before, usually right before something either very good or very bad happens. Never anything in between.
+//END: react3
+===
+
+title: Wanderer_ReactAction_Bluff_04
+tags: react_action
+speaker: wanderer
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: react4
+Wanderer: [auto/] That bet does not match those eyes. I have traded with liars in every port from here to the frozen coast. You learn to spot the seams.
+//END: react4
+===
+
+title: Wanderer_ReactAction_Call_05
+tags: react_action
+speaker: wanderer
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: react5
+Wanderer: [auto/] A steady call. No flash, no fear. That is the move of someone who has played before. Or someone too tired to bluff. Either way, I respect it.
+//END: react5
+===
+
+// ============================================================
+// SHOWDOWN — Wins and losses.
+// ============================================================
+
+title: Wanderer_Showdown_Win_01
+tags: showdown
+speaker: wanderer
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show1
+Wanderer: [auto/] Well, would you look at that. The cards finally decided to be kind. They are a lot like roads that way. Walk enough of them and eventually one leads somewhere good.
+//END: show1
+===
+
+title: Wanderer_Showdown_Win_02
+tags: showdown
+speaker: wanderer
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show2
+Wanderer: [auto/] I will take that pot the same way I take everything. Calmly, and with a plan to move on before anyone changes their mind.
+//END: show2
+===
+
+title: Wanderer_Showdown_Lose_03
+tags: showdown
+speaker: wanderer
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show3
+Wanderer: [auto/] Ah, well. There is always the next town. Or there used to be. Old habits, I suppose.
+//END: show3
+===
+
+title: Wanderer_Showdown_Lose_04
+tags: showdown
+speaker: wanderer
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show4
+Wanderer: [auto/] I have lost fights, lost fortunes, lost my way more times than I can count. A hand of cards is the gentlest kind of losing there is.
+//END: show4
+===
+
+title: Wanderer_Showdown_Lose_05
+tags: showdown
+speaker: wanderer
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: show5
+Wanderer: [auto/] Bad beat. But I once got thrown off a bridge by a man I owed three coins to, so I will keep this in perspective.
+//END: show5
+===
+
+// ============================================================
+// PLAYER — Directed at the player.
+// ============================================================
+
+title: Wanderer_Player_Address_01
+tags: player
+speaker: wanderer
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player1
+Wanderer: [auto/] You have that look. The one people get when they have never left home but want to. I had it once. Then I left and never stopped. Until I did.
+//END: player1
+===
+
+title: Wanderer_Player_Address_02
+tags: player
+speaker: wanderer
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player2
+Wanderer: [auto/] Let me give you some road wisdom, free of charge. Never bet what you cannot walk away from. That goes for chips, promises, and villages.
+//END: player2
+===
+
+title: Wanderer_Player_Address_03
+tags: player
+speaker: wanderer
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player3
+Wanderer: [auto/] You are either very brave or very new at this. Either way, I have seen both survive longer than the cautious ones. Keep doing whatever it is you are doing.
+//END: player3
+===
+
+title: Wanderer_Player_Address_04
+tags: player
+speaker: wanderer
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player4
+Wanderer: [auto/] I can tell you have roots somewhere. People with roots play differently. More careful. More afraid to lose. Sometimes that is smart. Sometimes it just means you never take the shot.
+//END: player4
+===
+
+title: Wanderer_Player_Address_05
+tags: player
+speaker: wanderer
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player5
+Wanderer: [auto/] If you ever get the chance to travel, take it. See everything. Just... do not wait too long to come back. Trust me on that one.
+//END: player5
+===
+
+// ============================================================
+// LORE — The village, the plague, settling down, the irony.
+// ============================================================
+
+title: Wanderer_Lore_Village_01
+tags: lore
+speaker: wanderer
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore1
+Wanderer: [auto/] I walked for decades. Fought in dojos, plowed fields, sold silk, counted cards in every town with a tavern. Then one day I found a village with a good well and a quiet road and I thought... maybe this is it. Maybe I am done.
+//END: lore1
+===
+
+title: Wanderer_Lore_Plague_02
+tags: lore
+speaker: wanderer
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore2
+Wanderer: [auto/] The plague came three months after I unpacked my bag for the last time. Three months. I survived bandits, duels, storms at sea, a rockslide in the northern pass. And a fever in a quiet village is what did it.
+//END: lore2
+===
+
+title: Wanderer_Lore_Irony_03
+tags: lore
+speaker: wanderer
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore3
+Wanderer: [auto/] The irony is not lost on me. I spent my whole life moving because I thought standing still meant dying. Turns out standing still is exactly what killed me. The road was the safe place all along.
+//END: lore3
+===
+
+title: Wanderer_Lore_Settling_04
+tags: lore
+speaker: wanderer
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore4
+Wanderer: [auto/] I had a chair. A real chair, not a stump or a saddle or a stranger's floor. I sat in it every evening and watched the sun go down over the same hill. Three months of sunsets. I was starting to learn their names.
+//END: lore4
+===
+
+// ============================================================
+// PAIR — Shaman (Tier 2, 5 nodes)
+// ============================================================
+
+title: Wanderer_Pair_Shaman_01
+tags: pair
+speaker: wanderer
+category: pair
+target: shaman
+phase: any
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman1
+Wanderer: [auto/] You and I have both seen the wide world, Shaman, but we looked at it through very different eyes. I saw roads and markets. You saw spirits and ley lines. I wonder which of us saw more.
+//END: pair_shaman1
+===
+
+title: Wanderer_Pair_Shaman_02
+tags: pair
+speaker: wanderer
+category: pair
+target: shaman
+phase: any
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman2
+Wanderer: [auto/] I met holy men in every province. Most were charlatans. You are the first one I believe actually meant it. Those seals of yours, the village you tried to save... that was real devotion.
+//END: pair_shaman2
+===
+
+title: Wanderer_Pair_Shaman_03
+tags: pair
+speaker: wanderer
+category: pair
+target: shaman
+phase: between_hands
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman3
+Wanderer: [auto/] You protected a village with paper and faith. I could not protect mine with anything. Strange how the spiritual approach came closer than all my worldly experience.
+//END: pair_shaman3
+===
+
+title: Wanderer_Pair_Shaman_04
+tags: pair
+speaker: wanderer
+category: pair
+target: shaman
+phase: any
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman4
+Wanderer: [auto/] You see the unseen, Shaman. I always envied that. I can read a man's bluff, gauge the weather, size up a fight in seconds. But the things you perceive... I walked right past those my whole life.
+//END: pair_shaman4
+===
+
+title: Wanderer_Pair_Shaman_05
+tags: pair
+speaker: wanderer
+category: pair
+target: shaman
+phase: any
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman5
+Wanderer: [auto/] We both died trying to help a village, Shaman. You with your seals, me with my... decision to finally stay. At least you went down fighting. I just sat there and coughed.
+//END: pair_shaman5
+===
+
+// ============================================================
+// TIER 3 PAIRS — 1 node each for remaining characters
+// ============================================================
+
+title: Wanderer_Pair_BeautyXu_01
+tags: pair
+speaker: wanderer
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_xu1
+Wanderer: [auto/] Your whole world was one street, one alley, Xu. I wish I could have taken you on the road with me. There are places so beautiful they make the music play itself.
+//END: pair_xu1
+===
+
+title: Wanderer_Pair_EunuchCai_01
+tags: pair
+speaker: wanderer
+category: pair
+target: eunuch_cai
+phase: any
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_cai1
+Wanderer: [auto/] The palace was its own kind of trap, Cai. Gilded walls, silk floors, and nowhere to go. At least on the road I was free, even when I was starving. You never had that choice.
+//END: pair_cai1
+===
+
+title: Wanderer_Pair_GeneralNiu_01
+tags: pair
+speaker: wanderer
+category: pair
+target: general_niu
+phase: any
+requires: $general_niu
+priority: 3
+---
+//START: pair_niu1
+Wanderer: [auto/] A soldier marches where he is ordered, General. I always walked where the wind called. Four hundred years on the front line... I could never have taken orders for that long. I respect the spine it took.
+//END: pair_niu1
+===
+
+title: Wanderer_Pair_GeneralTian_01
+tags: pair
+speaker: wanderer
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian1
+Wanderer: [auto/] You commanded armies with a mind like a map, General Tian. I admire the precision. But I could never follow a strategy that did not include the option to walk away.
+//END: pair_tian1
+===
+
+title: Wanderer_Pair_GhostBride_01
+tags: pair
+speaker: wanderer
+category: pair
+target: ghost_bride
+phase: any
+requires: $ghost_bride
+priority: 3
+---
+//START: pair_bride1
+Wanderer: [auto/] You ran toward something that night. I spent my whole life running away from things. Funny how we both ended up in the same place anyway.
+//END: pair_bride1
+===
+
+title: Wanderer_Pair_Guard_01
+tags: pair
+speaker: wanderer
+category: pair
+target: guard
+phase: any
+requires: $guard
+priority: 3
+---
+//START: pair_guard1
+Wanderer: [auto/] I have heard better tall tales from fishermen, Guard. And worse ones from myself. But at least my stories actually happened. Yours have a certain... creative liberty to them.
+//END: pair_guard1
+===
+
+title: Wanderer_Pair_LordXie_01
+tags: pair
+speaker: wanderer
+category: pair
+target: lord_xie
+phase: any
+requires: $lord_xie
+priority: 3
+---
+//START: pair_xie1
+Wanderer: [auto/] You stayed in one place your whole life, Lord Xie, and called it the world. I have seen the actual world. It is bigger, dirtier, and far more interesting than any estate.
+//END: pair_xie1
+===
+
+title: Wanderer_Pair_MadamSong_01
+tags: pair
+speaker: wanderer
+category: pair
+target: madam_song
+phase: any
+requires: $madam_song
+priority: 3
+---
+//START: pair_song1
+Wanderer: [auto/] I have passed through a hundred tea houses like yours, Madam Song. Every one of them a crossroads. You were smart enough to sit at the center and let the world come to you. I was too restless for that.
+//END: pair_song1
+===
+
+title: Wanderer_Pair_MrLi_01
+tags: pair
+speaker: wanderer
+category: pair
+target: mr_li
+phase: any
+requires: $mr_li
+priority: 3
+---
+//START: pair_li1
+Wanderer: [auto/] I have traded with merchants in every port, Li. You all have the same look when the numbers are good and the same sweat when they are not. At least you are honest about chasing the coin. Most pretend they are above it.
+//END: pair_li1
+===
+
+title: Wanderer_Pair_MrZhu_01
+tags: pair
+speaker: wanderer
+category: pair
+target: mr_zhu
+phase: any
+requires: $mr_zhu
+priority: 3
+---
+//START: pair_zhu1
+Wanderer: [auto/] I met a lot of misjudged souls on the road, Zhu. People who looked wrong, sounded wrong, came from the wrong side of the river. Most of them were better company than the respectable ones.
+//END: pair_zhu1
+===
+
+title: Wanderer_Pair_Poet_01
+tags: pair
+speaker: wanderer
+category: pair
+target: poet
+phase: any
+requires: $poet
+priority: 3
+---
+//START: pair_poet1
+Wanderer: [auto/] Every road I walked was a story I never wrote down, Poet. You would have turned each one into something worth remembering. I just kept walking and let them fade behind me.
+//END: pair_poet1
+===
+
+title: Wanderer_Pair_Rogue_01
+tags: pair
+speaker: wanderer
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue1
+Wanderer: [auto/] A fellow road-walker. I can see it in you, Rogue. That restlessness, that itch when the walls get too close. We are the same breed. Just different scars.
+//END: pair_rogue1
+===
+
+title: Wanderer_Pair_YusenZhou_01
+tags: pair
+speaker: wanderer
+category: pair
+target: yusen_zhou
+phase: any
+requires: $yusen_zhou
+priority: 3
+---
+//START: pair_yusen1
+Wanderer: [auto/] You died protecting a bakery, Yusen. One place, one stand, no retreat. That kind of loyalty to a single spot is everything I could never manage. I envy it, honestly. You found something worth stopping for.
+//END: pair_yusen1
+===
+
+// ============================================================
+// REACT_ACTION — Self-reactions (Wanderer reacting to his own play)
+// ============================================================
+
+title: Wanderer_ReactAction_SelfFold_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: self_fold1
+Wanderer: [auto/] I fold. Knowing when to walk away is the one skill that never let me down, even when everything else did.
+//END: self_fold1
+===
+
+title: Wanderer_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: self_allin1
+Wanderer: [auto/] All in. I have bet everything I had more times than I can count. Somehow I am still here to do it again.
+//END: self_allin1
+===
+
+title: Wanderer_ReactAction_SelfRaise_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: self_raise1
+Wanderer: [auto/] I raise. A man who never pushes forward never finds out what is past the next hill.
+//END: self_raise1
+===
+
+title: Wanderer_ReactAction_SelfCall_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: self_call1
+Wanderer: [auto/] I will call. No need to run from this one. It is just a hand of cards.
+//END: self_call1
+===
+
+title: Wanderer_ReactAction_SelfCheck_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: self_check1
+Wanderer: [auto/] I will check. Patience is the one thing the road actually teaches you, whether you want it to or not.
+//END: self_check1
+===
+
+title: Wanderer_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: wanderer
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: self_general1
+Wanderer: [auto/] I have played this game in a dozen countries under a dozen names. Whatever happens next, it will not be the strangest table I have sat at.
+//END: self_general1
+===
