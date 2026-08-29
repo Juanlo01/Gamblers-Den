@@ -41,6 +41,7 @@
 
 # Visual Studio cache directory
 .vs/
+.idea/
 
 # Gradle cache directory
 .gradle/
@@ -105,3 +106,13 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# FMOD generated/local state
+/Assets/Plugins/FMOD/Cache/
+/Assets/Plugins/FMOD/Cache.meta
+/FMOD_Gamblers-Den/.cache/
+/FMOD_Gamblers-Den/.user/
+/FMOD_Gamblers-Den/.unsaved/
+
+# macOS Finder metadata
+.DS_Store

@@ -11,12 +11,16 @@ public class ThreadManager : MonoBehaviour
     void Awake()
     {
         // singleton pattern :o
-        if (_instance != null) { 
-            Destroy(gameObject); 
-            return; 
+        if (_instance != null) {
+            Destroy(gameObject);
+            return;
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (_instance == this) { _instance = null; }
     }
 
     public static void Enqueue(Action action)

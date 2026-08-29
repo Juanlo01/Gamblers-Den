@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4aeab9ff0948db4ca977b8a96974dfe
+guid: 854360a8539db6040be7277bccfb5260
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -4253528618462075872
     second: NPC3_5
+  - first:
+      213: -8956061469466130933
+    second: NPC3_6
+  - first:
+      213: -6787096366125440440
+    second: NPC3_7
+  - first:
+      213: -456159638938878051
+    second: NPC3_8
+  - first:
+      213: 564699349632921985
+    second: NPC3_9
+  - first:
+      213: 5862927919475845285
+    second: NPC3_10
+  - first:
+      213: 5390297725846577732
+    second: NPC3_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -259,6 +277,138 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: NPC3_6
+      rect:
+        serializedVersion: 2
+        x: 2665
+        y: 68
+        width: 705
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0688e57b8da5b380800000000000000
+      internalID: -8956061469466130933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC3_7
+      rect:
+        serializedVersion: 2
+        x: 3358
+        y: 732
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842afb880d36fc1a0800000000000000
+      internalID: -6787096366125440440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC3_8
+      rect:
+        serializedVersion: 2
+        x: 3525
+        y: 68
+        width: 705
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f7d28a9356ba9f0800000000000000
+      internalID: -456159638938878051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC3_9
+      rect:
+        serializedVersion: 2
+        x: 4218
+        y: 732
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 181b3cb011736d700800000000000000
+      internalID: 564699349632921985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC3_10
+      rect:
+        serializedVersion: 2
+        x: 4385
+        y: 68
+        width: 705
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8e31031ed4d5150800000000000000
+      internalID: 5862927919475845285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC3_11
+      rect:
+        serializedVersion: 2
+        x: 5078
+        y: 732
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4426eaef83f2eca40800000000000000
+      internalID: 5390297725846577732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -275,10 +425,16 @@ TextureImporter:
     nameFileIdTable:
       NPC3_0: -5515134220035640716
       NPC3_1: -5895984078913229833
+      NPC3_10: 5862927919475845285
+      NPC3_11: 5390297725846577732
       NPC3_2: 6962558095822825713
       NPC3_3: -362173430233548720
       NPC3_4: 3962419890035513126
       NPC3_5: -4253528618462075872
+      NPC3_6: -8956061469466130933
+      NPC3_7: -6787096366125440440
+      NPC3_8: -456159638938878051
+      NPC3_9: 564699349632921985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

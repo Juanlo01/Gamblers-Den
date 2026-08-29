@@ -29,6 +29,10 @@ public class HumanPlayer : BasePlayer
         base.StartHand(context);
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowHoleCards(context.FirstCard, context.SecondCard));
+
+        int handNumber = context.HandNumber;
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.OnHandStarted(handNumber));
     }
 
     public override void StartRound(IStartRoundContext context)
@@ -39,6 +43,15 @@ public class HumanPlayer : BasePlayer
 
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowMoney(context.MoneyLeft));
+
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.UpdateScore(context.MoneyLeft));
+
+        // Drives $game_phase - StartRound is the only hook that sees every round.
+        string phase = ToYarnPhase(context.RoundType);
+        int pot = context.CurrentPot;
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.OnPhaseChanged(phase, pot));
 
         if (context.CommunityCards.Count >= 3)
         {
@@ -59,6 +72,23 @@ public class HumanPlayer : BasePlayer
     {
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowShowdown(context));
+            PokerUIController.Instance.ShowShowdown(context.ShowdownCards));
+
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.OnHandEnded(PokerGameManager.Instance.GetCurrentScore()));
+    }
+
+    // Maps the engine's round types onto the $game_phase vocabulary in init.yarn.
+    private static string ToYarnPhase(TexasHoldem.Logic.GameRoundType roundType)
+    {
+        switch (roundType)
+        {
+            case TexasHoldem.Logic.GameRoundType.PreFlop: return "pre_flop";
+            case TexasHoldem.Logic.GameRoundType.Flop: return "flop";
+            case TexasHoldem.Logic.GameRoundType.Turn: return "turn";
+            case TexasHoldem.Logic.GameRoundType.River: return "river";
+            default: return "idle";
+        }
     }
 
     public override void EndGame(IEndGameContext context)
@@ -78,10 +108,19 @@ public class HumanPlayer : BasePlayer
     {
         _waitHandle.Reset();
 
+        // Clear the table's chatter before handing control over.
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.OnPlayerTurnStarted());
+
         ThreadManager.Enqueue(() =>
             PokerUIController.Instance.ShowActionPrompt(context, this));
 
         _waitHandle.Wait(); // blocks the ENGINE thread, not Unity's main thread
+
+        string yarnAction = SlowedPlayer.ToYarnAction(_pendingAction, context);
+        ThreadManager.Enqueue(() =>
+            PokerGameManager.Instance.OnPlayerAction(yarnAction));
+
         return _pendingAction;
     }
 

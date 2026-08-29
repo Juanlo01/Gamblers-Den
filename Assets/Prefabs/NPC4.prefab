@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5961777916159732951
 Transform:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ Animator:
   m_GameObject: {fileID: 1549210370081978472}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a29e86dce1775846af5f6b08867cd99, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ad40f33642f70f46aefd023680efc13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   coughOpportunity: 13
   catchOpportunity: 0
   isCheating: 0
+  caughtCheating: 0
   _animator: {fileID: 9063145355772909397}
 --- !u!65 &2205465765327316500
 BoxCollider:

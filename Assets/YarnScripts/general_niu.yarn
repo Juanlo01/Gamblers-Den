@@ -1,0 +1,1052 @@
+// minotaur, honorable, tough, strict but will never leave a soilder behind.
+// died on the battlefield, served in the army for nearly 400 years always in the frontline until the damage to his body compounded to a point of no return.
+// file: general_niu, speaker: General Niu
+
+// ============================================================
+// IDLE — between hands, gruff small talk, military observations
+// ============================================================
+
+title: GeneralNiu_Idle_Observation_1
+tags: idle
+speaker: general_niu
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle1
+General Niu: [auto/] A good soldier stays sharp between engagements. I didn't lead as a general for four centuries by resting at campsites.
+//END: idle1
+===
+
+title: GeneralNiu_Idle_Observation_2
+tags: idle
+speaker: general_niu
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle2
+General Niu: [auto/] This table reminds me of a war tent. Everyone sizing each other up, planning the next move.
+//END: idle2
+===
+
+title: GeneralNiu_Idle_Observation_3
+tags: idle
+speaker: general_niu
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle3
+General Niu: [auto/] Quiet before the next hand. I have learned to appreciate the silence. Out there, silence meant you were still alive.
+//END: idle3
+===
+
+title: GeneralNiu_Idle_Observation_4
+tags: idle
+speaker: general_niu
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle4
+General Niu: [auto/] Four hundred years of war, and I end up at a card table. The afterlife has a strange way about it.
+//END: idle4
+===
+
+title: GeneralNiu_Idle_Observation_5
+tags: idle
+speaker: general_niu
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle5
+General Niu: [auto/] My horns ache. Pain from a battle I cannot even remember.
+//END: idle5
+===
+
+title: GeneralNiu_Idle_Observation_6
+tags: idle
+speaker: general_niu
+category: idle
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: idle6
+General Niu: [auto/] You learn a lot about someone when they think nothing is happening.
+//END: idle6
+===
+
+// ============================================================
+// CASUAL — during play, tactical assessments, military metaphors
+// ============================================================
+
+title: GeneralNiu_Casual_Tactical_1
+tags: casual
+speaker: general_niu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual1
+General Niu: [auto/] Every bet is a troop deployment. Commit too early and you are exposed. Too late and the battle is already lost.
+//END: casual1
+===
+
+title: GeneralNiu_Casual_Tactical_2
+tags: casual
+speaker: general_niu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual2
+General Niu: [auto/] Intel is important but only second to strength.
+//END: casual2
+===
+
+title: GeneralNiu_Casual_Tactical_3
+tags: casual
+speaker: general_niu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual3
+General Niu: [auto/] A weak hand is not a defeat. It is a chance for reconnaissance.
+//END: casual3
+===
+
+title: GeneralNiu_Casual_Tactical_4
+tags: casual
+speaker: general_niu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual4
+General Niu: [auto/] Chips are soldiers. Spend them wisely. I have buried too many to waste them on reckless charges.
+//END: casual4
+===
+
+title: GeneralNiu_Casual_Tactical_5
+tags: casual
+speaker: general_niu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual5
+General Niu: [auto/] The flop is the terrain. The turn shifts the high ground. The river decides who held the right position.
+//END: casual5
+===
+
+title: GeneralNiu_Casual_Tactical_6
+tags: casual
+speaker: general_niu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual6
+General Niu: [auto/] I read faces the way I read a battlefield. Every twitch is a white flag.
+//END: casual6
+===
+
+// ============================================================
+// REACT_ACTION — reacting to raises, folds, all-ins
+// ============================================================
+
+title: GeneralNiu_ReactAction_Raise_1
+tags: react_action
+speaker: general_niu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: react1
+General Niu: [auto/] A bold advance. I respect anyone willing to commit their forces.
+//END: react1
+===
+
+title: GeneralNiu_ReactAction_AllIn_1
+tags: react_action
+speaker: general_niu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: react2
+General Niu: [auto/] All in. That is the charge of someone who has nothing left to lose. I know that feeling well.
+//END: react2
+===
+
+title: GeneralNiu_ReactAction_Fold_1
+tags: react_action
+speaker: general_niu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: react3
+General Niu: [auto/] A retreat. Sometimes it is the right move... but a move I never liked.
+//END: react3
+===
+
+title: GeneralNiu_ReactAction_Fold_2
+tags: react_action
+speaker: general_niu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: react4
+General Niu: [auto/] Folding again? There is a line between caution and cowardice. Watch that you do not cross it.
+//END: react4
+===
+
+title: GeneralNiu_ReactAction_Raise_2
+tags: react_action
+speaker: general_niu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: react5
+General Niu: [auto/] Re-raising. That is a counter-charge. Whoever blinks first loses the ground.
+//END: react5
+===
+
+// ============================================================
+// SHOWDOWN — stoic wins, graceful losses
+// ============================================================
+
+title: GeneralNiu_Showdown_Win_1
+tags: showdown
+speaker: general_niu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: showdown1
+General Niu: [auto/] Victory. Acknowledged and recorded. On to the next engagement.
+//END: showdown1
+===
+
+title: GeneralNiu_Showdown_Win_2
+tags: showdown
+speaker: general_niu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: showdown2
+General Niu: [auto/] The position held. That is all a soldier can ask for.
+//END: showdown2
+===
+
+title: GeneralNiu_Showdown_Lose_1
+tags: showdown
+speaker: general_niu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: showdown3
+General Niu: [auto/] A loss. Not my first. Not my last. A soldier does not crumble at one defeat.
+//END: showdown3
+===
+
+title: GeneralNiu_Showdown_Lose_2
+tags: showdown
+speaker: general_niu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: showdown4
+General Niu: [auto/] Outmaneuvered. I will remember your formation for the next engagement.
+//END: showdown4
+===
+
+title: GeneralNiu_Showdown_Lose_3
+tags: showdown
+speaker: general_niu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+---
+//START: showdown5
+General Niu: [auto/] I have lost battles. I have lost wars. I have lost soldiers I swore to protect. I can endure losing a hand.
+//END: showdown5
+===
+
+// ============================================================
+// PLAYER — addressing the player directly
+// ============================================================
+
+title: GeneralNiu_Player_Assess_1
+tags: player
+speaker: general_niu
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player1
+General Niu: [auto/] You play with nerve. I have promoted soldiers with less courage than you show at this table.
+//END: player1
+===
+
+title: GeneralNiu_Player_Assess_2
+tags: player
+speaker: general_niu
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player2
+General Niu: [auto/] You are still standing. That counts for more than you think. Persistence wins more wars than talent.
+//END: player2
+===
+
+title: GeneralNiu_Player_Challenge_1
+tags: player
+speaker: general_niu
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player3
+General Niu: [auto/] Do not hold back against me. I have been hit by siege weapons. Your raise will not break me.
+//END: player3
+===
+
+title: GeneralNiu_Player_Respect_1
+tags: player
+speaker: general_niu
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player4
+General Niu: [auto/] Hmph. You remind me of the fresh recruits who surprised everyone. Underestimated, but dangerous.
+//END: player4
+===
+
+title: GeneralNiu_Player_Advice_1
+tags: player
+speaker: general_niu
+category: player
+target: player
+phase: any
+requires:
+priority: 1
+---
+//START: player5
+General Niu: [auto/] A word of counsel from an old bull. Do not bluff when you cannot afford to lose. That lesson cost me half my regiment once.
+//END: player5
+===
+
+// ============================================================
+// LORE — 400 years of war, body failing, soldiers lost
+// ============================================================
+
+title: GeneralNiu_Lore_War_1
+tags: lore
+speaker: general_niu
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore1
+General Niu: [auto/] Three hundred and ninety-seven years on the front. I stopped counting campaigns after the first century. My body kept a tally instead. Every scar, every fracture, every wound that never fully healed.
+//END: lore1
+===
+
+title: GeneralNiu_Lore_War_2
+tags: lore
+speaker: general_niu
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore2
+General Niu: [auto/] I outlived every soldier I ever commanded. Every single one. The ones who died in battle were the lucky ones. The ones who survived long enough to grow old... they just stopped recognizing me.
+//END: lore2
+===
+
+title: GeneralNiu_Lore_Death_1
+tags: lore
+speaker: general_niu
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore3
+General Niu: [auto/] In the end, no single blow killed me. It was all of them. Centuries of damage stacked up until my legs buckled mid-charge. I went down swinging. That is all I wanted.
+//END: lore3
+===
+
+title: GeneralNiu_Lore_Reflection_1
+tags: lore
+speaker: general_niu
+category: lore
+target: any
+phase: between_hands
+requires:
+priority: 1
+---
+//START: lore4
+General Niu: [auto/] I never left a soldier behind. Not once in four hundred years. Some called it stubbornness. I called it the only thing worth fighting for.
+//END: lore4
+===
+
+// ============================================================
+// PAIR — General Tian (Tier 1, rival generals)
+// ============================================================
+
+title: GeneralNiu_Pair_Tian_Rivalry_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian1
+General Niu: [auto/] Tian. Still drawing up battle plans from the rear, I see. Some things do not change, even in death.
+//END: pair_tian1
+===
+
+title: GeneralNiu_Pair_Tian_Rivalry_2
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian2
+General Niu: [auto/] She sees seven moves ahead. I will give her that. But wars are not won on paper. They are won in the mud.
+//END: pair_tian2
+===
+
+title: GeneralNiu_Pair_Tian_Respect_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian3
+General Niu: [auto/] Tian's mind is sharper than any blade I have carried. If she says fold, you should listen. I never did, but you should.
+//END: pair_tian3
+===
+
+title: GeneralNiu_Pair_Tian_Contrast_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian4
+General Niu: [auto/] She died peacefully. In her sleep. At sixty. I fought for four centuries and collapsed in a field. Tell me which of us was the wiser general.
+//END: pair_tian4
+===
+
+title: GeneralNiu_Pair_Tian_Contrast_2
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: between_hands
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian5
+General Niu: [auto/] She knew when to stop. I never learned. That is the difference between a strategist and a soldier.
+//END: pair_tian5
+===
+
+title: GeneralNiu_Pair_Tian_Banter_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian6
+General Niu: [auto/] Tian, stop reading my hand. I know that look. You have been calculating my odds since I sat down.
+//END: pair_tian6
+===
+
+title: GeneralNiu_Pair_Tian_Banter_2
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian7
+General Niu: [auto/] She would have been my commanding officer if our campaigns had overlapped. I would have hated it. And she would have been right every time.
+//END: pair_tian7
+===
+
+title: GeneralNiu_Pair_Tian_Admiration_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: between_hands
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian8
+General Niu: [auto/] Twenty-five years a general. She packed more victories into twenty-five years than I managed in four hundred. Different kind of strength.
+//END: pair_tian8
+===
+
+title: GeneralNiu_Pair_Tian_Haunted_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: between_hands
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian9
+General Niu: [auto/] Sometimes I envy her. She chose when to put down her sword. I never could. It chose for me.
+//END: pair_tian9
+===
+
+title: GeneralNiu_Pair_Tian_War_1
+tags: pair
+speaker: general_niu
+category: pair
+target: general_tian
+phase: any
+requires: $general_tian
+priority: 3
+---
+//START: pair_tian10
+General Niu: [auto/] The front needs both of us, Tian. Your mind and my horns. That is the only formation that never broke.
+//END: pair_tian10
+===
+
+// ============================================================
+// PAIR — Rogue (Tier 1, warrior codes)
+// ============================================================
+
+title: GeneralNiu_Pair_Rogue_Clash_1
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue1
+General Niu: [auto/] A lone swordsman. No formation, no regiment, no supply line. How did you survive this long?
+//END: pair_rogue1
+===
+
+title: GeneralNiu_Pair_Rogue_Clash_2
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue2
+General Niu: [auto/] You fight for personal honor. I fight for the soldiers behind me. That is the gap between us, swordsman.
+//END: pair_rogue2
+===
+
+title: GeneralNiu_Pair_Rogue_Respect_1
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue3
+General Niu: [auto/] I will say this. You have the eyes of someone who does not fear death. I have seen that look in my best soldiers.
+//END: pair_rogue3
+===
+
+title: GeneralNiu_Pair_Rogue_Debate_1
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: between_hands
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue4
+General Niu: [auto/] Discipline wins wars. Individual skill wins duels. You would not last a week commanding a regiment. But alone? You are terrifying.
+//END: pair_rogue4
+===
+
+title: GeneralNiu_Pair_Rogue_Debate_2
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: between_hands
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue5
+General Niu: [auto/] You row across the sea to fight the strongest swordsman you can find. I march into sieges that last years. We are both fools, just different breeds.
+//END: pair_rogue5
+===
+
+title: GeneralNiu_Pair_Rogue_Kinship_1
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue6
+General Niu: [auto/] You lost that duel on the island. And you went back for more. That is not stubbornness. That is a warrior's heart.
+//END: pair_rogue6
+===
+
+title: GeneralNiu_Pair_Rogue_Banter_1
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue7
+General Niu: [auto/] If I had you in my army, you would have been court-martialed a dozen times. And decorated twice as many.
+//END: pair_rogue7
+===
+
+title: GeneralNiu_Pair_Rogue_Banter_2
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: any
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue8
+General Niu: [auto/] Stop bluffing with that stone face, swordsman. I have stared down cavalry charges. Your poker face does not rattle me.
+//END: pair_rogue8
+===
+
+title: GeneralNiu_Pair_Rogue_Philosophy_1
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: between_hands
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue9
+General Niu: [auto/] You say a true warrior stands alone. I say a true warrior stands so that others do not have to. We will never agree on this.
+//END: pair_rogue9
+===
+
+title: GeneralNiu_Pair_Rogue_Philosophy_2
+tags: pair
+speaker: general_niu
+category: pair
+target: rogue
+phase: between_hands
+requires: $rogue
+priority: 3
+---
+//START: pair_rogue10
+General Niu: [auto/] But we both died doing the only thing we knew. Blade in hand, facing forward. That is something, swordsman.
+//END: pair_rogue10
+===
+
+// ============================================================
+// TIER 3 PAIRS — one node each
+// ============================================================
+
+title: GeneralNiu_Pair_BeautyXu_Protect_1
+tags: pair
+speaker: general_niu
+category: pair
+target: beauty_xu
+phase: any
+requires: $beauty_xu
+priority: 3
+---
+//START: pair_beauty1
+General Niu: [auto/] I fought so that people like her could walk home safely. I failed somewhere. That thought keeps an old soldier up at night.
+//END: pair_beauty1
+===
+
+title: GeneralNiu_Pair_EunuchCai_Frustration_1
+tags: pair
+speaker: general_niu
+category: pair
+target: eunuch_cai
+phase: any
+requires: $eunuch_cai
+priority: 3
+---
+//START: pair_eunuch1
+General Niu: [auto/] Cai. Stop flinching. I am not going to hit you. But I am not going to coddle you either. Sit up straight and play your hand.
+//END: pair_eunuch1
+===
+
+title: GeneralNiu_Pair_GhostBride_Anger_1
+tags: pair
+speaker: general_niu
+category: pair
+target: ghost_bride
+phase: any
+requires: $ghost_bride
+priority: 3
+---
+//START: pair_bride1
+General Niu: [auto/] Bandits. Lawless vermin preying on the defenseless. If I had been stationed in that province, those men would have never drawn breath again.
+//END: pair_bride1
+===
+
+title: GeneralNiu_Pair_Guard_Disgust_1
+tags: pair
+speaker: general_niu
+category: pair
+target: guard
+phase: any
+requires: $guard
+priority: 3
+---
+//START: pair_guard1
+General Niu: [auto/] You wear armor you did not earn. I can tell by the way you hold yourself. Real warriors carry their scars inside the steel.
+//END: pair_guard1
+===
+
+title: GeneralNiu_Pair_LordXie_Tolerance_1
+tags: pair
+speaker: general_niu
+category: pair
+target: lord_xie
+phase: any
+requires: $lord_xie
+priority: 3
+---
+//START: pair_lord1
+General Niu: [auto/] Nobility. I have served under men like you. Some were worth dying for. Most were not. Which kind are you, Lord Xie?
+//END: pair_lord1
+===
+
+title: GeneralNiu_Pair_MadamSong_Respect_1
+tags: pair
+speaker: general_niu
+category: pair
+target: madam_song
+phase: any
+requires: $madam_song
+priority: 3
+---
+//START: pair_madam1
+General Niu: [auto/] Madam Song commands her domain as well as any general commands a garrison. Different battlefield, same iron will.
+//END: pair_madam1
+===
+
+title: GeneralNiu_Pair_MrLi_Distrust_1
+tags: pair
+speaker: general_niu
+category: pair
+target: mr_li
+phase: any
+requires: $mr_li
+priority: 3
+---
+//START: pair_li1
+General Niu: [auto/] Merchants kept my army fed and my soldiers armed. I needed every one of them. I trusted none of them. No offense, Li.
+//END: pair_li1
+===
+
+title: GeneralNiu_Pair_MrZhu_Sympathy_1
+tags: pair
+speaker: general_niu
+category: pair
+target: mr_zhu
+phase: any
+requires: $mr_zhu
+priority: 3
+---
+//START: pair_zhu1
+General Niu: [auto/] A false accusation is a blade that cuts without honor. I have watched good soldiers broken by lies. You have my sympathy, Zhu.
+//END: pair_zhu1
+===
+
+title: GeneralNiu_Pair_Poet_Puzzlement_1
+tags: pair
+speaker: general_niu
+category: pair
+target: poet
+phase: any
+requires: $poet
+priority: 3
+---
+//START: pair_poet1
+General Niu: [auto/] I do not understand your poems. But you put your whole soul into them, same as I put mine into battle. I can respect that.
+//END: pair_poet1
+===
+
+title: GeneralNiu_Pair_Shaman_Respect_1
+tags: pair
+speaker: general_niu
+category: pair
+target: shaman
+phase: any
+requires: $shaman
+priority: 3
+---
+//START: pair_shaman1
+General Niu: [auto/] You defended your village with everything you had. No army, no formation, just will. That is the purest kind of soldiering there is.
+//END: pair_shaman1
+===
+
+title: GeneralNiu_Pair_Wanderer_Endurance_1
+tags: pair
+speaker: general_niu
+category: pair
+target: wanderer
+phase: any
+requires: $wanderer
+priority: 3
+---
+//START: pair_wanderer1
+General Niu: [auto/] You have marched as many miles as any soldier in my regiment. No orders, no destination, just forward. There is a kind of discipline in that.
+//END: pair_wanderer1
+===
+
+title: GeneralNiu_Pair_YusenZhou_Warrior_1
+tags: pair
+speaker: general_niu
+category: pair
+target: yusen_zhou
+phase: any
+requires: $yusen_zhou
+priority: 3
+---
+//START: pair_yusen1
+General Niu: [auto/] Zhou. I know a fighter when I see one. That loyalty in your eyes, the way you bare your teeth. You would have made a fine soldier.
+//END: pair_yusen1
+===
+
+// ============================================================
+// TRIO — The Warriors (Niu, Tian, Rogue)
+// ============================================================
+
+title: GeneralNiu_Trio_Warriors_1
+tags: trio
+speaker: general_niu
+category: trio
+target: any
+phase: any
+requires: $general_tian and $rogue
+priority: 4
+---
+//START: trio_warriors1
+General Niu: [auto/] A strategist, a duelist, and a frontline bull at the same table. Between the three of us, we could conquer any battlefield. Too bad we are stuck playing cards.
+//END: trio_warriors1
+===
+
+title: GeneralNiu_Trio_Warriors_2
+tags: trio
+speaker: general_niu
+category: trio
+target: any
+phase: between_hands
+requires: $general_tian and $rogue
+priority: 4
+---
+//START: trio_warriors2
+General Niu: [auto/] Tian plans the war. The swordsman fights the duel. I hold the line. Three philosophies of combat, and none of us will budge. This should be an interesting game.
+//END: trio_warriors2
+===
+
+// ============================================================
+// REACT_ACTION — Self-reactions (General Niu reacting to his own play)
+// ============================================================
+
+title: GeneralNiu_ReactAction_SelfFold_01
+tags: react_action
+speaker: general_niu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: self_fold1
+General Niu: [auto/] I fold. Even a general knows when the position is not worth holding.
+//END: self_fold1
+===
+
+title: GeneralNiu_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: general_niu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: self_allin1
+General Niu: [auto/] All in. No retreat, no reserves. This is how I fought every campaign that mattered.
+//END: self_allin1
+===
+
+title: GeneralNiu_ReactAction_SelfRaise_01
+tags: react_action
+speaker: general_niu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: self_raise1
+General Niu: [auto/] I raise. An advance only means something if you commit to it fully.
+//END: self_raise1
+===
+
+title: GeneralNiu_ReactAction_SelfCall_01
+tags: react_action
+speaker: general_niu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: self_call1
+General Niu: [auto/] Call. I will hold this ground and see what you are actually bringing to the field.
+//END: self_call1
+===
+
+title: GeneralNiu_ReactAction_SelfCheck_01
+tags: react_action
+speaker: general_niu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: self_check1
+General Niu: [auto/] I will wait. Even the best generals know when to hold position and let the enemy show themselves first.
+//END: self_check1
+===
+
+title: GeneralNiu_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: general_niu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: self_general1
+General Niu: [auto/] Every move I make at this table is deliberate. I did not survive four centuries of war by acting on impulse.
+//END: self_general1
+===
