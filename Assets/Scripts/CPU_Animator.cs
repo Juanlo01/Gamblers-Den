@@ -21,6 +21,7 @@ public class CPU_Animator : MonoBehaviour{
     public Animator _animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
+        _animator.SetBool("isCaught", false);
         ClearStates();
         StartCoroutine(Cheat());
     }
@@ -30,17 +31,27 @@ public class CPU_Animator : MonoBehaviour{
         
     // }
 
-    void ClearStates(){
+    public void ClearStates(){
         sweatDrop.enabled = false;
         _animator.SetBool("isSweating", false);
         _animator.SetBool("isDarting", false);
         _animator.SetBool("isShaking", false);
         _animator.SetBool("isCoughing", false);
         _animator.SetBool("isBlinking", false);
-        _animator.SetBool("isCaught", false);
+        //_animator.SetBool("isCaught", false);
         isCheating = false;
         caughtCheating = false;
         catchOpportunity = false;
+    }
+
+    public void ClearAnimations(){
+        sweatDrop.enabled = false;
+        _animator.SetBool("isSweating", false);
+        _animator.SetBool("isDarting", false);
+        _animator.SetBool("isShaking", false);
+        _animator.SetBool("isCoughing", false);
+        _animator.SetBool("isBlinking", false);
+        //_animator.SetBool("isCaught", false);
     }
 
     IEnumerator Cheat(){
@@ -70,10 +81,12 @@ public class CPU_Animator : MonoBehaviour{
             else if (cheatingOpportunity >= blinkOpportunity && !isCheating){
                 isCheating = true; // prevents attempting to cheat while already in animation
                 _animator.SetBool("isBlinking", true);
+                ClearAnimations();
+                yield return new WaitForSeconds(3f);
+                isCheating = false; // redundant only if already was cheating
                 //StartCoroutine(CatchOpportunity()); Can not get caught cus not cheating
             }
-            yield return new WaitForSeconds(3f);
-            isCheating = false; // redundant only if already was cheating
+            yield return null;
         }
     }
 
@@ -81,6 +94,7 @@ public class CPU_Animator : MonoBehaviour{
     IEnumerator CatchOpportunity(){
         catchOpportunity = true; // This is your chance! Catch the cheater!
         yield return new WaitForSeconds(1.0f);
+        ClearAnimations();
         yield return new WaitForSeconds(2.0f);
         catchOpportunity = false; // Times up! Can no longer be caught
         isCheating = false; // Can start cheating again
