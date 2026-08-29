@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,31 +7,27 @@ using UnityEngine.UI;
 /// pause overlay and the endgame score overlay.
 ///
 /// Wiring:
-///   - pauseHideImage: the dimming/backdrop Image shown behind the pause menu.
-///   - resumeButton / exitButton: the pause menu's two buttons.
-///   In the Inspector, hook ResumeButton's OnClick() -> PauseMenu.CloseMenu(),
-///   and ExitButton's OnClick() -> whatever "exit" should do in your game
-///   (Application.Quit(), loading a main-menu scene, etc.) — that behavior
-///   wasn't specified, so it's left for you to wire up.
+///   - pauseCanvasGroup: the CanvasGroup on the pause menu panel (backdrop,
+///     resume/exit buttons, etc). Its buttons' OnClick() should be wired in
+///     the Inspector — e.g. ResumeButton -> PauseMenu.CloseMenu(), and
+///     ExitButton -> whatever "exit" should do in your game
+///     (Application.Quit(), loading a main-menu scene, etc.) — that behavior
+///     wasn't specified, so it's left for you to wire up.
 ///
-///   - scoreHideImage: the dimming/backdrop Image shown behind the score screen.
-///   - replayButton / scoreExitButton: the score screen's two buttons.
-///   - scoreCountLabel: rich-text label showing the final score.
+///   - scoreCanvasGroup: the CanvasGroup on the score screen panel (backdrop,
+///     replay/exit buttons, final-score label, etc).
 ///   Call OpenEndgame() (e.g. from wherever a round/game ends) to lock out
 ///   the pause menu, freeze gameplay, and reveal the score screen.
 /// </summary>
 public class PauseMenu : MonoBehaviour
 {
     [Header("UI References")]
+    [SerializeField] private CanvasGroup pauseCanvasGroup;
     [SerializeField] private Image pauseHideImage;
-    [SerializeField] private Button resumeButton;
-    [SerializeField] private Button exitButton;
 
     [Header("Score UI References")]
+    [SerializeField] private CanvasGroup scoreCanvasGroup;
     [SerializeField] private Image scoreHideImage;
-    [SerializeField] private Button replayButton;
-    [SerializeField] private Button scoreExitButton;
-    [SerializeField] private TMP_Text scoreCountLabel;
 
     private bool isMenuOpen;
     private bool pauseAllowed = true;
@@ -40,8 +35,8 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         // Start closed and hidden, regardless of how it was left in the editor.
-        SetElementsVisible(false);
-        SetScoreElementsVisible(false);
+        SetGroupVisible(pauseCanvasGroup, pauseHideImage, false);
+        SetGroupVisible(scoreCanvasGroup, scoreHideImage, false);
     }
 
     private void Update()
@@ -58,7 +53,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!pauseAllowed || isMenuOpen) return;
 
-        SetElementsVisible(true);
+        SetGroupVisible(pauseCanvasGroup, pauseHideImage, true);
         Time.timeScale = 0f;
         isMenuOpen = true;
     }
@@ -68,7 +63,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!isMenuOpen) return;
 
-        SetElementsVisible(false);
+        SetGroupVisible(pauseCanvasGroup, pauseHideImage, false);
         Time.timeScale = 1f;
         isMenuOpen = false;
     }
@@ -81,26 +76,21 @@ public class PauseMenu : MonoBehaviour
     {
         pauseAllowed = false;
         Time.timeScale = 0f;
-        OpenScore();
+        SetGroupVisible(scoreCanvasGroup, scoreHideImage, true);
     }
 
-    private void OpenScore()
+    private static void SetGroupVisible(CanvasGroup group, Image hideImage, bool visible)
     {
-        SetScoreElementsVisible(true);
-    }
+        if (group != null)
+        {
+            group.alpha = visible ? 1f : 0f;
+            group.interactable = visible;
+            group.blocksRaycasts = visible;
+        }
 
-    private void SetElementsVisible(bool visible)
-    {
-        if (pauseHideImage != null) pauseHideImage.gameObject.SetActive(visible);
-        if (resumeButton != null) resumeButton.gameObject.SetActive(visible);
-        if (exitButton != null) exitButton.gameObject.SetActive(visible);
-    }
-
-    private void SetScoreElementsVisible(bool visible)
-    {
-        if (scoreHideImage != null) scoreHideImage.gameObject.SetActive(visible);
-        if (replayButton != null) replayButton.gameObject.SetActive(visible);
-        if (scoreExitButton != null) scoreExitButton.gameObject.SetActive(visible);
-        if (scoreCountLabel != null) scoreCountLabel.gameObject.SetActive(visible);
+        if (hideImage != null)
+        {
+            hideImage.raycastTarget = visible;
+        }
     }
 }
