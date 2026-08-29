@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class CPU_Animator : MonoBehaviour{
 
+    // Display name for this character, shown on the dialogue nameplate.
+    [field: SerializeField] public string Name { get; set; }
+
     int cheatingOpportunity;
     public int sweatOpportunity;
     public int dartOpportunity;

@@ -9,6 +9,7 @@ public class SlowedPlayer : PlayerDecorator
     private readonly int _delayMs;
     private readonly string _displayName;
     private readonly CPU_Controller _cpuController;
+    private readonly int _seatIndex;
 
     private PlayerAction _lastAction;
     private bool _isFolded;
@@ -16,11 +17,12 @@ public class SlowedPlayer : PlayerDecorator
     private int _currentBet;
     private TablePosition _position;
 
-    public SlowedPlayer(IPlayer player, float delaySeconds, string displayName = null, CPU_Controller cpuController = null) : base(player)
+    public SlowedPlayer(IPlayer player, float delaySeconds, string displayName = null, CPU_Controller cpuController = null, int seatIndex = 0) : base(player)
     {
         _delayMs = (int)(delaySeconds * 1000);
         _displayName = displayName;
         _cpuController = cpuController;
+        _seatIndex = seatIndex;
     }
 
     public override string Name => _displayName ?? base.Name;
@@ -62,7 +64,32 @@ public class SlowedPlayer : PlayerDecorator
     public override PlayerAction GetTurn(IGetTurnContext context)
     {
         var action = base.GetTurn(context);
+
+        // The turn is "on screen" for the length of the Announce delay below, so
+        // the dialogue opens before that pause and closes once it has elapsed.
+        if (_seatIndex > 0)
+        {
+            int seat = _seatIndex;
+            UnityEngine.Debug.Log($"[Dialogue] SlowedPlayer '{Name}' queueing turn START for seat {seat} (engine thread)");
+            ThreadManager.Enqueue(() =>
+            {
+                UnityEngine.Debug.Log($"[Dialogue] -> main thread: OnCpuTurnStarted({seat})");
+                PokerGameManager.Instance.OnCpuTurnStarted(seat);
+            });
+        }
+
         Announce(action);
+
+        if (_seatIndex > 0)
+        {
+            int seat = _seatIndex;
+            UnityEngine.Debug.Log($"[Dialogue] SlowedPlayer '{Name}' queueing turn END for seat {seat} (engine thread)");
+            ThreadManager.Enqueue(() =>
+            {
+                UnityEngine.Debug.Log($"[Dialogue] -> main thread: OnCpuTurnEnded({seat})");
+                PokerGameManager.Instance.OnCpuTurnEnded(seat);
+            });
+        }
 
         _lastAction = action;
         _isFolded = action.Type == PlayerActionType.Fold;

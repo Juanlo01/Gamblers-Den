@@ -11,13 +11,17 @@ public class PokerGameManager : MonoBehaviour
 {
     public static PokerGameManager Instance { get; private set; }
 
-    [SerializeField] private float npcActionDelaySeconds = 1.5f;
+    [Tooltip("How long each CPU's turn is held on screen after it decides, in seconds. Consumed by SlowedPlayer.Announce().")]
+    [SerializeField] private float npcActionDelaySeconds = 5f;
     [SerializeField] private int initialMoney = 1000;
 
     [Header("CPU Seats")]
     [SerializeField] private CPU_Controller bot1Controller;
     [SerializeField] private CPU_Controller bot2Controller;
     [SerializeField] private CPU_Controller bot3Controller;
+
+    [Header("Dialogue")]
+    [SerializeField] private DialogueRunner dialogueRunner;
 
     private int currentScore;
     private int bestScore;
@@ -39,9 +43,9 @@ public class PokerGameManager : MonoBehaviour
         var humanPlayer = new HumanPlayer("You");
         var players = new List<IPlayer>{
             humanPlayer,
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 1", bot1Controller),
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 2", bot2Controller),
-            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3", bot3Controller)
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 1", bot1Controller, 1),
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 2", bot2Controller, 2),
+            new SlowedPlayer(new SmartPlayer(), npcActionDelaySeconds, "Bot 3", bot3Controller, 3)
         };
         seatOrder = players.Select(p => p.Name).ToList();
 
@@ -69,6 +73,63 @@ public class PokerGameManager : MonoBehaviour
             2 => TablePosition.BigBlind,
             _ => TablePosition.Cutoff,
         };
+    }
+
+    private CPU_Controller GetController(int seatIndex)
+    {
+        switch (seatIndex)
+        {
+            case 1: return bot1Controller;
+            case 2: return bot2Controller;
+            case 3: return bot3Controller;
+            default: return null;
+        }
+    }
+
+    // Called on the main thread (via ThreadManager) when a CPU seat starts its
+    // turn. Asks that CPU for a line and, if it has one, opens its dialogue box.
+    public void OnCpuTurnStarted(int seatIndex)
+    {
+        Debug.Log($"[Dialogue] OnCpuTurnStarted({seatIndex})");
+
+        var controller = GetController(seatIndex);
+        if (controller == null)
+        {
+            Debug.LogWarning($"[Dialogue] ABORT: no CPU_Controller assigned for seat {seatIndex}.", this);
+            return;
+        }
+
+        string line = controller.CallDialogue();
+        if (string.IsNullOrEmpty(line))
+        {
+            Debug.Log($"[Dialogue] seat {seatIndex} returned an empty line; not opening.");
+            return;
+        }
+
+        if (dialogueRunner == null)
+        {
+            Debug.LogWarning("[Dialogue] ABORT: dialogueRunner is not assigned on PokerGameManager.", this);
+            return;
+        }
+
+        string speaker = controller.CharacterName;
+        Debug.Log($"[Dialogue] OpenDialogue({seatIndex}, name=\"{speaker}\", text=\"{line}\")");
+        dialogueRunner.OpenDialogue(seatIndex, speaker, line);
+    }
+
+    // Called on the main thread when a CPU seat's turn ends.
+    public void OnCpuTurnEnded(int seatIndex)
+    {
+        Debug.Log($"[Dialogue] OnCpuTurnEnded({seatIndex})");
+
+        if (dialogueRunner == null)
+        {
+            Debug.LogWarning("[Dialogue] ABORT: dialogueRunner is not assigned on PokerGameManager.", this);
+            return;
+        }
+
+        Debug.Log($"[Dialogue] CloseDialogue({seatIndex})");
+        dialogueRunner.CloseDialogue(seatIndex);
     }
 
     // Called from the main thread whenever the human player's money changes.
