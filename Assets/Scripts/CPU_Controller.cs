@@ -28,6 +28,10 @@ public class CPU_Controller : MonoBehaviour{
 
     public float moveDuration = 5.0f;
 
+    // Total number of cheaters caught across all seats this session. Read by
+    // CaughtPanelDisplay to show "Cheaters caught: N" in the UI.
+    public static int CheatersCaught { get; private set; }
+
     CPU_Animator CA1, CA2, CA3, CA4, CA5;
 
     [Header("Dialogue")]
@@ -161,22 +165,27 @@ public class CPU_Controller : MonoBehaviour{
 
     public void Transition(){ // Handles which NPC was caught and that they do the caught animation
         if (CA1.caughtCheating == true && npcs[0].activeSelf){
+                CheatersCaught++;
                 StartCoroutine(Caught());
                 CA1._animator.SetBool("isCaught", true);
             }
         else if (CA2.caughtCheating == true && npcs[1].activeSelf){
+                CheatersCaught++;
                 CA2._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
         else if (CA3.caughtCheating == true && npcs[2].activeSelf){
+                CheatersCaught++;
                 CA3._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
         else if (CA4.caughtCheating == true && npcs[3].activeSelf){
+                CheatersCaught++;
                 CA4._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
         else if (CA5.caughtCheating == true && npcs[4].activeSelf){
+                CheatersCaught++;
                 CA5._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
