@@ -106,7 +106,7 @@ public class PokerUIController : MonoBehaviour
                 ? CardSpriteLibrary.GetSprite(cardList[i])
                 : CardSpriteLibrary.GetBackSprite();
         }
-        potText.text = $"Pot\n${currentPot}";
+        potText.text = $"${currentPot}";
     }
 
     public void OnRoundEnd()
