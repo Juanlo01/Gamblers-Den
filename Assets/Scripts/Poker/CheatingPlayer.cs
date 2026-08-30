@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -49,8 +50,22 @@ public class CheatingPlayer : PlayerDecorator
 
     public override PlayerAction GetTurn(IGetTurnContext context)
     {
-        var action = base.GetTurn(context);
+        return ApplyCheat(base.GetTurn(context), context);
+    }
 
+    // The engine calls this, not GetTurn - and PlayerDecorator forwards it
+    // straight to the wrapped player, so without this override the cheat would
+    // silently never be applied.
+    public override IEnumerator GetTurnRoutine(IGetTurnContext context, TurnResult result)
+    {
+        var honest = new TurnResult();
+        yield return Player.GetTurnRoutine(context, honest);
+
+        result.Action = ApplyCheat(honest.Action, context);
+    }
+
+    private PlayerAction ApplyCheat(PlayerAction action, IGetTurnContext context)
+    {
         var cheat = _seat != null ? _seat.ActiveCheatState : null;
         if (cheat == null || !cheat.Active)
         {

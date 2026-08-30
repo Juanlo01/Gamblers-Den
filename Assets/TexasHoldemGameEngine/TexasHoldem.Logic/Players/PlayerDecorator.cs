@@ -1,5 +1,7 @@
 ﻿namespace TexasHoldem.Logic.Players
 {
+    using System.Collections;
+
     public abstract class PlayerDecorator : IPlayer
     {
         protected PlayerDecorator(IPlayer player)
@@ -36,6 +38,22 @@
         public virtual PlayerAction GetTurn(IGetTurnContext context)
         {
             return this.Player.GetTurn(context);
+        }
+
+        // MODIFIED (project): these forward to the wrapped player's coroutine so
+        // that a decorator around someone who waits (InternalPlayer around the
+        // human) still waits. NOTE: that means overriding only the synchronous
+        // GetTurn/PostingBlind above is NOT enough for a decorator that changes
+        // the decision - the engine calls these, so an override there would be
+        // skipped. Such a decorator must override these too (see CheatingPlayer).
+        public virtual IEnumerator PostingBlindRoutine(IPostingBlindContext context, TurnResult result)
+        {
+            return this.Player.PostingBlindRoutine(context, result);
+        }
+
+        public virtual IEnumerator GetTurnRoutine(IGetTurnContext context, TurnResult result)
+        {
+            return this.Player.GetTurnRoutine(context, result);
         }
 
         public virtual void EndRound(IEndRoundContext context)

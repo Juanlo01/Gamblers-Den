@@ -8,8 +8,8 @@ using UnityEngine;
 /// with the poker engine, then filters and weight-picks a line on request.
 ///
 /// Yarn files hold no logic - all control lives here and in the node headers.
-/// Everything on this class is main-thread only; engine-thread callers must
-/// marshal through ThreadManager first.
+/// Everything on this class is main-thread only. The poker engine runs as a
+/// coroutine on that same thread, so its callers can reach in directly.
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {

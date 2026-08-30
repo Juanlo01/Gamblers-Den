@@ -1,6 +1,7 @@
 ﻿namespace TexasHoldem.Logic.GameMechanics
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -10,7 +11,7 @@
     {
         // MODIFIED (project): how long to pause after each hand ends, giving
         // players time to read the showdown/winner status.
-        private const int HandEndPauseMs = 4000;
+        private const float HandEndPauseSeconds = 4f;
 
         protected static readonly int[] SmallBlinds =
             {
@@ -86,7 +87,11 @@
 
         public int HandsPlayed { get; private set; }
 
-        public IPlayer Start()
+        // MODIFIED (project): Start() is a coroutine and cannot return the
+        // winner, so it lands here instead. Null until the game has finished.
+        public IPlayer Winner { get; private set; }
+
+        public IEnumerator Start()
         {
             var playerNames = this.allPlayers.Select(x => x.Name).ToList().AsReadOnly();
             foreach (var player in this.allPlayers)
@@ -94,7 +99,7 @@
                 player.StartGame(new StartGameContext(playerNames, player.BuyIn == -1 ? this.initialMoney : player.BuyIn));
             }
 
-            this.PlayGame();
+            yield return this.PlayGame();
 
             var winner = this.allPlayers.WithMoney().FirstOrDefault();
             foreach (var player in this.allPlayers)
@@ -102,7 +107,7 @@
                 player.EndGame(new EndGameContext(winner.Name));
             }
 
-            return winner;
+            this.Winner = winner;
         }
 
         private void Rebuy()
@@ -117,7 +122,7 @@
             }
         }
 
-        private void PlayGame()
+        private IEnumerator PlayGame()
         {
             var shifted = this.allPlayers.ToList();
 
@@ -138,12 +143,12 @@
                 // Rotate players
                 IHandLogic hand = new HandLogic(shifted, this.HandsPlayed, smallBlind);
 
-                hand.Play();
+                yield return hand.Play();
 
                 // MODIFIED (project): pause after the pot is awarded so players
                 // have time to read the showdown/winner status before the next
                 // hand's blinds and dealing overwrite it.
-                System.Threading.Thread.Sleep(HandEndPauseMs);
+                yield return new UnityEngine.WaitForSeconds(HandEndPauseSeconds);
 
                 // this.Rebuy();
                 // MODIFIED (project): removed automatic Rebuy() so the game ends

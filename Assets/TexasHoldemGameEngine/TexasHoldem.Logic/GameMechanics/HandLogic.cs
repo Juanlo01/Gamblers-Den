@@ -1,6 +1,7 @@
 ﻿namespace TexasHoldem.Logic.GameMechanics
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -45,7 +46,9 @@
                 : amount;
         }
 
-        public void Play()
+        // MODIFIED (project): a coroutine, so a betting round can wait on a
+        // player without blocking a thread.
+        public IEnumerator Play()
         {
             // Start the hand and deal cards to each player
             foreach (var player in this.players)
@@ -61,24 +64,24 @@
             }
 
             // Pre-flop -> blinds -> betting
-            this.PlayRound(GameRoundType.PreFlop, 0);
+            yield return this.PlayRound(GameRoundType.PreFlop, 0);
 
             // Flop -> 3 cards -> betting
             if (this.players.Count(x => x.PlayerMoney.InHand) > 1)
             {
-                this.PlayRound(GameRoundType.Flop, 3);
+                yield return this.PlayRound(GameRoundType.Flop, 3);
             }
 
             // Turn -> 1 card -> betting
             if (this.players.Count(x => x.PlayerMoney.InHand) > 1)
             {
-                this.PlayRound(GameRoundType.Turn, 1);
+                yield return this.PlayRound(GameRoundType.Turn, 1);
             }
 
             // River -> 1 card -> betting
             if (this.players.Count(x => x.PlayerMoney.InHand) > 1)
             {
-                this.PlayRound(GameRoundType.River, 1);
+                yield return this.PlayRound(GameRoundType.River, 1);
             }
 
             this.DetermineWinnerAndAddPot(this.bettingLogic.Pot, this.bettingLogic.MainPot, this.bettingLogic.SidePots);
@@ -209,7 +212,7 @@
             }
         }
 
-        private void PlayRound(GameRoundType gameRoundType, int communityCardsCount)
+        private IEnumerator PlayRound(GameRoundType gameRoundType, int communityCardsCount)
         {
             for (var i = 0; i < communityCardsCount; i++)
             {
@@ -228,7 +231,7 @@
                 player.StartRound(startRoundContext);
             }
 
-            this.bettingLogic.Bet(gameRoundType);
+            yield return this.bettingLogic.Bet(gameRoundType);
 
             foreach (var player in this.players)
             {

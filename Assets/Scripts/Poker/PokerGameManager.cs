@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TexasHoldem.Logic.GameMechanics;
 using TexasHoldem.Logic.Players;
 using TexasHoldem.AI.SmartPlayer;
@@ -32,15 +31,9 @@ public class PokerGameManager : MonoBehaviour
     [Tooltip("Player money at or below this triggers the endgame screen (0 = only a literal bust).")]
     [SerializeField] private int minimumBuyIn = 0;
 
-    private const float EngineStartupTimeoutSeconds = 5f;
-
     private int currentScore;
     private int bestScore;
     private bool gameOverTriggered;
-
-    // Set from the engine thread the moment it actually begins running, read on
-    // the main thread by WatchEngineStartup().
-    private volatile bool _engineThreadStarted;
 
     // Seat order the table was dealt in, used to work out each player's
     // position relative to whoever holds the button in the current hand.
@@ -86,57 +79,20 @@ public class PokerGameManager : MonoBehaviour
 
         var game = new TexasHoldemGame(players, initialMoney);
 
-        StartEngine(game);
+        StartCoroutine(RunGame(game));
     }
 
-    // The engine is a blocking, synchronous library: it parks a thread in
-    // HumanPlayer.GetTurn() until the player clicks, and Thread.Sleep()s between
-    // CPU turns. That only works if it gets a real thread of its own, which is
-    // why this is a Task.Run rather than a coroutine.
-    private void StartEngine(TexasHoldemGame game)
+    // The engine runs as a coroutine on the main thread: it yields whenever it
+    // has to wait - for the player to click, or for a bot's action to stay on
+    // screen - instead of blocking a thread. It used to be a Task.Run, which
+    // cannot work in a Web build: those are single-threaded, and enabling wasm
+    // threads is ruled out by FMOD's precompiled library (it is not built with
+    // the atomics feature, so the link fails).
+    private IEnumerator RunGame(TexasHoldemGame game)
     {
-        try
-        {
-            Task.Run(() =>
-            {
-                _engineThreadStarted = true;
+        yield return game.Start();
 
-                try
-                {
-                    var winner = game.Start();
-                    ThreadManager.Enqueue(() => Debug.Log($"Game over. Winner: {winner.Name}"));
-                }
-                catch (System.Exception ex)
-                {
-                    // Without this, an exception on the engine thread dies silently
-                    // and the game just appears to freeze after the last UI update.
-                    Debug.LogException(ex);
-                }
-            });
-        }
-        catch (System.Exception ex)
-        {
-            // Scheduling itself can throw where threads are unavailable.
-            Debug.LogError($"[Poker] Could not schedule the engine thread: {ex.GetType().Name}: {ex.Message}");
-        }
-
-        StartCoroutine(WatchEngineStartup());
-    }
-
-    // Single-threaded players (notably Web/WebGL builds without threading
-    // support) accept Task.Run and then never run the delegate, so the table
-    // just sits there with no error. Turn that silence into a real message.
-    private IEnumerator WatchEngineStartup()
-    {
-        yield return new WaitForSecondsRealtime(EngineStartupTimeoutSeconds);
-
-        if (_engineThreadStarted) yield break;
-
-        Debug.LogError(
-            $"[Poker] The engine thread never started after {EngineStartupTimeoutSeconds}s. " +
-            $"This build has no usable worker threads (Application.platform={Application.platform}), " +
-            "so no hand will be dealt and no action can be submitted. " +
-            "The engine has to be driven cooperatively on this platform.");
+        Debug.Log($"Game over. Winner: {(game.Winner != null ? game.Winner.Name : "nobody")}");
     }
 
     private static IPlayer MakeBot(CPU_Controller seat, HumanPlayer human)
@@ -324,7 +280,7 @@ public class PokerGameManager : MonoBehaviour
         }
     }
 
-    // Called on the main thread (via ThreadManager) when a CPU seat starts its
+    // Called from the engine coroutine when a CPU seat starts its
     // turn. Section 2E ordering: the acting NPC gets their self-line while still
     // seated, and only if they stay quiet does the rest of the table react.
     public void OnCpuTurnStarted(int seatIndex, string action = "")

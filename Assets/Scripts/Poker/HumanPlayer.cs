@@ -1,5 +1,5 @@
+using System.Collections;
 using System.Linq;
-using System.Threading;
 using TexasHoldem.Logic.Cards;
 using TexasHoldem.Logic.Helpers;
 using TexasHoldem.Logic.Players;
@@ -9,73 +9,56 @@ public class HumanPlayer : BasePlayer
     public override string Name { get; }
     public override int BuyIn => -1; // use table default
 
-    private readonly ManualResetEventSlim _waitHandle = new ManualResetEventSlim(false);
     private readonly IHandEvaluator _handEvaluator = new HandEvaluator();
     private PlayerAction _pendingAction;
+    private bool _hasSubmitted;
 
     public HumanPlayer(string name)
     {
         Name = name;
     }
 
+    // Every hook below runs inside the engine coroutine, which Unity drives on
+    // the main thread, so these call straight into the UI - no marshalling.
     public override void StartGame(IStartGameContext context)
     {
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.OnGameStarted());
+        PokerUIController.Instance.OnGameStarted();
     }
 
     public override void StartHand(IStartHandContext context)
     {
         base.StartHand(context);
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowHoleCards(context.FirstCard, context.SecondCard));
-
-        int handNumber = context.HandNumber;
-        ThreadManager.Enqueue(() =>
-            PokerGameManager.Instance.OnHandStarted(handNumber));
+        PokerUIController.Instance.ShowHoleCards(context.FirstCard, context.SecondCard);
+        PokerGameManager.Instance.OnHandStarted(context.HandNumber);
     }
 
     public override void StartRound(IStartRoundContext context)
     {
         base.StartRound(context);
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowCommunityCards(context.CommunityCards, context.CurrentPot));
-
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowMoney(context.MoneyLeft));
-
-        ThreadManager.Enqueue(() =>
-            PokerGameManager.Instance.UpdateScore(context.MoneyLeft));
+        PokerUIController.Instance.ShowCommunityCards(context.CommunityCards, context.CurrentPot);
+        PokerUIController.Instance.ShowMoney(context.MoneyLeft);
+        PokerGameManager.Instance.UpdateScore(context.MoneyLeft);
 
         // Drives $game_phase - StartRound is the only hook that sees every round.
-        string phase = ToYarnPhase(context.RoundType);
-        int pot = context.CurrentPot;
-        ThreadManager.Enqueue(() =>
-            PokerGameManager.Instance.OnPhaseChanged(phase, pot));
+        PokerGameManager.Instance.OnPhaseChanged(ToYarnPhase(context.RoundType), context.CurrentPot);
 
         if (context.CommunityCards.Count >= 3)
         {
             var bestHand = _handEvaluator.GetBestHand(
                 new[] { FirstCard, SecondCard }.Concat(context.CommunityCards));
-            ThreadManager.Enqueue(() =>
-                PokerUIController.Instance.ShowHandType(bestHand.RankType));
+            PokerUIController.Instance.ShowHandType(bestHand.RankType);
         }
     }
 
     public override void EndRound(IEndRoundContext context)
     {
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.OnRoundEnd());
+        PokerUIController.Instance.OnRoundEnd();
     }
 
     public override void EndHand(IEndHandContext context)
     {
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowShowdown(context));
-            //PokerUIController.Instance.ShowShowdown(context.ShowdownCards));
-
-        ThreadManager.Enqueue(() =>
-            PokerGameManager.Instance.OnHandEnded(PokerGameManager.Instance.GetCurrentScore()));
+        PokerUIController.Instance.ShowShowdown(context);
+        PokerGameManager.Instance.OnHandEnded(PokerGameManager.Instance.GetCurrentScore());
     }
 
     // Maps the engine's round types onto the $game_phase vocabulary in init.yarn.
@@ -93,42 +76,49 @@ public class HumanPlayer : BasePlayer
 
     public override void EndGame(IEndGameContext context)
     {
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowGameOver(context.WinnerName));
+        PokerUIController.Instance.ShowGameOver(context.WinnerName);
     }
 
     public override PlayerAction PostingBlind(IPostingBlindContext context)
     {
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowBlindPosted(Name, context.BlindAction));
+        PokerUIController.Instance.ShowBlindPosted(Name, context.BlindAction);
         return context.BlindAction;
     }
 
+    // The engine never calls this - a human has no answer to give on the spot.
+    // GetTurnRoutine below is the real implementation.
     public override PlayerAction GetTurn(IGetTurnContext context)
     {
-        _waitHandle.Reset();
-
-        // Clear the table's chatter before handing control over.
-        ThreadManager.Enqueue(() =>
-            PokerGameManager.Instance.OnPlayerTurnStarted());
-
-        ThreadManager.Enqueue(() =>
-            PokerUIController.Instance.ShowActionPrompt(context, this));
-
-        _waitHandle.Wait(); // blocks the ENGINE thread, not Unity's main thread
-
-        string yarnAction = SlowedPlayer.ToYarnAction(_pendingAction, context);
-        ThreadManager.Enqueue(() =>
-            PokerGameManager.Instance.OnPlayerAction(yarnAction));
-
-        return _pendingAction;
+        throw new System.NotSupportedException(
+            "HumanPlayer decides asynchronously - the engine must call GetTurnRoutine.");
     }
 
-    // Called from the main thread by button click handlers
+    public override IEnumerator GetTurnRoutine(IGetTurnContext context, TurnResult result)
+    {
+        _hasSubmitted = false;
+
+        // Clear the table's chatter before handing control over.
+        PokerGameManager.Instance.OnPlayerTurnStarted();
+        PokerUIController.Instance.ShowActionPrompt(context, this);
+
+        // Hands each frame back to Unity until a button handler calls
+        // SubmitAction. This replaces the wait handle the engine used to block a
+        // thread on, which no single-threaded (Web) build could ever support.
+        while (!_hasSubmitted)
+        {
+            yield return null;
+        }
+
+        PokerGameManager.Instance.OnPlayerAction(SlowedPlayer.ToYarnAction(_pendingAction, context));
+
+        result.Action = _pendingAction;
+    }
+
+    // Called by the action buttons' click handlers.
     public void SubmitAction(PlayerAction action)
     {
         _pendingAction = action;
-        _waitHandle.Set();
+        _hasSubmitted = true;
     }
 
     // Cheat window: lets a CheatingPlayer see the human's actual hole cards.

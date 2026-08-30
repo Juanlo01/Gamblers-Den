@@ -1,7 +1,10 @@
 ﻿namespace TexasHoldem.Logic.GameMechanics
 {
+    using System.Collections;
+
     public interface IHandLogic
     {
-        void Play();
+        // MODIFIED (project): coroutine - see BettingLogic.Bet.
+        IEnumerator Play();
     }
 }

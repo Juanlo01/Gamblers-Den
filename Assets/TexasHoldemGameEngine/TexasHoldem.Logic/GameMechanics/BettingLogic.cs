@@ -1,5 +1,6 @@
 ﻿namespace TexasHoldem.Logic.GameMechanics
 {
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -53,7 +54,9 @@
 
         public List<PlayerActionAndName> RoundBets { get; }
 
-        public void Bet(GameRoundType gameRoundType)
+        // MODIFIED (project): a coroutine rather than a blocking call, so waiting
+        // on a player's decision suspends this loop instead of a thread.
+        public IEnumerator Bet(GameRoundType gameRoundType)
         {
             this.RoundBets.Clear();
             this.minRaise.Reset();
@@ -63,13 +66,13 @@
 
             if (gameRoundType == GameRoundType.PreFlop)
             {
-                this.PlaceBlinds();
+                yield return this.PlaceBlinds();
                 playerIndex = this.initialPlayerIndex + 2;
             }
 
             if (this.allPlayers.Count(x => x.PlayerMoney.ShouldPlayInRound) <= 1)
             {
-                return;
+                yield break;
             }
 
             while (this.allPlayers.Count(x => x.PlayerMoney.InHand) >= 2
@@ -95,21 +98,22 @@
                 }
 
                 var maxMoneyPerPlayer = this.allPlayers.Max(x => x.PlayerMoney.CurrentRoundBet);
-                var action =
-                    player.GetTurn(
-                        new GetTurnContext(
-                            gameRoundType,
-                            this.RoundBets.AsReadOnly(),
-                            this.smallBlind,
-                            player.PlayerMoney.Money,
-                            this.Pot,
-                            player.PlayerMoney.CurrentRoundBet,
-                            maxMoneyPerPlayer,
-                            this.minRaise.Amount(player.Name),
-                            this.MainPot,
-                            this.SidePots));
+                var turnResult = new TurnResult();
+                yield return player.GetTurnRoutine(
+                    new GetTurnContext(
+                        gameRoundType,
+                        this.RoundBets.AsReadOnly(),
+                        this.smallBlind,
+                        player.PlayerMoney.Money,
+                        this.Pot,
+                        player.PlayerMoney.CurrentRoundBet,
+                        maxMoneyPerPlayer,
+                        this.minRaise.Amount(player.Name),
+                        this.MainPot,
+                        this.SidePots),
+                    turnResult);
 
-                action = player.PlayerMoney.DoPlayerAction(action, maxMoneyPerPlayer);
+                var action = player.PlayerMoney.DoPlayerAction(turnResult.Action, maxMoneyPerPlayer);
                 this.RoundBets.Add(new PlayerActionAndName(player.Name, action));
 
                 if (action.Type == PlayerActionType.Raise)
@@ -137,27 +141,30 @@
             }
         }
 
-        private void PlaceBlinds()
+        // MODIFIED (project): decomposed from a single nested expression into
+        // statements so the posting can be awaited. The order in which the money
+        // is moved and the pot is read is unchanged.
+        private IEnumerator PlaceBlinds()
         {
             // Small blind
-            this.RoundBets.Add(
-                new PlayerActionAndName(
-                    this.allPlayers[this.initialPlayerIndex].Name,
-                    this.allPlayers[this.initialPlayerIndex].PostingBlind(
-                        new PostingBlindContext(
-                            this.allPlayers[this.initialPlayerIndex].PlayerMoney.DoPlayerAction(PlayerAction.Post(this.smallBlind), 0),
-                            0,
-                            this.allPlayers[this.initialPlayerIndex].PlayerMoney.Money))));
+            var smallBlindPlayer = this.allPlayers[this.initialPlayerIndex];
+            var smallBlindContext = new PostingBlindContext(
+                smallBlindPlayer.PlayerMoney.DoPlayerAction(PlayerAction.Post(this.smallBlind), 0),
+                0,
+                smallBlindPlayer.PlayerMoney.Money);
+            var smallBlindResult = new TurnResult();
+            yield return smallBlindPlayer.PostingBlindRoutine(smallBlindContext, smallBlindResult);
+            this.RoundBets.Add(new PlayerActionAndName(smallBlindPlayer.Name, smallBlindResult.Action));
 
             // Big blind
-            this.RoundBets.Add(
-                new PlayerActionAndName(
-                    this.allPlayers[this.initialPlayerIndex + 1].Name,
-                    this.allPlayers[this.initialPlayerIndex + 1].PostingBlind(
-                        new PostingBlindContext(
-                            this.allPlayers[this.initialPlayerIndex + 1].PlayerMoney.DoPlayerAction(PlayerAction.Post(2 * this.smallBlind), 0),
-                            this.Pot,
-                            this.allPlayers[this.initialPlayerIndex + 1].PlayerMoney.Money))));
+            var bigBlindPlayer = this.allPlayers[this.initialPlayerIndex + 1];
+            var bigBlindContext = new PostingBlindContext(
+                bigBlindPlayer.PlayerMoney.DoPlayerAction(PlayerAction.Post(2 * this.smallBlind), 0),
+                this.Pot,
+                bigBlindPlayer.PlayerMoney.Money);
+            var bigBlindResult = new TurnResult();
+            yield return bigBlindPlayer.PostingBlindRoutine(bigBlindContext, bigBlindResult);
+            this.RoundBets.Add(new PlayerActionAndName(bigBlindPlayer.Name, bigBlindResult.Action));
         }
 
         private void ReturnMoneyInCaseOfAllIn()

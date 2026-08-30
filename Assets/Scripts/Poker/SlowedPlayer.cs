@@ -1,12 +1,18 @@
-using System.Threading;
+using System.Collections;
+using UnityEngine;
 using TexasHoldem.Logic.Players;
 
 // Wraps an IPlayer (e.g. SmartPlayer) so its actions are announced in the UI,
-// its table status is published to a CPU_Controller, and the engine thread
-// pauses briefly afterward, giving time to read them.
+// its table status is published to a CPU_Controller, and the hand pauses
+// briefly afterward, giving time to read them.
+//
+// The pause is why this overrides the *Routine methods rather than the
+// synchronous ones: the engine drives those, and yielding is the only way to
+// wait without a thread. The inherited synchronous GetTurn/PostingBlind simply
+// forward to the wrapped player and are not used by the engine.
 public class SlowedPlayer : PlayerDecorator
 {
-    private readonly int _delayMs;
+    private readonly float _delaySeconds;
     private readonly string _displayName;
     private readonly CPU_Controller _cpuController;
     private readonly int _seatIndex;
@@ -19,7 +25,7 @@ public class SlowedPlayer : PlayerDecorator
 
     public SlowedPlayer(IPlayer player, float delaySeconds, string displayName = null, CPU_Controller cpuController = null, int seatIndex = 0) : base(player)
     {
-        _delayMs = (int)(delaySeconds * 1000);
+        _delaySeconds = delaySeconds;
         _displayName = displayName;
         _cpuController = cpuController;
         _seatIndex = seatIndex;
@@ -48,38 +54,40 @@ public class SlowedPlayer : PlayerDecorator
         Publish();
     }
 
-    public override PlayerAction PostingBlind(IPostingBlindContext context)
+    public override IEnumerator PostingBlindRoutine(IPostingBlindContext context, TurnResult result)
     {
-        var action = base.PostingBlind(context);
-        Announce(action);
+        var inner = new TurnResult();
+        yield return Player.PostingBlindRoutine(context, inner);
+        var action = inner.Action;
+
+        yield return Announce(action);
 
         _lastAction = action;
         _currentBet = action.Money;
         _money = context.CurrentStackSize;
         Publish();
 
-        return action;
+        result.Action = action;
     }
 
-    public override PlayerAction GetTurn(IGetTurnContext context)
+    public override IEnumerator GetTurnRoutine(IGetTurnContext context, TurnResult result)
     {
-        var action = base.GetTurn(context);
+        var inner = new TurnResult();
+        yield return Player.GetTurnRoutine(context, inner);
+        var action = inner.Action;
 
         // The turn is "on screen" for the length of the Announce delay below, so
         // the dialogue opens before that pause and closes once it has elapsed.
         if (_seatIndex > 0)
         {
-            int seat = _seatIndex;
-            string yarnAction = ToYarnAction(action, context);
-            ThreadManager.Enqueue(() => PokerGameManager.Instance.OnCpuTurnStarted(seat, yarnAction));
+            PokerGameManager.Instance.OnCpuTurnStarted(_seatIndex, ToYarnAction(action, context));
         }
 
-        Announce(action);
+        yield return Announce(action);
 
         if (_seatIndex > 0)
         {
-            int seat = _seatIndex;
-            ThreadManager.Enqueue(() => PokerGameManager.Instance.OnCpuTurnEnded(seat));
+            PokerGameManager.Instance.OnCpuTurnEnded(_seatIndex);
         }
 
         _lastAction = action;
@@ -93,7 +101,7 @@ public class SlowedPlayer : PlayerDecorator
         _money = context.MoneyLeft;
         Publish();
 
-        return action;
+        result.Action = action;
     }
 
     // Maps the engine's action types onto the vocabulary the yarn "react_to"
@@ -119,10 +127,10 @@ public class SlowedPlayer : PlayerDecorator
         }
     }
 
-    private void Announce(PlayerAction action)
+    private IEnumerator Announce(PlayerAction action)
     {
-        ThreadManager.Enqueue(() => PokerUIController.Instance.ShowNpcAction(Name, action));
-        Thread.Sleep(_delayMs);
+        PokerUIController.Instance.ShowNpcAction(Name, action);
+        yield return new WaitForSeconds(_delaySeconds);
     }
 
     private void Publish()
@@ -138,6 +146,6 @@ public class SlowedPlayer : PlayerDecorator
             Position = _position
         };
 
-        ThreadManager.Enqueue(() => _cpuController.UpdateStatus(status));
+        _cpuController.UpdateStatus(status);
     }
 }
