@@ -88,7 +88,7 @@
 
             foreach (var player in this.players)
             {
-                player.EndHand(new EndHandContext(this.showdownCards, this.winnings));
+                player.EndHand(new EndHandContext(this.showdownCards, this.winnings, player.PlayerMoney.Money));
             }
         }
 

@@ -58,7 +58,13 @@ public class HumanPlayer : BasePlayer
     public override void EndHand(IEndHandContext context)
     {
         PokerUIController.Instance.ShowShowdown(context);
-        PokerGameManager.Instance.OnHandEnded(PokerGameManager.Instance.GetCurrentScore());
+
+        // context.MoneyLeft is the true post-hand stack (pot already awarded),
+        // unlike the last StartRound snapshot GetCurrentScore() would return -
+        // that can read $0 mid-hand for a player who is all-in but still live,
+        // long before the hand (and the bust check) is actually decided.
+        PokerGameManager.Instance.UpdateScore(context.MoneyLeft);
+        PokerGameManager.Instance.OnHandEnded(context.MoneyLeft);
     }
 
     // Maps the engine's round types onto the $game_phase vocabulary in init.yarn.

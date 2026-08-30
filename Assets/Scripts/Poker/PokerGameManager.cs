@@ -246,6 +246,12 @@ public class PokerGameManager : MonoBehaviour
 
         // Section 2F - between_hands is the one beat worth firing unconditionally.
         PlayFromPool(new[] { "idle", "pair", "lore", "trio" });
+
+        // Checked here, not mid-hand (UpdateScore/StartRound): an all-in player
+        // can be sitting at $0 for several rounds before the hand resolves, and
+        // may still win the pot back. A bust is only real once a hand has
+        // actually ended with nothing left to rebuy with.
+        CheckBust(playerMoney);
     }
 
     /// <summary>The player's turn began - clear the floor and hold it clear.</summary>
@@ -391,7 +397,9 @@ public class PokerGameManager : MonoBehaviour
         }
     }
 
-    // Called from the main thread whenever the human player's money changes.
+    // Called whenever the human player's money changes - including mid-hand
+    // (StartRound), where it can be a stack snapshot from before this hand is
+    // decided. Display bookkeeping only; see CheckBust for the endgame trigger.
     public void UpdateScore(int money)
     {
         currentScore = money;
@@ -399,21 +407,25 @@ public class PokerGameManager : MonoBehaviour
         {
             bestScore = currentScore;
         }
+    }
 
-        // Game over: the player can no longer meaningfully continue. Guarded so
-        // this fires once - UpdateScore runs every round for the rest of the game.
-        if (!gameOverTriggered && currentScore <= minimumBuyIn)
+    // Game over: the player ended a hand with nothing left to rebuy with.
+    // Guarded so this fires once. Deliberately not called from UpdateScore -
+    // that also runs mid-hand, where an all-in player can be momentarily at $0
+    // while the hand (and their chance to win it back) is still in progress.
+    private void CheckBust(int moneyAfterHand)
+    {
+        if (gameOverTriggered || moneyAfterHand > minimumBuyIn) return;
+
+        gameOverTriggered = true;
+
+        if (pauseMenu != null)
         {
-            gameOverTriggered = true;
-
-            if (pauseMenu != null)
-            {
-                pauseMenu.OpenEndgame();
-            }
-            else
-            {
-                Debug.LogWarning("[PokerGameManager] Player is out of money but no PauseMenu is assigned.", this);
-            }
+            pauseMenu.OpenEndgame();
+        }
+        else
+        {
+            Debug.LogWarning("[PokerGameManager] Player is out of money but no PauseMenu is assigned.", this);
         }
     }
 
