@@ -13,11 +13,13 @@ public class CPU_Animator : MonoBehaviour{
     [field: SerializeField] public string YarnId { get; set; }
 
     int cheatingOpportunity = 0;
-    public int sweatOpportunity = 3;
-    public int dartOpportunity = 13;
-    public int shakeOpportunity = 13;
-    public int coughOpportunity = 13;
-    public int blinkOpportunity = 13;
+    int cheatChance = 0;
+    public int sweatOpportunity = 31;
+    public int dartOpportunity = 26;
+    public int shakeOpportunity = 21;
+    public int coughOpportunity = 16;
+    public int blinkOpportunity = 10;
+    public float cheatInterval = 5f;
     public bool catchOpportunity;
     public bool isCheating;
     public bool caughtCheating;
@@ -31,7 +33,7 @@ public class CPU_Animator : MonoBehaviour{
     void Start(){
         _animator.SetBool("isCaught", false);
         ClearStates();
-        StartCoroutine(Cheat());
+        StartCoroutine(TryCheat());
     }
 
     // // Update is called once per frame
@@ -62,41 +64,60 @@ public class CPU_Animator : MonoBehaviour{
         //_animator.SetBool("isCaught", false);
     }
 
-    IEnumerator Cheat(){
+    IEnumerator TryCheat(){
+        yield return new WaitForSeconds(cheatInterval); // Waiting before attempting to cheat first time
         while (true){
-            cheatingOpportunity = Random.Range(0, 11);
-            if (cheatingOpportunity >= sweatOpportunity && !isCheating){
+            cheatChance = Random.Range (0, 26);
+            Debug.Log("Cheat Chance: " + cheatChance);
+            if (cheatChance >= 20){ // 1 in 5 chance to cheat
+                cheatingOpportunity = Random.Range(0, 31);
+                yield return StartCoroutine(Cheat(cheatingOpportunity));
+            }
+            yield return new WaitForSeconds(cheatInterval); // Interval between cheat attempts
+        }
+    }
+
+    IEnumerator Cheat(int cheatingOpportunity){
+        if (!isCheating){ // If already cheating, can not cheat again
+            Debug.Log(cheatingOpportunity);
+            if (sweatOpportunity - 5 <= cheatingOpportunity && cheatingOpportunity < sweatOpportunity){
+                Debug.Log("Sweating");
                 isCheating = true; // In the process of cheating, can not cheat again while cheating
                 _animator.SetBool("isSweating", true);
                 sweatDrop.enabled = true;
                 StartCoroutine(CatchOpportunity());
             }
-            else if (cheatingOpportunity >= dartOpportunity && !isCheating){
+            else if (dartOpportunity - 5 <= cheatingOpportunity && cheatingOpportunity < dartOpportunity){
+                Debug.Log("Darting");
                 isCheating = true;
                 _animator.SetBool("isDarting", true);
                 StartCoroutine(CatchOpportunity());
             }
-            else if (cheatingOpportunity >= shakeOpportunity && !isCheating){
+            else if (shakeOpportunity - 5 <= cheatingOpportunity && cheatingOpportunity < shakeOpportunity){
+                Debug.Log("Shaking");
                 isCheating = true;
                 _animator.SetBool("isShaking", true);
                 StartCoroutine(CatchOpportunity());
             }
-            else if (cheatingOpportunity >= coughOpportunity && !isCheating){
+            else if (coughOpportunity - 5 <= cheatingOpportunity && cheatingOpportunity < coughOpportunity){
+                Debug.Log("Coughing");
                 isCheating = true;
                 _animator.SetBool("isCoughing", true);
                 AudioManager.Instance?.PlayOneShot("cough");
                 StartCoroutine(CatchOpportunity());
             }
-            else if (cheatingOpportunity >= blinkOpportunity && !isCheating){
+            else if (blinkOpportunity - 10 <= cheatingOpportunity && cheatingOpportunity < blinkOpportunity){
+                Debug.Log("Blinking");
                 isCheating = true; // prevents attempting to cheat while already in animation
                 _animator.SetBool("isBlinking", true);
+                yield return new WaitForSeconds(1f);
                 ClearAnimations();
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
                 isCheating = false; // redundant only if already was cheating
                 //StartCoroutine(CatchOpportunity()); Can not get caught cus not cheating
             }
-            yield return null;
         }
+        yield return null;
     }
 
 

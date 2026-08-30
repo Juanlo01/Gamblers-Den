@@ -222,11 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CPU_Animator
   <Name>k__BackingField: 
   <YarnId>k__BackingField: 
-  sweatOpportunity: 13
-  dartOpportunity: 3
-  shakeOpportunity: 8
-  coughOpportunity: 13
-  blinkOpportunity: 13
+  sweatOpportunity: 31
+  dartOpportunity: 26
+  shakeOpportunity: 21
+  coughOpportunity: 16
+  blinkOpportunity: 11
+  cheatInterval: 15
   catchOpportunity: 0
   isCheating: 0
   caughtCheating: 0
