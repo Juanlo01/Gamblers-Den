@@ -88,7 +88,7 @@ public class PokerUIController : MonoBehaviour
 
     public void ShowMoney(int moneyLeft)
     {
-        moneyText.text = $"Money: ${moneyLeft}";
+        moneyText.text = $"${moneyLeft}";
         raiseManager.SetMoney(moneyLeft);
     }
 
