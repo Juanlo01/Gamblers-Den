@@ -1,0 +1,544 @@
+// hyena humanoid, warrior, fiercely loyal, loves pancakes and waffles.
+// died protecting a bakery from bandits. his last words were "but where are the waffles?"
+// file: yusen_zhou, speaker: YuSen Zhou
+
+// ============================================================
+// CASUAL
+// ============================================================
+// hyena humanoid, warrior, fiercely loyal, loves pancakes and waffles.
+// died protecting a bakery from bandits. his last words were "but where are the waffles?"
+// file: yusen_zhou, speaker: YuSen Zhou
+
+title: YusenZhou_Casual_01
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Yusen Zhou: [auto/] You know what I miss most? The smell of batter hitting a hot iron at dawn, the sizzle, the smell.
+//END: casual01
+===
+
+title: YusenZhou_Casual_02
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Yusen Zhou: [auto/] I once ate fourteen pancakes in a single sitting. The baker tried to cut me off. I growled. She made five more.
+//END: casual02
+===
+
+title: YusenZhou_Casual_03
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Yusen Zhou: [auto/] Loyalty is like a good waffle - crispy on the outside, warm and soft where it counts. And you never, ever let it go cold.
+//END: casual03
+===
+
+title: YusenZhou_Casual_04
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Yusen Zhou: [auto/] Ha! Waiting to play is like waiting for the next course. The anticipation is half the meal!
+//END: casual04
+===
+
+title: YusenZhou_Casual_05
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Yusen Zhou: [auto/] The bakery had this little bell above the door. Every time it rang I knew it meant someone was about to eat good. I miss that bell.
+//END: casual05
+===
+
+title: YusenZhou_Casual_06
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Yusen Zhou: [auto/] Some folks fight for glory. Some for coin. Me? So I can live to eat another day.
+//END: casual06
+===
+
+title: YusenZhou_Casual_07
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Yusen Zhou: [auto/] Man I bore these days... and hunger.
+//END: casual07
+===
+
+title: YusenZhou_Casual_08
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Yusen Zhou: [auto/] Two pancakes, call that a pair. Breakfast in bed, call that a full house.
+//END: casual08
+===
+
+title: YusenZhou_Casual_09
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Yusen Zhou: [auto/] Turns out the pot is just money, not even a pot of batter.
+//END: casual09
+===
+
+title: YusenZhou_Casual_10
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Yusen Zhou: [auto/] My strange looks got me strange stares, I cared little for any of it.
+//END: casual10
+===
+
+title: YusenZhou_Casual_11
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Yusen Zhou: [auto/] I was loyal to my King till the very end, I fought for him then feasted across the table from him.
+//END: casual11
+===
+
+title: YusenZhou_Casual_12
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Yusen Zhou: [auto/] I hunger.
+//END: casual12
+===
+
+title: YusenZhou_Casual_13
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Yusen Zhou: [auto/] The bakery was nothing special. Flour on the floor, a cracked oven, one wobbly table. But it was mine to protect. So I did.
+//END: casual13
+===
+
+title: YusenZhou_Casual_14
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Yusen Zhou: [auto/] The bandits came at dawn. Six of them. I held the door. I don't remember how long but I know I won in the end.
+//END: casual14
+===
+
+title: YusenZhou_Casual_15
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Yusen Zhou: [auto/] My last thought, dying on that bakery floor? "But where are the waffles?" Ha! Even death could not make me serious!
+//END: casual15
+===
+
+title: YusenZhou_Casual_16
+tags: casual
+speaker: yusen_zhou
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Yusen Zhou: [auto/] Loyalty is not complicated. You find something worth protecting, and you do not leave. That is it. That is the whole recipe.
+//END: casual16
+===
+
+// ===========================
+// GAME STATES
+// ===========================
+
+title: YusenZhou_ReactAction_Raise_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Yusen Zhou: [auto/] Do you have the bread to back up that raise?
+//END: reactaction01
+===
+
+title: YusenZhou_ReactAction_Fold_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Yusen Zhou: [auto/] Folding already? But there's always room for dessert!
+//END: reactaction02
+===
+
+title: YusenZhou_ReactAction_AllIn_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Yusen Zhou: [auto/] An all-in! Everything on the table like a banquet.
+//END: reactaction03
+===
+
+title: YusenZhou_ReactAction_Raise_02
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction04
+Yusen Zhou: [auto/] More coin, I fought a-many battles for coin, of which, to buy waffles with.
+//END: reactaction04
+===
+
+title: YusenZhou_ReactAction_Check_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction05
+Yusen Zhou: [auto/] Ohhh, a check? Playing it safe? Sometimes a plain pancake is all you need. I respect that. Barely.
+//END: reactaction05
+===
+
+title: YusenZhou_ReactAction_Call_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Yusen Zhou: [auto/] A call! Steady as a stack of pancakes, not one syrup drop wasted! I like this kind of patience!
+//END: reactaction06
+===
+
+title: YusenZhou_ReactAction_SelfFold_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Yusen Zhou: [auto/] I fold! Even the mightiest warrior knows when a waffle has gone cold — there is no honour in eating it anyway!
+//END: reactaction07
+===
+
+title: YusenZhou_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Yusen Zhou: [auto/] ALL IN! I am pushing every chip forward like I once pushed a whole cart of pastries out of a burning bakery! For glory!
+//END: reactaction08
+===
+
+title: YusenZhou_ReactAction_SelfRaise_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Yusen Zhou: [auto/] I raise! Loudly! The way I once demanded a THIRD helping of waffles and got it, because I asked with conviction!
+//END: reactaction09
+===
+
+title: YusenZhou_ReactAction_SelfCall_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Yusen Zhou: [auto/] I call! A warrior does not flinch from the price of the meal once he has already smelled the pancakes cooking!
+//END: reactaction10
+===
+
+title: YusenZhou_ReactAction_SelfCheck_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Yusen Zhou: [auto/] I check! Patience, patience! Even a good batter needs to rest before it becomes a proper pancake!
+//END: reactaction11
+===
+
+title: YusenZhou_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Yusen Zhou: [auto/] Ha! Every hand is a new battlefield, and every battlefield deserves a victory breakfast afterward!
+//END: reactaction12
+===
+
+title: YusenZhou_ReactAction_Any_01
+tags: react_action
+speaker: yusen_zhou
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Yusen Zhou: [auto/] Something just happened! I can smell it! Not literally, but also maybe literally!
+//END: reactaction13
+===
+
+// ===========================
+// SHOWDOWNS
+// ===========================
+
+title: YusenZhou_Showdown_Win_01
+tags: showdown
+speaker: yusen_zhou
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Yusen Zhou: [auto/] Victory! My king would be proud.
+//END: showdown01
+===
+
+title: YusenZhou_Showdown_Win_02
+tags: showdown
+speaker: yusen_zhou
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Yusen Zhou: [auto/] Tasty triumph! This is what I fight for!
+//END: showdown02
+===
+
+title: YusenZhou_Showdown_Lose_01
+tags: showdown
+speaker: yusen_zhou
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Yusen Zhou: [auto/] I lost... no bakery in this city... what's the point.
+//END: showdown03
+===
+
+title: YusenZhou_Showdown_Lose_02
+tags: showdown
+speaker: yusen_zhou
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Yusen Zhou: [auto/] Beaten like an egg.
+//END: showdown04
+===
+
+title: YusenZhou_Showdown_Any_01
+tags: showdown
+speaker: yusen_zhou
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: any //mostly for ties
+---
+//START: showdown05
+Yusen Zhou: [auto/] A good fight, a decent outcome.
+//END: showdown05
+===
+// ===
+// CHEATING
+// ===
+
+title: YusenZhou_Cheating_Innocent_01
+tags: cheating
+speaker: yusen_zhou
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Yusen Zhou: [auto/] Me?! Cheat?! I would never! Loyalty means something, even at a card table!
+//END: cheating01
+===
+title: YusenZhou_Cheating_Guilty_01
+tags: cheating
+speaker: yusen_zhou
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Yusen Zhou: [auto/] Okay fine, I peeked! But it was ONE peek! For a waffle-sized advantage at most!
+//END: cheating02
+===

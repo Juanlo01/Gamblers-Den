@@ -1,0 +1,540 @@
+// troubled ghost girl, beautiful, likes music, belittled.
+// killed in an alley way after being stalked by some men on the way home from her music lessons.
+// file: beauty_xu, speaker: Beauty Xu
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: BeautyXu_Casual_01
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Beauty Xu: [auto/] The silence between hands reminds me of rests in a song. They matter just as much as the notes.
+//END: casual01
+===
+
+title: BeautyXu_Casual_02
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Beauty Xu: [auto/] I used to hum to myself on the walk home from lessons. I wonder if I still remember the melody.
+//END: casual02
+===
+
+title: BeautyXu_Casual_03
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Beauty Xu: [auto/] Everyone at this table carries a weight. You can hear it if you listen closely enough.
+//END: casual03
+===
+
+title: BeautyXu_Casual_04
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Beauty Xu: [auto/] People use their eyes too much and their ears too little.
+//END: casual04
+===
+
+title: BeautyXu_Casual_05
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Beauty Xu: [auto/] Music taught me patience. You cannot rush a song to its ending and expect it to mean anything.
+//END: casual05
+===
+
+title: BeautyXu_Casual_06
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Beauty Xu: [auto/] The afterlife is more noisy than I expected. I'm glad there's so much to listen to.
+//END: casual06
+===
+
+title: BeautyXu_Casual_07
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Beauty Xu: [auto/] Every hand is a new composition. Some are elegant, some are just noise.
+//END: casual07
+===
+
+title: BeautyXu_Casual_08
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Beauty Xu: [auto/] dunn, dunnn, dunnnn, dunn. Some melody is stuck in my head but I don't remember the lyrics.
+//END: casual08
+===
+
+title: BeautyXu_Casual_09
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Beauty Xu: [auto/] Raise or fold, it all comes down to timing. Like knowing when to hold a note and when to let it go.
+//END: casual09
+===
+
+title: BeautyXu_Casual_10
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Beauty Xu: [auto/] This game has a rhythm to it, if you stop talking long enough to notice.
+//END: casual10
+===
+
+title: BeautyXu_Casual_11
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Beauty Xu: [auto/] Some people play loud, hoping volume will pass for confidence. I prefer to play softly and let them wonder.
+//END: casual11
+===
+
+title: BeautyXu_Casual_12
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Beauty Xu: [auto/] Cards are like sheet music. Your cards might sound good to you but aren't to anyone else.
+//END: casual12
+===
+
+title: BeautyXu_Casual_13
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Beauty Xu: [auto/] I used to play the guqin. I think I had a good teacher too.
+//END: casual13
+===
+
+title: BeautyXu_Casual_14
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Beauty Xu: [auto/] The alley was dark that night. I can still hear the footsteps, my heartbeat.
+//END: casual14
+===
+
+title: BeautyXu_Casual_15
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Beauty Xu: [auto/] They said I was too beautiful for my own good. As if beauty were a crime I committed against myself.
+//END: casual15
+===
+
+title: BeautyXu_Casual_16
+position: 767,39
+tags: casual
+speaker: beauty_xu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Beauty Xu: [auto/] In the afterlife, no one follows you home. That alone makes it better than the living world.
+//END: casual16
+===
+// ============================================================
+// GAME STATES
+// ============================================================
+
+title: BeautyXu_ReactAction_Raise_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Beauty Xu: [auto/] Beautiful play.
+//END: reactaction01
+===
+
+title: BeautyXu_ReactAction_Fold_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Beauty Xu: [auto/] Sad play.
+//END: reactaction02
+===
+
+title: BeautyXu_ReactAction_AllIn_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Beauty Xu: [auto/] All in? A crescendo, I hope you know how the piece ends.
+//END: reactaction03
+===
+
+title: BeautyXu_ReactAction_Any_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction04
+Beauty Xu: [auto/] Interesting. That was not the note I expected from you.
+//END: reactaction04
+===
+
+title: BeautyXu_ReactAction_Raise_02
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction05
+Beauty Xu: [auto/] Such confidence. It either comes from a strong hand or a desperate heart. Hard to tell until the last play.
+//END: reactaction05
+===
+
+title: BeautyXu_ReactAction_Call_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Beauty Xu: [auto/] A call, much like a musical parody.
+//END: reactaction06
+===
+
+title: BeautyXu_ReactAction_Check_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction07
+Beauty Xu: [auto/] A choice to remain silent.
+//END: reactaction07
+===
+
+title: BeautyXu_ReactAction_SelfFold_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction08
+Beauty Xu: [auto/] Like the time I started to cover my face, I yield.
+//END: reactaction08
+===
+
+title: BeautyXu_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction09
+Beauty Xu: [auto/] Everything I have left.
+//END: reactaction09
+===
+
+title: BeautyXu_ReactAction_SelfRaise_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction10
+Beauty Xu: [auto/] I aim to play a little louder.
+//END: reactaction10
+===
+
+title: BeautyXu_ReactAction_SelfCall_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction11
+Beauty Xu: [auto/] I can agree to that.
+//END: reactaction11
+===
+
+title: BeautyXu_ReactAction_SelfCheck_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction12
+Beauty Xu: [auto/] I agree to keep quiet.
+//END: reactaction12
+===
+
+title: BeautyXu_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: beauty_xu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Beauty Xu: [auto/] I played that the only way I know how. Quietly.
+//END: reactaction13
+===
+// ===
+// SHOWDOWNS
+// ===
+
+title: BeautyXu_Showdown_Win_01
+tags: showdown
+speaker: beauty_xu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Beauty Xu: [auto/] Same feeling as when I first performed in front of an audience.
+//END: showdown01
+===
+
+title: BeautyXu_Showdown_Win_02
+tags: showdown
+speaker: beauty_xu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Beauty Xu: [auto/] A small harmony in a world of dissonance. I will take it gratefully.
+//END: showdown02
+===
+
+title: BeautyXu_Showdown_Lose_01
+tags: showdown
+speaker: beauty_xu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Beauty Xu: [auto/] Like being stabbed in an alley all over again.
+//END: showdown03
+===
+
+title: BeautyXu_Showdown_Lose_02
+tags: showdown
+speaker: beauty_xu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Beauty Xu: [auto/] I was wrong to be so loud.
+//END: showdown04
+===
+
+title: BeautyXu_Showdown_Any_01
+tags: showdown
+speaker: beauty_xu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: any
+---
+//START: showdown05
+Beauty Xu: [auto/] Every ending is just a rest before the next thing begins.
+//END: showdown05
+===
+// ===
+// CHEATING
+// ===
+
+title: BeautyXu_Cheating_Innocent_01
+tags: cheating
+speaker: beauty_xu
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Beauty Xu: [auto/] These accusations I've heard all my life. First they forced me to cover my face, now they force me to prove my innocence.
+//END: cheating01
+===
+title: BeautyXu_Cheating_Guilty_01
+tags: cheating
+speaker: beauty_xu
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Beauty Xu: [auto/] Caught. How embarrassing.
+//END: cheating02
+===

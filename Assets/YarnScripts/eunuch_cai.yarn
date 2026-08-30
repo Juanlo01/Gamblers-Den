@@ -1,0 +1,540 @@
+// shy, cowardly, but goodhearted eunuch.
+// died as a scapegoat for his empress, took the blame for a crime he didn't commit and got executed.
+// file: eunuch_cai, speaker: Eunuch Cai
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: EunuchCai_Casual_01
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Eunuch Cai: [auto/] Sorry. I was just... sitting here. I hope that is alright. I can move if someone needs the space.
+//END: casual01
+===
+
+title: EunuchCai_Casual_02
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Eunuch Cai: [auto/] The palace ceilings were painted with dragons. Here it's just... darkness. Somehow I find it comforting.
+//END: casual02
+===
+
+title: EunuchCai_Casual_03
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Eunuch Cai: [auto/] My hands will not stop shaking, I fear they make me seem guilty or that I have a weak hand.
+//END: casual03
+===
+
+title: EunuchCai_Casual_04
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Eunuch Cai: [auto/] Quiet is a good thing, if I heard noise in the palace it was always because someone was angry.
+//END: casual04
+===
+
+title: EunuchCai_Casual_05
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Eunuch Cai: [auto/] I used to be very good at not being noticed. Some skills carry over into the afterlife.
+//END: casual05
+===
+
+title: EunuchCai_Casual_06
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Eunuch Cai: [auto/] This table is the first place anyone has ever saved me a seat. I know it is just poker but... it matters.
+//END: casual06
+===
+
+title: EunuchCai_Casual_07
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Eunuch Cai: [auto/] I like the words in this game, hand? river? They are simple.
+//END: casual07
+===
+
+title: EunuchCai_Casual_08
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Eunuch Cai: [auto/] Everyone at this table is lying. I... I can tell. You learn to read lies when your life depends on it.
+//END: casual08
+===
+
+title: EunuchCai_Casual_09
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Eunuch Cai: [auto/] My chips are the most neatly stacked here.
+//END: casual09
+===
+
+title: EunuchCai_Casual_10
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Eunuch Cai: [auto/] First time I get to play a game as a player and not as a pawn.
+//END: casual10
+===
+
+title: EunuchCai_Casual_11
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Eunuch Cai: [auto/] Everyone died one by one I thought I'd be different since I was so observant, I guess not.
+//END: casual11
+===
+
+title: EunuchCai_Casual_12
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Eunuch Cai: [auto/] Folding is underrated. Retreating is not cowardice, it is... it is just good sense.
+//END: casual12
+===
+
+title: EunuchCai_Casual_13
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Eunuch Cai: [auto/] She needed someone to blame. I was convenient. Loyal, quiet, and utterly disposable. The perfect scapegoat does not even realize he is one.
+//END: casual13
+===
+
+title: EunuchCai_Casual_14
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Eunuch Cai: [auto/] The palace was so beautiful, so much beauty on the walls and ugliness within them.
+//END: casual14
+===
+
+title: EunuchCai_Casual_15
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Eunuch Cai: [auto/] To serve is to disappear. You become a pair of hands, a bowed head.
+//END: casual15
+===
+
+title: EunuchCai_Casual_16
+tags: casual
+speaker: eunuch_cai
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Eunuch Cai: [auto/] On my last day she stared me in the eyes as I was executed, she had no shame, that hurt most of all.
+//END: casual16
+===
+// ===
+// GAME STATES
+// ===
+
+
+title: EunuchCai_ReactAction_Raise_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Eunuch Cai: [auto/] I flinched when you raised.
+//END: reactaction01
+===
+
+title: EunuchCai_ReactAction_AllIn_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction02
+Eunuch Cai: [auto/] All in?! Why would anyone risk everything when you could just... not?
+//END: reactaction02
+===
+
+title: EunuchCai_ReactAction_Fold_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction03
+Eunuch Cai: [auto/] A fold. Good. Wise. There is no shame in stepping back.
+//END: reactaction03
+===
+
+title: EunuchCai_ReactAction_Raise_02
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction04
+Eunuch Cai: [auto/] Big raise, big bluff.
+//END: reactaction04
+===
+
+title: EunuchCai_ReactAction_Check_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction05
+Eunuch Cai: [auto/] Checking, very safe very smart.
+//END: reactaction05
+===
+
+title: EunuchCai_ReactAction_Call_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Eunuch Cai: [auto/] A call. Not a fight, not a retreat. Just... enduring what's to come.
+//END: reactaction06
+===
+
+title: EunuchCai_ReactAction_SelfFold_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Eunuch Cai: [auto/] I fold once again, it's something I seemed to rarely regret.
+//END: reactaction07
+===
+
+title: EunuchCai_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Eunuch Cai: [auto/] So unlike me but if I had more money I could've stood a chance to defend myself.
+//END: reactaction08
+===
+
+title: EunuchCai_ReactAction_SelfRaise_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Eunuch Cai: [auto/] Surprised to see myself raise.
+//END: reactaction09
+===
+
+title: EunuchCai_ReactAction_SelfCall_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Eunuch Cai: [auto/] I called, this is surprisingly fun I want to keep it going.
+//END: reactaction10
+===
+
+title: EunuchCai_ReactAction_SelfCheck_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Eunuch Cai: [auto/] I checked. Said nothing, revealed nothing. It's my natural talent.
+//END: reactaction11
+===
+
+title: EunuchCai_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Eunuch Cai: [auto/] Whatever I just did, I have already begun to regret it. That is not new. I regretted things in the palace too. At least here, no one dies for it.
+//END: reactaction12
+===
+
+title: EunuchCai_ReactAction_Any_01
+tags: react_action
+speaker: eunuch_cai
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Eunuch Cai: [auto/] Something just shifted at this table. I could not tell you what. I have learned to notice when the air changes, even if I never learned why.
+//END: reactaction13
+===
+// ==========================
+// SHOWDOWNS
+// ==========================
+
+title: EunuchCai_Showdown_Win_01
+tags: showdown
+speaker: eunuch_cai
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Eunuch Cai: [auto/] I... won? Everyone is sure? Really...? What a delight.
+//END: showdown01
+===
+
+title: EunuchCai_Showdown_Win_02
+tags: showdown
+speaker: eunuch_cai
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Eunuch Cai: [auto/] I feel bad for taking all your money but also I hope you understand I needed the win.
+//END: showdown02
+===
+
+title: EunuchCai_Showdown_Lose_03
+tags: showdown
+speaker: eunuch_cai
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Eunuch Cai: [auto/] I lost. Yes. Of course I lost. This is the outcome I was prepared for. The only outcome I am ever prepared for.
+//END: showdown03
+===
+
+title: EunuchCai_Showdown_Lose_04
+tags: showdown
+speaker: eunuch_cai
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Eunuch Cai: [auto/] Gone. All of it. Well, I am used to having things taken from me. At least this time it was only chips.
+//END: showdown04
+===
+
+title: EunuchCai_Showdown_Any_01
+tags: showdown
+speaker: eunuch_cai
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: any
+---
+//START: showdown05
+Eunuch Cai: [auto/] That was close. My heart would be pounding if I still had one. I think my spirit is pounding instead.
+//END: showdown05
+===
+// ==========================
+// CHEATING
+// ==========================
+
+title: EunuchCai_Cheating_Innocent_01
+tags: cheating
+speaker: eunuch_cai
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Eunuch Cai: [auto/] I did not cheat! I would never— I panic just holding a normal hand, let alone a hidden one.
+//END: cheating01
+===
+title: EunuchCai_Cheating_Guilty_01
+tags: cheating
+speaker: eunuch_cai
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Eunuch Cai: [auto/] I— yes. Fine. I cheated. I am so sorry. Please do not tell the empress.
+//END: cheating02
+===

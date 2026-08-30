@@ -1,0 +1,542 @@
+// demon (tiefling-like), likes poetry, somewhat serious and dramatic, lonely.
+// was captured and killed by a noble who wanted to keep him as a pet.
+// file: poet, speaker: Poet
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: Poet_Casual_01
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Poet: [auto/] This city of ghosts wears its silence like a burial shroud. Fitting. We are all unfinished poems here.
+//END: casual01
+===
+
+title: Poet_Casual_02
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Poet: [auto/] The candles flicker as if they, too, are uncertain whether to stay or go. I wrote a verse about that once.
+//END: casual02
+===
+
+title: Poet_Casual_03
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Poet: [auto/] Look at us. The dead, gathered around felt and fortune. If this is not the grandest metaphor ever dealt, I have lost my ear for irony.
+//END: casual03
+===
+
+title: Poet_Casual_04
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Poet: [auto/] All I can think of now is all the beauty to write about up here, nothing to ever be read by anyone.
+//END: casual04
+===
+
+title: Poet_Casual_05
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Poet: [auto/] The afterlife has no seasons. No autumn to mourn, no spring to celebrate. Just this eternal amber twilight. It suits a poet, I suppose.
+//END: casual05
+===
+
+title: Poet_Casual_06
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Poet: [auto/] I can feel the weight of every soul at this table.
+//END: casual06
+===
+
+title: Poet_Casual_07
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Poet: [auto/] Two cards, our fate lies in our hands.
+//END: casual07
+===
+
+title: Poet_Casual_08
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Poet: [auto/] The flop reveals itself like the second line of a couplet. Does it rhyme with your ambitions?
+//END: casual08
+===
+
+title: Poet_Casual_09
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Poet: [auto/] Every bet placed is a word chosen with intent. Choose carefully.
+//END: casual09
+===
+
+title: Poet_Casual_10
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Poet: [auto/] These names are nonsense, the flop? a flush? What are we on about.
+//END: casual10
+===
+
+title: Poet_Casual_11
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Poet: [auto/] With the fall of every card my heart hangs a second in anticipation.
+//END: casual11
+===
+
+title: Poet_Casual_12
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Poet: [auto/] Fold, raise, call... the vocabulary of this game is so small, and yet the stories it tells are vast.
+//END: casual12
+===
+
+title: Poet_Casual_13
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Poet: [auto/] A noble once told me my poetry was beautiful, he locked me up and forced me to perform until I lost my voice... my strength.
+//END: casual13
+===
+
+title: Poet_Casual_14
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Poet: [auto/] They called me "pet." A demon caged for the amusement of a man who could not tell poetry from performance. My words were not mine. My voice was not mine. Only my death, in the end, was mine.
+//END: casual14
+===
+
+title: Poet_Casual_15
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Poet: [auto/] In life, my horns were filed down so I would not frighten the guests. They wanted the poetry without the poet.
+//END: casual15
+===
+
+title: Poet_Casual_16
+tags: casual
+speaker: poet
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Poet: [auto/] You know the cage only made my entrapment more clear, as a demon, I was alone to begin with.
+//END: casual16
+===
+
+// ===================
+// GAME STATES
+// ===================
+
+title: Poet_ReactAction_Raise_01
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Poet: [auto/] A bold raise. In all poetry there is always a single line that risks disrupting the meaning, this is your line.
+//END: reactaction01
+===
+
+title: Poet_ReactAction_Fold_01
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Poet: [auto/] You fold huh? What if the rest of the poem is beautiful?
+//END: reactaction02
+===
+
+title: Poet_ReactAction_AllIn_01
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Poet: [auto/] All in? I'll see your last stanza and raise it a sonnet.
+//END: reactaction03
+===
+
+title: Poet_ReactAction_Check_01
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction04
+Poet: [auto/] Just checking huh? I feel like you're hiding something behind that poker face of yours.
+//END: reactaction04
+===
+
+title: Poet_ReactAction_Raise_02
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction05
+Poet: [auto/] You raised with such passion.
+//END: reactaction05
+===
+
+title: Poet_ReactAction_Call_01
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Poet: [auto/] A call, plain and unadorned.
+//END: reactaction06
+===
+
+title: Poet_ReactAction_SelfFold_01
+tags: react_action
+speaker: poet
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Poet: [auto/] I wish to start from a new page.
+//END: reactaction07
+===
+
+title: Poet_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: poet
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Poet: [auto/] I stake it all on this line, if it doesn't read well I should have never wrote it.
+//END: reactaction08
+===
+
+title: Poet_ReactAction_SelfRaise_01
+tags: react_action
+speaker: poet
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Poet: [auto/] I raise, I think I can win the pot and some!
+//END: reactaction09
+===
+
+title: Poet_ReactAction_SelfCall_01
+tags: react_action
+speaker: poet
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Poet: [auto/] I call, simple lines in poetry help keep everything grounded.
+//END: reactaction10
+===
+
+title: Poet_ReactAction_SelfCheck_01
+tags: react_action
+speaker: poet
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Poet: [auto/] Not all the poetry I wrote was from my own perspective, sometimes it was to idle by and observe others much like my check.
+//END: reactaction11
+===
+
+title: Poet_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: poet
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Poet: [auto/] Every hand I play becomes another line in a poem no one asked for. Still I write.
+//END: reactaction12
+===
+
+title: Poet_ReactAction_Any_01
+tags: react_action
+speaker: poet
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Poet: [auto/] Something feels off, one of you isn't being honest.
+//END: reactaction13
+===
+
+// =============
+// SHOWDOWNS
+// =============
+
+title: Poet_Showdown_Win_01
+tags: showdown
+speaker: poet
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Poet: [auto/] Victory! It feels much like the glory of the world reading your work for the first time.
+//END: showdown01
+===
+
+title: Poet_Showdown_Win_02
+tags: showdown
+speaker: poet
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Poet: [auto/] I am triumphant, I shall write a story of winning and of progress.
+//END: showdown02
+===
+
+title: Poet_Showdown_Lose_01
+tags: showdown
+speaker: poet
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Poet: [auto/] Even tragedy can be written in a way of beauty.
+//END: showdown03
+===
+
+title: Poet_Showdown_Lose_02
+tags: showdown
+speaker: poet
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Poet: [auto/] No no no, this verse won't do I should start a-new.
+//END: showdown04
+===
+
+title: Poet_Showdown_Lose_03
+tags: showdown
+speaker: poet
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Poet: [auto/] I see, it appears I lost the gambit.
+//END: showdown05
+===
+
+// =============
+// CHEATING
+// =============
+
+title: Poet_Cheating_Innocent_01
+tags: cheating
+speaker: poet
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Poet: [auto/] A story of an innocent accused of cheating, how poetic.
+//END: cheating01
+===
+title: Poet_Cheating_Guilty_01
+tags: cheating
+speaker: poet
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Poet: [auto/] Every great story features tragedy, I wanted to speed up the plot.
+//END: cheating02
+===

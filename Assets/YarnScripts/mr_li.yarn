@@ -1,0 +1,540 @@
+// Pragmatic merchant/accountant, numbers-focused, anxious about margins and money.
+// Stole a pearl necklace, the owner of that pearl necklace later confronted him and killed him to retrieve it.
+// file: mr_li, speaker: Mr. Li
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: MrLi_Casual_01
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Mr. Li: [auto/] Twenty-seven tiles in the ceiling. I counted twice. Old habits.
+//END: casual01
+===
+
+title: MrLi_Casual_02
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Mr. Li: [auto/] Even in death, I find myself tallying. Chips, souls, regrets. Everything has a ledger.
+//END: casual02
+===
+
+title: MrLi_Casual_03
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Mr. Li: [auto/] A good merchant is always preparing his next sales pitch.
+//END: casual03
+===
+
+title: MrLi_Casual_04
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Mr. Li: [auto/] I keep reaching for coins that aren't there... everything, gone.
+//END: casual04
+===
+
+title: MrLi_Casual_05
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Mr. Li: [auto/] Waiting between hands is like waiting for a shipment. Idle capital earns nothing.
+//END: casual05
+===
+
+title: MrLi_Casual_06
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Mr. Li: [auto/] I would give anything for an abacus right now.
+//END: casual06
+===
+
+title: MrLi_Casual_07
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Mr. Li: [auto/] The pot odds here are... acceptable. Not generous, but acceptable.
+//END: casual07
+===
+
+title: MrLi_Casual_08
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Mr. Li: [auto/] Every chip on this table is a transaction. You buy information, or you sell a lie.
+//END: casual08
+===
+
+title: MrLi_Casual_09
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Mr. Li: [auto/] In my shop, I never stocked what wouldn't sell. Same principle applies to bets.
+//END: casual09
+===
+
+title: MrLi_Casual_10
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Mr. Li: [auto/] Risk without calculation is just gambling. Risk with calculation is business.
+//END: casual10
+===
+
+title: MrLi_Casual_11
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Mr. Li: [auto/] The markup on bluffs is extraordinary. Low cost, high return.
+//END: casual11
+===
+
+title: MrLi_Casual_12
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Mr. Li: [auto/] A balanced ledger is a beautiful thing. This hand... is not balanced.
+//END: casual12
+===
+
+title: MrLi_Casual_13
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Mr. Li: [auto/] I once held something worth more than my entire shop. For about three days. Then the bills came due.
+//END: casual13
+===
+
+title: MrLi_Casual_14
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Mr. Li: [auto/] My shop was modest. Silks, spices, the occasional luxury. I should have been content with modest.
+//END: casual14
+===
+
+title: MrLi_Casual_15
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Mr. Li: [auto/] Pearls are cold against the skin. I remember that. Cold, and heavier than they had any right to be.
+//END: casual15
+===
+
+title: MrLi_Casual_16
+tags: casual
+speaker: mr_li
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Mr. Li: [auto/] They say a thief dies twice. Once when he is caught, and once when he admits what he took deserved to stay where it was.
+//END: casual16
+===
+
+// ============================================================
+// GAME STATES
+// ============================================================
+
+title: MrLi_ReactAction_Raise_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Mr. Li: [auto/] That raise... the odds just shifted. I need to recalculate everything.
+//END: reactaction01
+===
+
+title: MrLi_ReactAction_AllIn_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction02
+Mr. Li: [auto/] All in? All in?! That is not a bet, that is bankruptcy with extra steps!
+//END: reactaction02
+===
+
+title: MrLi_ReactAction_Fold_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction03
+Mr. Li: [auto/] A wise fold. Cut your losses before they compound. I respect the discipline.
+//END: reactaction03
+===
+
+title: MrLi_ReactAction_Raise_02
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction04
+Mr. Li: [auto/] That kind of raise would have cleared my entire quarterly revenue. Reckless. Terrifying.
+//END: reactaction04
+===
+
+title: MrLi_ReactAction_Check_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction05
+Mr. Li: [auto/] Checking costs nothing. Free information. The best kind of inventory.
+//END: reactaction05
+===
+
+title: MrLi_ReactAction_Call_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Mr. Li: [auto/] A call. Cautious. No premium paid, no discount claimed. The safest transaction at this table.
+//END: reactaction06
+===
+
+title: MrLi_ReactAction_SelfFold_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Mr. Li: [auto/] I fold. A merchant who sells at a loss is still a merchant tomorrow.
+//END: reactaction07
+===
+
+title: MrLi_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Mr. Li: [auto/] Everything. I am putting in everything. This is either brilliant liquidation or the worst decision of my afterlife.
+//END: reactaction08
+===
+
+title: MrLi_ReactAction_SelfRaise_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Mr. Li: [auto/] I raise. The math supports it, and my nerves, remarkably, have agreed to follow the math.
+//END: reactaction09
+===
+
+title: MrLi_ReactAction_SelfCall_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Mr. Li: [auto/] I call. Not the cheapest option, but curiosity has its own price and I intend to pay it.
+//END: reactaction10
+===
+
+title: MrLi_ReactAction_SelfCheck_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Mr. Li: [auto/] I check. No sense spending capital on a hand that has not yet declared its worth.
+//END: reactaction11
+===
+
+title: MrLi_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Mr. Li: [auto/] Every decision I make at this table gets audited by someone. Mostly myself. Mostly harshly.
+//END: reactaction12
+===
+
+title: MrLi_ReactAction_Any_01
+tags: react_action
+speaker: mr_li
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Mr. Li: [auto/] The value of this table just moved. I cannot tell you the new number yet, but I can tell you it moved.
+//END: reactaction13
+===
+// ============================================================
+// SHOWDOWNS
+// ============================================================
+
+title: MrLi_Showdown_Win_01
+tags: showdown
+speaker: mr_li
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Mr. Li: [auto/] Profit. Clean, honest profit. Well... clean profit, at least.
+//END: showdown01
+===
+
+title: MrLi_Showdown_Win_02
+tags: showdown
+speaker: mr_li
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Mr. Li: [auto/] The return on investment exceeds projections. I will take that. I will absolutely take that.
+//END: showdown02
+===
+
+title: MrLi_Showdown_Lose_03
+tags: showdown
+speaker: mr_li
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Mr. Li: [auto/] A total loss. Write it off. Forget it. Do not look at the numbers. Do not.
+//END: showdown03
+===
+
+title: MrLi_Showdown_Lose_04
+tags: showdown
+speaker: mr_li
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Mr. Li: [auto/] That was... that was my entire margin for the evening. Gone. Just like that.
+//END: showdown04
+===
+
+title: MrLi_Showdown_Any_01
+tags: showdown
+speaker: mr_li
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: any
+---
+//START: showdown05
+Mr. Li: [auto/] A narrow outcome. My hands are shaking. Even dead hands can shake, apparently.
+//END: showdown05
+===
+// ============================================================
+// CHEATING
+// ============================================================
+
+title: MrLi_Cheating_Innocent_01
+tags: cheating
+speaker: mr_li
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Mr. Li: [auto/] Cheat? I count every coin twice. I would never risk my reputation over one hand.
+//END: cheating01
+===
+title: MrLi_Cheating_Guilty_01
+tags: cheating
+speaker: mr_li
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Mr. Li: [auto/] Yes. I marked a card. The margins were too good to pass up. Force of habit.
+//END: cheating02
+===

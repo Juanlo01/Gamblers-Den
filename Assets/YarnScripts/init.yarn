@@ -40,4 +40,8 @@ title: Init
 <<declare $trigger = "idle">>
 <<declare $acting_npc = "">>
 <<declare $acting_npc_action = "none">>
+
+// --- Cheating Accusations ---
+<<declare $accused_name = "">>
+<<declare $cheating_verdict = "">>
 ===

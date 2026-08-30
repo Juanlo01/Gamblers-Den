@@ -1,0 +1,526 @@
+// horse-like humanoid, spirtual, calm and collected.
+// during a war, used indestructible seals written on paper to protect a village from an army but died before completing his task.
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: Shaman_Casual_01
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Shaman: [auto/] The energy at this table shifts like wind through temple bells....
+//END: casual01
+===
+
+title: Shaman_Casual_02
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Shaman: [auto/] Shhhh... just listen to your surroundings.
+//END: casual02
+===
+
+title: Shaman_Casual_03
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Shaman: [auto/] I sense restless energy here tonight. Someone at this table carries an unfinished burden... perhaps more than one of us.
+//END: casual03
+===
+
+title: Shaman_Casual_04
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Shaman: [auto/] I sense the spirits watching our game, there are extraordinary beings even in a place such as this.
+//END: casual04
+===
+
+title: Shaman_Casual_05
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Shaman: [auto/] I used to read the flow of energy. A poker table is smaller, but the currents are no less real.
+//END: casual05
+===
+
+title: Shaman_Casual_06
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Shaman: [auto/] Breathe. Center yourself. The next hand will come whether you are ready or not — better to be ready.
+//END: casual06
+===
+
+title: Shaman_Casual_07
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Shaman: [auto/] I trust in the cards, in fate.
+//END: casual07
+===
+
+title: Shaman_Casual_08
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Shaman: [auto/] Fate does not deal you a bad hand, it merely deals you a hand and leaves it up to you.
+//END: casual08
+===
+
+title: Shaman_Casual_09
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Shaman: [auto/] There is a harmony to the cards when they fall into place at the table's center.
+//END: casual09
+===
+
+title: Shaman_Casual_10
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Shaman: [auto/] Water is the element of change, the river round changes everything, how beautiful.
+//END: casual10
+===
+
+title: Shaman_Casual_11
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Shaman: [auto/] Do not chase an outcome, be calm and observant to what's already around you.
+//END: casual11
+===
+
+title: Shaman_Casual_12
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Shaman: [auto/] Like with all things there is a balance.
+//END: casual12
+===
+
+title: Shaman_Casual_13
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Shaman: [auto/] I wrote seals of protection — sacred characters on paper that no blade could cut nor fire could burn.
+//END: casual13
+===
+
+title: Shaman_Casual_14
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Shaman: [auto/] When the army came I stood before the village with seals of protection... they weren't planted fast enough.
+//END: casual14
+===
+
+title: Shaman_Casual_15
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Shaman: [auto/] I am at peace with my death. But the last seal... could I ever be at peace with never finishing it?
+//END: casual15
+===
+
+title: Shaman_Casual_16
+tags: casual
+speaker: shaman
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Shaman: [auto/] From facing a army to facing a poker table, the afterlife is strange.
+//END: casual16
+===
+
+// ===============
+// GAME STATES
+// ===============
+
+title: Shaman_ReactAction_Raise_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Shaman: [auto/] A bold raise, your spirit shows courage.
+//END: reactaction01
+===
+
+title: Shaman_ReactAction_Fold_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Shaman: [auto/] A fold is not defeat.
+//END: reactaction02
+===
+
+title: Shaman_ReactAction_AllIn_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Shaman: [auto/] All-in, interesting your energy speaks to your resolve.
+//END: reactaction03
+===
+
+title: Shaman_ReactAction_Any_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction04
+Shaman: [auto/] I feel a shift of energy, things are different now.
+//END: reactaction04
+===
+
+title: Shaman_ReactAction_Check_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction05
+Shaman: [auto/] A check is a sign of patience, very good.
+//END: reactaction05
+===
+
+title: Shaman_ReactAction_Call_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Shaman: [auto/] A call, keeping the flow going.
+//END: reactaction06
+===
+
+title: Shaman_ReactAction_SelfFold_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Shaman: [auto/] I release this hand as I once released my grip on the brush. Some circles are not meant to close today.
+//END: reactaction07
+===
+
+title: Shaman_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Shaman: [auto/] I trust in fate, win or lose.
+//END: reactaction08
+===
+
+title: Shaman_ReactAction_SelfRaise_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Shaman: [auto/] I press forward, none of it matters anyways.
+//END: reactaction09
+===
+
+title: Shaman_ReactAction_SelfCall_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Shaman: [auto/] I'd like to see where fate takes me.
+//END: reactaction10
+===
+
+title: Shaman_ReactAction_SelfCheck_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Shaman: [auto/] I hold still, I study patience.
+//END: reactaction11
+===
+
+title: Shaman_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: shaman
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Shaman: [auto/] Whatever I do at this table, I do without regret. Regret is a seal I finished carrying long ago.
+//END: reactaction12
+===
+
+// ===============
+// SHOWDOWNS
+// ===============
+
+title: Shaman_Showdown_Win_01
+tags: showdown
+speaker: shaman
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Shaman: [auto/] The spirits favored this hand. I accept their gift with thankfulness.
+//END: showdown01
+===
+
+title: Shaman_Showdown_Win_02
+tags: showdown
+speaker: shaman
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Shaman: [auto/] I am honored to have won the match.
+//END: showdown02
+===
+
+title: Shaman_Showdown_Win_03
+tags: showdown
+speaker: shaman
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown03
+Shaman: [auto/] I merely went with the flow and ended up here.
+//END: showdown03
+===
+
+title: Shaman_Showdown_Lose_01
+tags: showdown
+speaker: shaman
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Shaman: [auto/] Incomplete, reminds me of my seal, how sorrowful...
+//END: showdown04
+===
+
+title: Shaman_Showdown_Lose_02
+tags: showdown
+speaker: shaman
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Shaman: [auto/] I do not think in "close" or "not close," but simply in "it's not my time."
+//END: showdown05
+===
+
+// ==================
+// CHEATING
+// ==================
+
+title: Shaman_Cheating_Innocent_01
+tags: cheating
+speaker: shaman
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Shaman: [auto/] The spirits know my heart. I did not deceive anyone at this table.
+//END: cheating01
+===
+title: Shaman_Cheating_Guilty_01
+tags: cheating
+speaker: shaman
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Shaman: [auto/] I was desperate to change my fate, so unlike me, I regret it all.
+//END: cheating02
+===

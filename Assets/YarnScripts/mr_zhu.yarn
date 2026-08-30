@@ -1,0 +1,556 @@
+// pig humanoid, stylish, kind, often misjudged.
+// executed after being accused from stealing from a rich man
+// file: mr_zhu, speaker: Mr. Zhu
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: MrZhu_Casual_01
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Mr. Zhu: [auto/] I had this outfit tailored three times before the afterlife. Still fits. Some things death cannot ruin.
+//END: casual01
+===
+
+title: MrZhu_Casual_02
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Mr. Zhu: [auto/] You know what I miss most? The morning market. The smell of fresh buns, the sound of bargaining. Simple dignity in honest trade.
+//END: casual02
+===
+
+title: MrZhu_Casual_03
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Mr. Zhu: [auto/] I polish my shoes very often here. Habit from life. People look at your feet before they look at your face. Well... most people look at my face first.
+//END: casual03
+===
+
+title: MrZhu_Casual_04
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Mr. Zhu: [auto/] A good table is like a good suit... I don't know where I was going with that hahahah.
+//END: casual04
+===
+
+title: MrZhu_Casual_05
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Mr. Zhu: [auto/] The lanterns here remind me of festivals from back home. I used to help hang them.
+//END: casual05
+===
+
+title: MrZhu_Casual_06
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Mr. Zhu: [auto/] There is something restful about a card table. Four sides, equal height. Nobody sits above anyone else.
+//END: casual06
+===
+
+title: MrZhu_Casual_07
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Mr. Zhu: [auto/] They say never judge a book by its cover. I say never judge a person by their snout.
+//END: casual07
+===
+
+title: MrZhu_Casual_08
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Mr. Zhu: [auto/] I have been told I have a terrible poker face. I can't help but feel joy when I get a good hand.
+//END: casual08
+===
+
+title: MrZhu_Casual_09
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Mr. Zhu: [auto/] People have called me greedy, looking like a pig sure gets you treated like one....
+//END: casual09
+===
+
+title: MrZhu_Casual_10
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Mr. Zhu: [auto/] I dress well because it is the one thing I can control about how people see me. The rest, well, the rest came with the snout.
+//END: casual10
+===
+
+title: MrZhu_Casual_11
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Mr. Zhu: [auto/] Cards are wonderful things, they have no eyes, they cannot stare.
+//END: casual11
+===
+
+title: MrZhu_Casual_12
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Mr. Zhu: [auto/] I learned poker in the afterlife. In life, I played mahjong.
+//END: casual12
+===
+
+title: MrZhu_Casual_13
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Mr. Zhu: [auto/] I miss the many characters of my village, those who got to know me thought I was sweet, I hope to never forget that.
+//END: casual13
+===
+
+title: MrZhu_Casual_14
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Mr. Zhu: [auto/] They didn't even hear my story, born a pig, accused of a crime, that was the end of it.
+//END: casual14
+===
+
+title: MrZhu_Casual_15
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Mr. Zhu: [auto/] The blade cutting my neck only hurt half as bad as the crowd nodding at the thought of a pig stealing, I stole nothing!
+//END: casual15
+===
+
+title: MrZhu_Casual_16
+tags: casual
+speaker: mr_zhu
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Mr. Zhu: [auto/] I loved life, being a pig never seemed to slow me down it only seemed to slow others down. Make sense?
+//END: casual16
+===
+
+// =========================
+// GAME STATES
+// =========================
+
+title: MrZhu_ReactAction_Raise_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Mr. Zhu: [auto/] A bold raise. I respect conviction, even when it makes me sweat through my best silk.
+//END: reactaction01
+===
+
+title: MrZhu_ReactAction_Raise_02
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction02
+Mr. Zhu: [auto/] Oh my. That is... quite the commitment. Let me think on that friend.
+//END: reactaction02
+===
+
+title: MrZhu_ReactAction_Fold_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction03
+Mr. Zhu: [auto/] Stand by your fold don't let anyone make you regret your choices.
+//END: reactaction03
+===
+
+title: MrZhu_ReactAction_AllIn_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction04
+Mr. Zhu: [auto/] All in? Risky, I wish you luck my friend.
+//END: reactaction04
+===
+
+title: MrZhu_ReactAction_Raise_03
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction05
+Mr. Zhu: [auto/] Something about your raise smells fishy, or perhaps I have been spending too much time at the fish market.
+//END: reactaction05
+===
+
+title: MrZhu_ReactAction_Call_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Mr. Zhu: [auto/] A quiet agreement to keep playing, hooray!
+//END: reactaction06
+===
+
+title: MrZhu_ReactAction_Check_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction07
+Mr. Zhu: [auto/] A check. How diplomatic.
+//END: reactaction07
+===
+
+title: MrZhu_ReactAction_SelfFold_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction08
+Mr. Zhu: [auto/] I fold. You've scared me away my friends.
+//END: reactaction08
+===
+
+title: MrZhu_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction09
+Mr. Zhu: [auto/] All in! Why not, may everyone's luck be with you.
+//END: reactaction09
+===
+
+title: MrZhu_ReactAction_SelfRaise_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction10
+Mr. Zhu: [auto/] I raise. Let them wonder what a pig in silk is hiding. For once, the answer is simply a good hand.
+//END: reactaction10
+===
+
+title: MrZhu_ReactAction_SelfCall_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction11
+Mr. Zhu: [auto/] I'll play along I want to enjoy this game some more.
+//END: reactaction11
+===
+
+title: MrZhu_ReactAction_SelfCheck_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction12
+Mr. Zhu: [auto/] I check, wisest thing for a man... or pig... to do is let others control fate.
+//END: reactaction12
+===
+
+title: MrZhu_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Mr. Zhu: [auto/] Whatever I do at this table, so long as it's fun in the end.
+//END: reactaction13
+===
+
+title: MrZhu_ReactAction_Any_01
+tags: react_action
+speaker: mr_zhu
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction14
+Mr. Zhu: [auto/] Something just shifted about this table, makes me feel uneasy.
+//END: reactaction14
+===
+
+// =========================
+// SHOWDOWNS
+// =========================
+
+title: MrZhu_Showdown_Win_01
+tags: showdown
+speaker: mr_zhu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Mr. Zhu: [auto/] I won? I actually won! See? The pig came to play.
+//END: showdown01
+===
+
+title: MrZhu_Showdown_Win_02
+tags: showdown
+speaker: mr_zhu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Mr. Zhu: [auto/] I'm a natural, how bittersweet it is to have money as a pig, that's all the others will see in me.
+//END: showdown02
+===
+
+title: MrZhu_Showdown_Win_03
+tags: showdown
+speaker: mr_zhu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown03
+Mr. Zhu: [auto/] Ha! My mother always said I had good fortune hiding somewhere. Turns out it was waiting for me in the afterlife.
+//END: showdown03
+===
+
+title: MrZhu_Showdown_Lose_01
+tags: showdown
+speaker: mr_zhu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Mr. Zhu: [auto/] Oh well I gave it my all, good job to you all.
+//END: showdown04
+===
+
+title: MrZhu_Showdown_Lose_02
+tags: showdown
+speaker: mr_zhu
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Mr. Zhu: [auto/] Well played, let's keep going eh? I'll win the next.
+//END: showdown05
+===
+// =========================
+// CHEATING
+// =========================
+
+title: MrZhu_Cheating_Innocent_01
+tags: cheating
+speaker: mr_zhu
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Mr. Zhu: [auto/] I was falsely accused once before and it cost me my life. I will not be falsely accused again— I did not cheat.
+//END: cheating01
+===
+title: MrZhu_Cheating_Guilty_01
+tags: cheating
+speaker: mr_zhu
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Mr. Zhu: [auto/] I figured it'd be fun to try and Meng Po didn't seem too against it.
+//END: cheating02
+===
