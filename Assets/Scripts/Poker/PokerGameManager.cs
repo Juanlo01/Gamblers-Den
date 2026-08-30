@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,9 +32,15 @@ public class PokerGameManager : MonoBehaviour
     [Tooltip("Player money at or below this triggers the endgame screen (0 = only a literal bust).")]
     [SerializeField] private int minimumBuyIn = 0;
 
+    private const float EngineStartupTimeoutSeconds = 5f;
+
     private int currentScore;
     private int bestScore;
     private bool gameOverTriggered;
+
+    // Set from the engine thread the moment it actually begins running, read on
+    // the main thread by WatchEngineStartup().
+    private volatile bool _engineThreadStarted;
 
     // Seat order the table was dealt in, used to work out each player's
     // position relative to whoever holds the button in the current hand.
@@ -79,20 +86,57 @@ public class PokerGameManager : MonoBehaviour
 
         var game = new TexasHoldemGame(players, initialMoney);
 
-        Task.Run(() =>
+        StartEngine(game);
+    }
+
+    // The engine is a blocking, synchronous library: it parks a thread in
+    // HumanPlayer.GetTurn() until the player clicks, and Thread.Sleep()s between
+    // CPU turns. That only works if it gets a real thread of its own, which is
+    // why this is a Task.Run rather than a coroutine.
+    private void StartEngine(TexasHoldemGame game)
+    {
+        try
         {
-            try
+            Task.Run(() =>
             {
-                var winner = game.Start();
-                ThreadManager.Enqueue(() => Debug.Log($"Game over. Winner: {winner.Name}"));
-            }
-            catch (System.Exception ex)
-            {
-                // Without this, an exception on the engine thread dies silently
-                // and the game just appears to freeze after the last UI update.
-                Debug.LogException(ex);
-            }
-        });
+                _engineThreadStarted = true;
+
+                try
+                {
+                    var winner = game.Start();
+                    ThreadManager.Enqueue(() => Debug.Log($"Game over. Winner: {winner.Name}"));
+                }
+                catch (System.Exception ex)
+                {
+                    // Without this, an exception on the engine thread dies silently
+                    // and the game just appears to freeze after the last UI update.
+                    Debug.LogException(ex);
+                }
+            });
+        }
+        catch (System.Exception ex)
+        {
+            // Scheduling itself can throw where threads are unavailable.
+            Debug.LogError($"[Poker] Could not schedule the engine thread: {ex.GetType().Name}: {ex.Message}");
+        }
+
+        StartCoroutine(WatchEngineStartup());
+    }
+
+    // Single-threaded players (notably Web/WebGL builds without threading
+    // support) accept Task.Run and then never run the delegate, so the table
+    // just sits there with no error. Turn that silence into a real message.
+    private IEnumerator WatchEngineStartup()
+    {
+        yield return new WaitForSecondsRealtime(EngineStartupTimeoutSeconds);
+
+        if (_engineThreadStarted) yield break;
+
+        Debug.LogError(
+            $"[Poker] The engine thread never started after {EngineStartupTimeoutSeconds}s. " +
+            $"This build has no usable worker threads (Application.platform={Application.platform}), " +
+            "so no hand will be dealt and no action can be submitted. " +
+            "The engine has to be driven cooperatively on this platform.");
     }
 
     private static IPlayer MakeBot(CPU_Controller seat, HumanPlayer human)
