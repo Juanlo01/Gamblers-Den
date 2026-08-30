@@ -132,11 +132,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   <Name>k__BackingField: General Niu
   <YarnId>k__BackingField: general_niu
-  sweatOpportunity: 5
-  dartOpportunity: 4
-  shakeOpportunity: 6
-  coughOpportunity: 7
-  blinkOpportunity: 8
+  sweatOpportunity: 31
+  dartOpportunity: 26
+  shakeOpportunity: 21
+  coughOpportunity: 16
+  blinkOpportunity: 11
+  cheatInterval: 15
   catchOpportunity: 0
   isCheating: 0
   caughtCheating: 0

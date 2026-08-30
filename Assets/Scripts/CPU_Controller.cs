@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CPU_Controller : MonoBehaviour{
 
-    public GameObject[] npcs;
-    public Vector3 stageExit = new Vector3(3, 0, 0);
+    public GameObject[] npcs; // List of NPCs
+    public Vector3 stageExit = new Vector3(3, 0, 0); // Position at which NPC will exit when caught
 
     // Index into npcs[]/CA1..CA5 of whichever NPC currently occupies this seat.
     // Updated only from the main thread (Start/SwapNPC). GameObject.activeSelf
@@ -159,7 +159,7 @@ public class CPU_Controller : MonoBehaviour{
         Status = status;
     }
 
-    public void Transition(){
+    public void Transition(){ // Handles which NPC was caught and that they do the caught animation
         if (CA1.caughtCheating == true && npcs[0].activeSelf){
                 StartCoroutine(Caught());
                 CA1._animator.SetBool("isCaught", true);
@@ -182,20 +182,16 @@ public class CPU_Controller : MonoBehaviour{
             }
     }
 
-    void SwapNPC(){
-        // if (NPC1.activeSelf){
-        //     CA1.caughtCheating = false;
-        //     NPC1.SetActive(false);
-        //     NPC2.SetActive(true);
-        //     _npc1IsActive = false;
-        // }
-        // else if (NPC2.activeSelf){
-        //     CA2.caughtCheating = false;
-        //     NPC2.SetActive(false);
-        //     NPC1.SetActive(true);
-        //     _npc1IsActive = true;
-        // }
+    IEnumerator Caught(){ // Routine NPC goes through when caught
+        StartCoroutine(Move(stageExit, moveDuration)); // Caught character gets taken out
+        yield return new WaitForSeconds(7f);
+        SwapNPC(); // Chooses replacement NPC
+        yield return new WaitForSeconds(7f);
+        StartCoroutine(Move(-stageExit, moveDuration)); // New character gets brought in
+    }
 
+
+    void SwapNPC(){ // Swaps out NPC randomly from one in the list
         int randomIndex = Random.Range(0, npcs.Length);
 
         for (int i = 0; i < npcs.Length; i++){
@@ -203,63 +199,24 @@ public class CPU_Controller : MonoBehaviour{
                 npcs[i].SetActive(false);
             }
         }
-
         npcs[randomIndex].SetActive(true);
         _activeIndex = randomIndex;
-
-
-        // if (NPC1.activeSelf){
-        //     CA1.caughtCheating = false;
-        //     NPC1.SetActive(false);
-        //     NPC2.SetActive(true);
-        // }
-        // else if (NPC2.activeSelf){
-        //     CA2.caughtCheating = false;
-        //     NPC2.SetActive(false);
-        //     NPC3.SetActive(true);
-        // }
-        // else if (NPC3.activeSelf){
-        //     CA3.caughtCheating = false;
-        //     NPC3.SetActive(false);
-        //     NPC4.SetActive(true);
-        // }
-        // else if (NPC4.activeSelf){
-        //     CA4.caughtCheating = false;
-        //     NPC4.SetActive(false);
-        //     NPC5.SetActive(true);
-        // }
-        // else if (NPC5.activeSelf){
-        //     CA5.caughtCheating = false;
-        //     NPC5.SetActive(false);
-        //     NPC1.SetActive(true);
-        // }
-        
     }
 
-    IEnumerator Move(Vector3 target, float duration){
+
+    IEnumerator Move(Vector3 target, float duration){ // Handles NPC Movement
         Vector3 position = transform.position;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration){
+        while (elapsedTime < duration){ // Smoothly slides character off screen
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
             float smoothedT = t * t * (3f - 2f * t);
-
             transform.position = Vector3.Lerp(position, position - target, smoothedT);
-
             yield return null;
         }
         
     }
 
-    IEnumerator Caught(){
-        StartCoroutine(Move(stageExit, moveDuration));
-        yield return new WaitForSeconds(7f);
-        SwapNPC();
-        yield return new WaitForSeconds(7f);
-        StartCoroutine(Move(-stageExit, moveDuration));
 
-        //transform.position = Vector3.Lerp(transform.position, transform.position - stageExit, 2 * Time.deltaTime);
-        //transform.position = Vector3.MoveTowards(transform.position, transform.position + stageExit, 2 * Time.deltaTime);
-    }
 }
