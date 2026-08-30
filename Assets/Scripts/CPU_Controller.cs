@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CPU_Controller : MonoBehaviour{
 
+    public bool caught = false;
     public GameObject[] npcs; // List of NPCs
     public Vector3 stageExit = new Vector3(3, 0, 0); // Position at which NPC will exit when caught
 
@@ -191,12 +192,27 @@ public class CPU_Controller : MonoBehaviour{
             }
     }
 
+    public void callCheat(){ // Active NPC rolls to see if they cheat
+        for (int i = 0; i < npcs.Length; i++){
+            if (npcs[i].activeSelf){
+                StartCoroutine(npcs[i].GetComponent<CPU_Animator>().TryCheat());
+            }
+        }
+    }
+
+    public void Replenish(){
+        if (caught){
+            StartCoroutine(Move(-stageExit, moveDuration)); // New character gets brought in
+            caught = false;
+        }
+    }
+
     IEnumerator Caught(){ // Routine NPC goes through when caught
         StartCoroutine(Move(stageExit, moveDuration)); // Caught character gets taken out
         yield return new WaitForSeconds(7f);
         SwapNPC(); // Chooses replacement NPC
+        caught = true;
         yield return new WaitForSeconds(7f);
-        StartCoroutine(Move(-stageExit, moveDuration)); // New character gets brought in
     }
 
 

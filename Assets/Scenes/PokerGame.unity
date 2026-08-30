@@ -2178,6 +2178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a881de8da40fcb4f9c73ed49b841e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  caught: 0
   npcs:
   - {fileID: 755074631}
   - {fileID: 2480731206716224500}
@@ -4435,13 +4436,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a881de8da40fcb4f9c73ed49b841e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CPU_Controller
+  caught: 0
   npcs:
   - {fileID: 835363715}
   - {fileID: 5786925949483416469}
   - {fileID: 1804027242}
   - {fileID: 189674401}
   - {fileID: 915628239}
-  stageExit: {x: 8, y: 0, z: 0}
+  stageExit: {x: 9, y: 0, z: 0}
   moveDuration: 3
   yarnFile: {fileID: 0}
   Nameplate: {fileID: 990817570}
@@ -12902,6 +12904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a881de8da40fcb4f9c73ed49b841e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CPU_Controller
+  caught: 0
   npcs:
   - {fileID: 623302937}
   - {fileID: 3921782124423121037}

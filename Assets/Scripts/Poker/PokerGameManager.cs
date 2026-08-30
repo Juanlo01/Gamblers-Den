@@ -196,6 +196,12 @@ public class PokerGameManager : MonoBehaviour
     {
         AudioManager.Instance?.PlayOneShot("card_deal");
 
+        // New hand Dealth, ensure players are replenished
+        Debug.Log("Replenishing Players if Gone");
+        bot1Controller.Replenish();
+        bot2Controller.Replenish();
+        bot3Controller.Replenish();
+
         handsPlayed = handNumber;
         gamePhase = "pre_flop";
         playerLastAction = "none";
@@ -215,6 +221,11 @@ public class PokerGameManager : MonoBehaviour
     {
         gamePhase = phase;
         currentPot = pot;
+
+        // New round, bots attempt to cheat!
+        bot1Controller.callCheat();
+        bot2Controller.callCheat();
+        bot3Controller.callCheat();
 
         if (phase == "flop" || phase == "turn" || phase == "river")
         {

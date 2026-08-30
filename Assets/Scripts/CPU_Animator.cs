@@ -33,7 +33,7 @@ public class CPU_Animator : MonoBehaviour{
     void Start(){
         _animator.SetBool("isCaught", false);
         ClearStates();
-        StartCoroutine(TryCheat());
+        //StartCoroutine(TryCheat());
     }
 
     // // Update is called once per frame
@@ -64,17 +64,19 @@ public class CPU_Animator : MonoBehaviour{
         //_animator.SetBool("isCaught", false);
     }
 
-    IEnumerator TryCheat(){
-        yield return new WaitForSeconds(cheatInterval); // Waiting before attempting to cheat first time
-        while (true){
+    public IEnumerator TryCheat(){
+        //yield return new WaitForSeconds(cheatInterval); // Waiting before attempting to cheat first time
+        //while (true){
             cheatChance = Random.Range (0, 26);
             Debug.Log("Cheat Chance: " + cheatChance);
             if (cheatChance >= 20){ // 1 in 5 chance to cheat
+                Debug.Log("Cheat Succeeded");
                 cheatingOpportunity = Random.Range(0, 31);
                 yield return StartCoroutine(Cheat(cheatingOpportunity));
             }
-            yield return new WaitForSeconds(cheatInterval); // Interval between cheat attempts
-        }
+            //yield return new WaitForSeconds(cheatInterval); // Interval between cheat attempts
+            yield return null;
+        //}
     }
 
     IEnumerator Cheat(int cheatingOpportunity){
