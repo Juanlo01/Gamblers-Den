@@ -1,0 +1,14 @@
+// The invisible dealer. Announces game state transitions.
+// These nodes are deterministic (not randomly selected) — the engine calls them directly at the right moment.
+// file: dealer, speaker: Dealer
+
+title: Start
+---
+//START: announce1
+Dealer: [auto/] Welcome to the Tell-Tale Den.
+Dealer: [auto/] My name is Meng Po but to you all refer to me simply as the dealer.
+Dealer: [auto/] You may realize you no longer remember much of your life before arriving here.
+Dealer: [auto/] That's normal.
+Dealer: [auto/] Stay, tell us of your tales, and allow the game to slowly let your mind come to terms with entering the afterlife.
+//END: announce1
+===

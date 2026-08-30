@@ -1,0 +1,545 @@
+// observant, manipulative, sharp tongued, and ran both a tea house and a brothel. Likes books.
+// Poisoned along much of her staff due to her tea house's water supply becoming contaminated
+// self-made businesswoman, ruthless and intelligent.
+// speaks in double meanings, reads people like ledgers, poker is her natural element.
+// occasionally shows a protective side toward the "girls" — the staff who died with her.
+// file: madam_song, speaker: Madam Song
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: MadamSong_Casual_01
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Madam Song: [auto/] Between pours is when you learn who is thirsty and who is just watching you hold the kettle.
+//END: casual01
+===
+
+title: MadamSong_Casual_02
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Madam Song: [auto/] A quiet table. That means half of you are scheming and the other half are afraid.
+//END: casual02
+===
+
+title: MadamSong_Casual_03
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Madam Song: [auto/] Once my business expanded I realized I could make more money offering different services. 
+//END: casual03
+===
+
+title: MadamSong_Casual_04
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Madam Song: [auto/] You all seem nervous, how cute.
+//END: casual04
+===
+
+title: MadamSong_Casual_05
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Madam Song: [auto/] The best customers were never the ones who ordered the most expensive tea. They were the ones who came back.
+//END: casual05
+===
+
+title: MadamSong_Casual_06
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Madam Song: [auto/] I miss my books, I hope the afterlife has something interesting to read.
+//END: casual06
+===
+
+title: MadamSong_Casual_07
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Madam Song: [auto/] Confidence is such a fascinating flavor. It tastes identical to desperation if you do not know the difference.
+//END: casual07
+===
+
+title: MadamSong_Casual_08
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Madam Song: [auto/] I wasn't opposed to stretching the truth of where I got my tea leaves, I'm not opposed to bluffing now either.
+//END: casual08
+===
+
+title: MadamSong_Casual_09
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Madam Song: [auto/] You know what separates a bluff from a lie? Nothing.
+//END: casual09
+===
+
+title: MadamSong_Casual_10
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Madam Song: [auto/] Everyone watches the cards. I watch the hands holding them. Much more informative.
+//END: casual10
+===
+
+title: MadamSong_Casual_11
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Madam Song: [auto/] I can't believe I was poisoned, I always suspected my death to be from some jealous wife, or a rival business.
+//END: casual11
+===
+
+title: MadamSong_Casual_12
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Madam Song: [auto/] A generous tip and a large bet have the same root. Someone wants to be seen. The question is always: by whom?
+//END: casual12
+===
+
+title: MadamSong_Casual_13
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Madam Song: [auto/] Started with a kettle and a single room, then some woman, then it expanded into more.
+//END: casual13
+===
+
+title: MadamSong_Casual_14
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Madam Song: [auto/] I wish I tried the water first, it tasted the same. I poured a cup to my girls too I wonder if they're okay.
+//END: casual14
+===
+
+title: MadamSong_Casual_15
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Madam Song: [auto/] Seventeen girls worked under my roof. Four died with me. I promised them safety, a wage, and a future. I could hardly keep one of those promises.
+//END: casual15
+===
+
+title: MadamSong_Casual_16
+tags: casual
+speaker: madam_song
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Madam Song: [auto/] No family money, no providing husband, none of it. I built my two businesses up alone.
+//END: casual16
+===
+
+// =========================
+// GAME STATES
+// =========================
+
+title: MadamSong_ReactAction_Raise_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Madam Song: [auto/] That was to make someone at this table flinch right? Well it's not me.
+//END: reactaction01
+===
+
+title: MadamSong_ReactAction_Fold_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Madam Song: [auto/] A fold? Must have been served bitter tea from the start.
+//END: reactaction02
+===
+
+title: MadamSong_ReactAction_AllIn_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Madam Song: [auto/] All in? This reminds me of a customer who drank multiple full kettles of tea and still wanted more, how greedy.
+//END: reactaction03
+===
+
+title: MadamSong_ReactAction_Check_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction04
+Madam Song: [auto/] A check. How polite.
+//END: reactaction04
+===
+
+title: MadamSong_ReactAction_Raise_02
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction05
+Madam Song: [auto/] That raise was the same price of the last book I read, if I play on it, I could afford another like it.
+//END: reactaction05
+===
+
+title: MadamSong_ReactAction_Call_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Madam Song: [auto/] Calling huh? You're just here to gather information but I'm not that easy to read.
+//END: reactaction06
+===
+
+title: MadamSong_ReactAction_SelfFold_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Madam Song: [auto/] I fold. A good madam knows when the room's tension has turned for the worse.
+//END: reactaction07
+===
+
+title: MadamSong_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Madam Song: [auto/] I'm all in, with this I could hire more workers... in both of my shops.
+//END: reactaction08
+===
+
+title: MadamSong_ReactAction_SelfRaise_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Madam Song: [auto/] I raise, I'll be buying the finest tea when I win it all back.
+//END: reactaction09
+===
+
+title: MadamSong_ReactAction_SelfCall_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Madam Song: [auto/] I call, I think you're needlessly staying in the game at this point dear.
+//END: reactaction10
+===
+
+title: MadamSong_ReactAction_SelfCheck_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Madam Song: [auto/] I check. Sometimes you just gotta let the pages turn themselves
+//END: reactaction11
+===
+
+title: MadamSong_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Madam Song: [auto/] Every hand I play is a transaction. I play to win, keep note of my moves.
+//END: reactaction12
+===
+
+title: MadamSong_ReactAction_Any_01
+tags: react_action
+speaker: madam_song
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Madam Song: [auto/] The balance of this table just shifted.
+//END: reactaction13
+===
+
+// ===============================
+// SHOWDOWNS
+// ===============================
+
+title: MadamSong_Showdown_Win_01
+tags: showdown
+speaker: madam_song
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Madam Song: [auto/] I saw that coming forever ago.
+//END: showdown01
+===
+
+title: MadamSong_Showdown_Win_02
+tags: showdown
+speaker: madam_song
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Madam Song: [auto/] A woman does not run her business by hoping for good fortune.
+//END: showdown02
+===
+
+title: MadamSong_Showdown_Win_03
+tags: showdown
+speaker: madam_song
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown03
+Madam Song: [auto/] Thank you for your generous contribution. I will put it to better use than you would have.
+//END: showdown03
+===
+
+title: MadamSong_Showdown_Lose_04
+tags: showdown
+speaker: madam_song
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Madam Song: [auto/] Well played. Enjoy it. You'll soon owe me double the amount.
+//END: showdown04
+===
+
+title: MadamSong_Showdown_Lose_05
+tags: showdown
+speaker: madam_song
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Madam Song: [auto/] One hand. That's all that was. I've suffered worse loses from buying bat shipments of tea.
+//END: showdown05
+===
+
+// ============================================================
+// CHEATING
+// ============================================================
+
+title: MadamSong_Cheating_Innocent_01
+tags: cheating
+speaker: madam_song
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Madam Song: [auto/] I do not need to cheat, I'm playing perfectly fine!
+//END: cheating01
+===
+title: MadamSong_Cheating_Guilty_01
+tags: cheating
+speaker: madam_song
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Madam Song: [auto/] Caught skimming the deck. How unbecoming. Consider it a business expense.
+//END: cheating02
+===

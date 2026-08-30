@@ -1,0 +1,557 @@
+// highly decorated, strategic, logical, quiet.
+// attacked while taking a shower, she was in her 60s and had been a general for 25 years.
+// a woman who commanded armies through intellect, not brute force.
+// poker is chess to her. she analyzes patterns, reads tells, thinks three moves ahead.
+// the only one of the warriors who died peacefully — she carries quiet pride in that.
+// file: general_tian, speaker: General Tian
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: GeneralTian_Casual_01
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+General Tian: [auto/] Every pause between engagements is an opportunity to study the terrain.
+//END: casual01
+===
+
+title: GeneralTian_Casual_02
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+General Tian: [auto/] Interesting. Two of you shifted posture when the last hand ended. That tells me more than your bets did.
+//END: casual02
+===
+
+title: GeneralTian_Casual_03
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+General Tian: [auto/] Silence is not empty. It is where the real information lives.
+//END: casual03
+===
+
+title: GeneralTian_Casual_04
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+General Tian: [auto/] I once waited eleven days for the enemy to make a single mistake. This table moves faster, but the principle holds.
+//END: casual04
+===
+
+title: GeneralTian_Casual_05
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+General Tian: [auto/] A good commander never stops gathering intelligence, even at rest.
+//END: casual05
+===
+
+title: GeneralTian_Casual_06
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+General Tian: [auto/] The dead have eternity. I intend to spend mine paying attention.
+//END: casual06
+===
+
+title: GeneralTian_Casual_07
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+General Tian: [auto/] Betting patterns are troop movements. Once you see them that way, the game simplifies.
+//END: casual07
+===
+
+title: GeneralTian_Casual_08
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+General Tian: [auto/] In war and in cards, the one who controls the pace controls the outcome.
+//END: casual08
+===
+
+title: GeneralTian_Casual_09
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+General Tian: [auto/] I have noticed the pot grows fastest when confidence outpaces information. A familiar problem.
+//END: casual09
+===
+
+title: GeneralTian_Casual_10
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+General Tian: [auto/] People assume silence means uncertainty. I have won entire campaigns on that assumption.
+//END: casual10
+===
+
+title: GeneralTian_Casual_11
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+General Tian: [auto/] The cards are merely terrain. It is the players who are the variable.
+//END: casual11
+===
+
+title: GeneralTian_Casual_12
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+General Tian: [auto/] I don't need to bluff there's already enough confusion out there.
+//END: casual12
+===
+
+title: GeneralTian_Casual_13
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+General Tian: [auto/] Twenty-five years I held command. Not once did I lead a charge myself. That is not cowardice. That is knowing where a general belongs.
+//END: casual13
+===
+
+title: GeneralTian_Casual_14
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+General Tian: [auto/] I died in my bathroom, in the afterlife there are none, I feel a calmness from knowing that.
+//END: casual14
+===
+
+title: GeneralTian_Casual_15
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+General Tian: [auto/] I hope history remembers me as both a warrior and a tactician, not as the general to die in her bathroom.
+//END: casual15
+===
+
+title: GeneralTian_Casual_16
+tags: casual
+speaker: general_tian
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+General Tian: [auto/] Every order I gave carried the weight of lives. Here, the only thing at stake is pride.
+//END: casual16
+===
+// ============================================================
+// GAME STATES
+// ============================================================
+
+title: GeneralTian_ReactAction_Raise_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+General Tian: [auto/] An aggressive advance. But is the supply line behind it, or is it a feint?
+//END: reactaction01
+===
+
+title: GeneralTian_ReactAction_Fold_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+General Tian: [auto/] A tactical withdrawal. Sometimes the wisest move on the field.
+//END: reactaction02
+===
+
+title: GeneralTian_ReactAction_AllIn_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+General Tian: [auto/] All in. A total commitment of forces. Either brilliant or catastrophic. Nothing between.
+//END: reactaction03
+===
+
+title: GeneralTian_ReactAction_Raise_02
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction04
+General Tian: [auto/] That raise carried hesitation. About half a heartbeat of it. Noted.
+//END: reactaction04
+===
+
+title: GeneralTian_ReactAction_Fold_02
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction05
+General Tian: [auto/] Folding early preserves resources for the engagement that matters.
+//END: reactaction05
+===
+
+title: GeneralTian_ReactAction_Call_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+General Tian: [auto/] You're gathering more intel before fully committing, a good tactic.
+//END: reactaction06
+===
+
+title: GeneralTian_ReactAction_Check_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction07
+General Tian: [auto/] A check reveals nothing and costs nothing. The safest maneuver in any campaign, and the least remembered.
+//END: reactaction07
+===
+
+title: GeneralTian_ReactAction_SelfFold_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction08
+General Tian: [auto/] I release this position. Holding it further would cost more than the ground is worth.
+//END: reactaction08
+===
+
+title: GeneralTian_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction09
+General Tian: [auto/] Every chip, committed. I have run the calculation eleven different ways. This is the correct one.
+//END: reactaction09
+===
+
+title: GeneralTian_ReactAction_SelfRaise_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction10
+General Tian: [auto/] I press the advantage now, while it is still mine to press. Hesitation is how advantages die.
+//END: reactaction10
+===
+
+title: GeneralTian_ReactAction_SelfCall_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction11
+General Tian: [auto/] I match the wager, the cost of information is worth paying.
+//END: reactaction11
+===
+
+title: GeneralTian_ReactAction_SelfCheck_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction12
+General Tian: [auto/] I hold my position and offer nothing. Seek intel all you want nothing will slip through the cracks.
+//END: reactaction12
+===
+
+title: GeneralTian_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+General Tian: [auto/] Every decision at this table is a small campaign. I have never once made one without a reason.
+//END: reactaction13
+===
+
+title: GeneralTian_ReactAction_Any_01
+tags: react_action
+speaker: general_tian
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction14
+General Tian: [auto/] Interesting. The whole shape of this hand just changed, and only one of you seems to have noticed.
+//END: reactaction14
+===
+// ============================================================
+// SHOWDOWNS
+// ============================================================
+
+title: GeneralTian_Showdown_Win_01
+tags: showdown
+speaker: general_tian
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+General Tian: [auto/] As anticipated. The outcome was decided since before the flop.
+//END: showdown01
+===
+
+title: GeneralTian_Showdown_Win_02
+tags: showdown
+speaker: general_tian
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+General Tian: [auto/] Preparation is not luck. It simply looks that way to the unprepared.
+//END: showdown02
+===
+
+title: GeneralTian_Showdown_Win_03
+tags: showdown
+speaker: general_tian
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown03
+General Tian: [auto/] I accept the pot with open arms, I always knew they'd end up here.
+//END: showdown03
+===
+
+title: GeneralTian_Showdown_Lose_04
+tags: showdown
+speaker: general_tian
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+General Tian: [auto/] A miscalculation, it will not happen again.
+//END: showdown04
+===
+
+title: GeneralTian_Showdown_Lose_05
+tags: showdown
+speaker: general_tian
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+General Tian: [auto/] Every defeat is a map to the next victory. I already see where I went wrong.
+//END: showdown05
+===
+// ===
+// CHEATING
+// ===
+
+title: GeneralTian_Cheating_Innocent_01
+tags: cheating
+speaker: general_tian
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+General Tian: [auto/] An accusation without evidence is just noise. I do not cheat. I calculate. There is a difference.
+//END: cheating01
+===
+title: GeneralTian_Cheating_Guilty_01
+tags: cheating
+speaker: general_tian
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+General Tian: [auto/] Fine. I miscounted the deck in my favor. Consider it a tactical adjustment. Poorly executed, apparently.
+//END: cheating02
+===

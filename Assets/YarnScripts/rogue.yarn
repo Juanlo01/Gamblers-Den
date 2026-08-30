@@ -1,0 +1,557 @@
+// battle-torn, old, fierce yet very kind to the weak.
+// picked a fight with the strongest swordsman on a distant island after rowing there for multiple days, rogue lost.
+// file: rogue, speaker: Rogue
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: Rogue_Casual_01
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Rogue: [auto/] Quiet table. Good. A man learns more in silence than in shouting. I have done plenty of both.
+//END: casual01
+===
+
+title: Rogue_Casual_02
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Rogue: [auto/] These old hands held a sword for forty years. Cards feel strange. Lighter. But every draw still feels like pulling a blade.
+//END: casual02
+===
+
+title: Rogue_Casual_03
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Rogue: [auto/] Scars never itch anymore, being dead fixed that.
+//END: casual03
+===
+
+title: Rogue_Casual_04
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Rogue: [auto/] I used to sharpen my blade between fights. Now I shuffle chips. Funny how old habits reshape themselves.
+//END: casual04
+===
+
+title: Rogue_Casual_05
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Rogue: [auto/] Every person at this table carries something heavy. I can see it. Weight sits different on the dead than on the living. But it still sits.
+//END: casual05
+===
+
+title: Rogue_Casual_06
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Rogue: [auto/] The smell in the wind told me of an approaching fight, now it tells me of impending bluffs.
+//END: casual06
+===
+
+title: Rogue_Casual_07
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Rogue: [auto/] Poker is a duel with numbers instead of steel. The rules are different, the stakes can very well be the same.
+//END: casual07
+===
+
+title: Rogue_Casual_08
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Rogue: [auto/] Watch the hands, not the face. A man's hands always betray him before his eyes do.
+//END: casual08
+===
+
+title: Rogue_Casual_09
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Rogue: [auto/] Bold plays around the table, excites me much like the duels I've encountered.
+//END: casual09
+===
+
+title: Rogue_Casual_10
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Rogue: [auto/] Everything I ever did was for the weak, I knew I was strong but I was strong for others.
+//END: casual10
+===
+
+title: Rogue_Casual_11
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Rogue: [auto/] Poker has four acts, I had beat four of the strongest swordsman leading up to the one that took my life.
+//END: casual11
+===
+
+title: Rogue_Casual_12
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Rogue: [auto/] I have fought men who could cut with a smile on their face, reading faces has become blurry to me.
+//END: casual12
+===
+
+title: Rogue_Casual_13
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Rogue: [auto/] I rowed for three days to reach that island. Three days with nothing but open water and the name of the man I was going to fight. My arms burned. My back screamed. I did not stop once.
+//END: casual13
+===
+
+title: Rogue_Casual_14
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Rogue: [auto/] The swordsman on that island was the only opponent left who could match me. I did not go there to die. I went there because fighting him was the only thing left.
+//END: casual14
+===
+
+title: Rogue_Casual_15
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Rogue: [auto/] Every scar has a name. Most of them I have forgotten. The ones I remember are the ones I earned protecting someone who could not protect themselves.
+//END: casual15
+===
+
+title: Rogue_Casual_16
+tags: casual
+speaker: rogue
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Rogue: [auto/] He was faster than me, more skilled, I should've trained more but I'm happy to rest now.
+//END: casual16
+===
+
+// ============
+// GAME STATES
+// =============
+
+title: Rogue_ReactAction_Raise_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Rogue: [auto/] There it is. A challenge. I respect anyone who throws down instead of backing up.
+//END: reactaction01
+===
+
+title: Rogue_ReactAction_AllIn_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction02
+Rogue: [auto/] All in. Heh. That is how I lived. Everything on one swing. I know that feeling in my bones.
+//END: reactaction02
+===
+
+title: Rogue_ReactAction_Fold_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction03
+Rogue: [auto/] I never understood retreat for myself but I'd never blame those who felt it was their only option.
+//END: reactaction03
+===
+
+title: Rogue_ReactAction_Fold_02
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction04
+Rogue: [auto/] Another fold? Pick your fights, sure. But if you never fight, what are you even doing at the table?
+//END: reactaction04
+===
+
+title: Rogue_ReactAction_Raise_02
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction05
+Rogue: [auto/] Re-raise. Good. Someone is not backing down. That is a fighter's instinct. Meet force with force.
+//END: reactaction05
+===
+
+title: Rogue_ReactAction_Call_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Rogue: [auto/] A call. Not brave, not scared. Just watching for an opening. Fair enough. I have won fights that way too.
+//END: reactaction06
+===
+
+title: Rogue_ReactAction_Check_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction07
+Rogue: [auto/] A check. No blade drawn yet. Sometimes waiting is the sharper move.
+//END: reactaction07
+===
+
+title: Rogue_ReactAction_SelfFold_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction08
+Rogue: [auto/] I'd never fold in battle but I'd fold in card I suppose.
+//END: reactaction08
+===
+
+title: Rogue_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction09
+Rogue: [auto/] Everything in. This is how I always fought. No half measures. No retreat.
+//END: reactaction09
+===
+
+title: Rogue_ReactAction_SelfRaise_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction10
+Rogue: [auto/] I raise. Let them see the blade coming. I never fought from the shadows.
+//END: reactaction10
+===
+
+title: Rogue_ReactAction_SelfCall_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction11
+Rogue: [auto/] I call. Not the boldest move, but I want to see what you are carrying before I commit.
+//END: reactaction11
+===
+
+title: Rogue_ReactAction_SelfCheck_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction12
+Rogue: [auto/] I check. Even an old fighter knows when to hold his ground and wait.
+//END: reactaction12
+===
+
+title: Rogue_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Rogue: [auto/] Whatever I do at this table, I do it the way I always fought. Committed, or not at all.
+//END: reactaction13
+===
+
+title: Rogue_ReactAction_Any_01
+tags: react_action
+speaker: rogue
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction14
+Rogue: [auto/] Such exciting shifts in energy.
+//END: reactaction14
+===
+
+// ==============
+// SHOWDOWNS
+// ==============
+
+title: Rogue_Showdown_Win_1
+tags: showdown
+speaker: rogue
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Rogue: [auto/] Hmph. Duel goes to me.
+//END: showdown01
+===
+
+title: Rogue_Showdown_Win_2
+tags: showdown
+speaker: rogue
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Rogue: [auto/] I'll take the win but I could've won in grander ways.
+//END: showdown02
+===
+
+title: Rogue_Showdown_Lose_1
+tags: showdown
+speaker: rogue
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Rogue: [auto/] Better hand. You earned it.
+//END: showdown03
+===
+
+title: Rogue_Showdown_Lose_2
+tags: showdown
+speaker: rogue
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Rogue: [auto/] Clean strike, you've taken me out.
+//END: showdown04
+===
+
+title: Rogue_Showdown_Lose_3
+tags: showdown
+speaker: rogue
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Rogue: [auto/] Losing a hand never killed anyone. Losing a duel did. This I can stomach.
+//END: showdown05
+===
+
+// ================
+// CHEATING
+// ================
+
+title: Rogue_Cheating_Innocent_01
+tags: cheating
+speaker: rogue
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Rogue: [auto/] I do not need tricks to win. My blade never needed them, and neither do my cards.
+//END: cheating01
+===
+title: Rogue_Cheating_Guilty_01
+tags: cheating
+speaker: rogue
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Rogue: [auto/] Fine. I cheated. Duels have rules and so do cards but the stakes of the real world are over now.
+//END: cheating02
+===

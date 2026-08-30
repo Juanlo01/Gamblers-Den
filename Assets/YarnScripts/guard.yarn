@@ -1,0 +1,541 @@
+// acts chivalrous and noble but it's all fake, frequent drinker, keeps his head high, jealous of his height.
+// death not specified — mysterious, unrevealed.
+// file: guard, speaker: Guard
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: Guard_Casual_01
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Guard: [auto/] This stage of the afterlife doesn't seem to have much wine, hopefully the next one does.
+//END: casual01
+===
+
+title: Guard_Casual_02
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Guard: [auto/] Between hands is when a disciplined man reflects on strategy. That is what I am doing. Reflecting.
+//END: casual02
+===
+
+title: Guard_Casual_03
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Guard: [auto/] They used to call me the Iron Gate of the Eastern Pass. Well, one man called me that. He was also drunk. But it caught on. In a small circle.
+//END: casual03
+===
+
+title: Guard_Casual_04
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Guard: [auto/] I have dined at tables far grander than this one.
+//END: casual04
+===
+
+title: Guard_Casual_05
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Guard: [auto/] A gentleman never reveals his rank unprompted. But if anyone were to ask, I served in a capacity that was — let us say — adjacent to nobility. Very adjacent.
+//END: casual05
+===
+
+title: Guard_Casual_06
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Guard: [auto/] Ah, the pause between hands. In the barracks we called this the Gentleman's Intermission. We did not. I just made that up. But it sounds right, does it not?
+//END: casual06
+===
+
+title: Guard_Casual_07
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Guard: [auto/] A man of my experience reads the table like a book. A very complex book. Written in a language I am still learning. But confidently.
+//END: casual07
+===
+
+title: Guard_Casual_08
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Guard: [auto/] I sit with excellent posture because it commands respect.
+//END: casual08
+===
+
+title: Guard_Casual_09
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Guard: [auto/] Some men play cards for sport. I play for the intellectual contest. And the drinking. Mostly the drinking, if I am being — no. The intellectual contest.
+//END: casual09
+===
+
+title: Guard_Casual_10
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Guard: [auto/] Is this seat lower than the others? It feels lower. I demand — I request, humbly, that someone inspect the legs of this chair.
+//END: casual10
+===
+
+title: Guard_Casual_11
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Guard: [auto/] The art of the bluff is really about conviction. You must believe the lie yourself. That is... general card advice. Not a confession.
+//END: casual11
+===
+
+title: Guard_Casual_12
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Guard: [auto/] I keep my chin high because it projects authority. A man who looks down is a man who has already surrendered. Also I appear taller but that's beside the point.
+//END: casual12
+===
+
+title: Guard_Casual_13
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Guard: [auto/] I once told a woman I was a decorated captain. She asked which regiment. I said it was classified. She said classified regiments do not drink rice wine from a bucket. The evening ended shortly after.
+//END: casual13
+===
+
+title: Guard_Casual_14
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Guard: [auto/] Do you know the worst part of the afterlife? No one here is impressed by rank anymore. You could say you commanded ten thousand men and the ghost next to you can say twenty, no one actually remembers the numbers though.
+//END: casual14
+===
+
+title: Guard_Casual_15
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Guard: [auto/] I drink to remember the version of myself I tell people about. He was taller, braver, invited to things. Good man.
+//END: casual15
+===
+
+title: Guard_Casual_16
+tags: casual
+speaker: guard
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Guard: [auto/] Some nights I cannot sleep — can spirits sleep? Regardless. Some nights I lie awake and wonder if anyone ever actually believed me.
+//END: casual16
+===
+
+// ============================================================
+// GAME STATES
+// ============================================================
+
+title: Guard_ReactAction_Raise_01
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Guard: [auto/] A bold raise! I have seen bolder, of course. In the high-stakes parlors of the capital. Where I was a regular. A semi-regular. I went once.
+//END: reactaction01
+===
+
+title: Guard_ReactAction_Fold_01
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Guard: [auto/] A fold? Weak hand, weak resolve, all in the same.
+//END: reactaction02
+===
+
+title: Guard_ReactAction_AllIn_01
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Guard: [auto/] All in! Now that — that is the kind of reckless bravery I used to see on the front lines. Not that I was on the front lines. I was more of a... coordinator.
+//END: reactaction03
+===
+
+title: Guard_ReactAction_Raise_02
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction04
+Guard: [auto/] This pot is growing. I love it. I mean — I observe it with the detachment of a seasoned professional.
+//END: reactaction04
+===
+
+title: Guard_ReactAction_Check_01
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction05
+Guard: [auto/] Checking? How measured. How cautious. I crush those who cling to caution.
+//END: reactaction05
+===
+
+title: Guard_ReactAction_Call_01
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Guard: [auto/] A call. Measured. Unremarkable. I have called far larger sums in far grander rooms.
+//END: reactaction06
+===
+
+title: Guard_ReactAction_SelfFold_01
+tags: react_action
+speaker: guard
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction07
+Guard: [auto/] I fold not from weakness but from foresight. A leader who cannot see when to withdraw is no leader at all. I read- wrote that.
+//END: reactaction07
+===
+
+title: Guard_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: guard
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction08
+Guard: [auto/] All in! Yes! This is the kind of decisive command I was known for.
+//END: reactaction08
+===
+
+title: Guard_ReactAction_SelfRaise_01
+tags: react_action
+speaker: guard
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction09
+Guard: [auto/] I raise. A man of vision must occasionally show his hand — figuratively, of course, not literally, do not look at my cards.
+//END: reactaction09
+===
+
+title: Guard_ReactAction_SelfCall_01
+tags: react_action
+speaker: guard
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction10
+Guard: [auto/] I call. A calculated match, no hesitation, why would I need to after all?
+//END: reactaction10
+===
+
+title: Guard_ReactAction_SelfCheck_01
+tags: react_action
+speaker: guard
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction11
+Guard: [auto/] I check. Restraint, you understand, is its own form of dominance. A lesser man throws coin at every opportunity. I'm simply better.
+//END: reactaction11
+===
+
+title: Guard_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: guard
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction12
+Guard: [auto/] Every move I make at this table is deliberate. Every single one. Do not ask me to explain the last one specifically.
+//END: reactaction12
+===
+
+title: Guard_ReactAction_Any_01
+tags: react_action
+speaker: guard
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Guard: [auto/] Something just happened. I am not entirely sure what, but I was definitely watching closely. Mostly.
+//END: reactaction13
+===
+
+// ============================================================
+// SHOWDOWNS
+// ===============================================================
+
+title: Guard_Showdown_Win_01
+tags: showdown
+speaker: guard
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Guard: [auto/] And there it is. Skill, composure, a gentleman always win!
+//END: showdown01
+===
+
+title: Guard_Showdown_Win_02
+tags: showdown
+speaker: guard
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Guard: [auto/] Victory favors the prepared minds, like mine.
+//END: showdown02
+===
+
+title: Guard_Showdown_Lose_03
+tags: showdown
+speaker: guard
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Guard: [auto/] Absurd. These cards are clearly — someone has tampered with — this seat is at a disadvantage!
+//END: showdown03
+===
+
+title: Guard_Showdown_Lose_04
+tags: showdown
+speaker: guard
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Guard: [auto/] A lesser man would be upset. I am not upset. NOT AT ALL!
+//END: showdown04
+===
+
+title: Guard_Showdown_Lose_05
+tags: showdown
+speaker: guard
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Guard: [auto/] That hand proves nothing. You were just lucky!
+//END: showdown05
+===
+// ============================================================
+// CHEATING
+// ============================================================
+
+title: Guard_Cheating_Innocent_01
+tags: cheating
+speaker: guard
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Guard: [auto/] Me? Cheat? I once caught three card sharks single-handedly! Well— two. Maybe one, and he surrendered.
+//END: cheating01
+===
+title: Guard_Cheating_Guilty_01
+tags: cheating
+speaker: guard
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Guard: [auto/] Alright, alright! I palmed a card. Old habits. A guard sees a lot of tricks standing around all those years.
+//END: cheating02
+===

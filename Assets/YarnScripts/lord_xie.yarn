@@ -1,0 +1,542 @@
+// Aristocratic, pompous, obsessed with status, easily irritated by peasants.
+// Died while old of a disease no doctor could cure.
+// file: lord_xie, speaker: Lord Xie
+
+// ============================================================
+// CASUAL
+// ============================================================
+
+title: LordXie_Casual_01
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual01
+Lord Xie: [auto/] One grows weary of the company at this table. In life, I employed men solely to ensure such riffraff never entered my parlour.
+//END: casual01
+===
+
+title: LordXie_Casual_02
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual02
+Lord Xie: [auto/] The Xie estate once hosted the emperor himself for an evening of cards. He lost graciously, as all men of class do. Unlike the rabble here.
+//END: casual02
+===
+
+title: LordXie_Casual_03
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual03
+Lord Xie: [auto/] Is there no attendant to refresh the table? I forget myself. The dead are their own servants now. How grotesque.
+//END: casual03
+===
+
+title: LordXie_Casual_04
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual04
+Lord Xie: [auto/] I once owned silks finer than anything at this table. Porcelain that would make emperors envious. Now I sit among commoners. The indignity of it.
+//END: casual04
+===
+
+title: LordXie_Casual_05
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual05
+Lord Xie: [auto/] In my household, the pauses between entertainments were filled with fine music and poetry. Here we get silence and the smell of failure.
+//END: casual05
+===
+
+title: LordXie_Casual_06
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual06
+Lord Xie: [auto/] Death was supposed to be a passage to something grander. Instead I find myself at a card table with peasants. The cosmos has a vulgar sense of humour.
+//END: casual06
+===
+
+title: LordXie_Casual_07
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual07
+Lord Xie: [auto/] Poker is a gentleman's pursuit. One reads the opponent as one reads a contract — carefully, and with the expectation that the other party is lying.
+//END: casual07
+===
+
+title: LordXie_Casual_08
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual08
+Lord Xie: [auto/] I have negotiated land deals worth more than everyone at this table combined. A card game is hardly a challenge for a mind such as mine.
+//END: casual08
+===
+
+title: LordXie_Casual_09
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual09
+Lord Xie: [auto/] One does not simply throw chips about like grain to chickens. There is an art to the wager. A refinement that most here sorely lack.
+//END: casual09
+===
+
+title: LordXie_Casual_10
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual10
+Lord Xie: [auto/] Watch and learn from your betters. That is free counsel, and worth more than any of you deserve.
+//END: casual10
+===
+
+title: LordXie_Casual_11
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual11
+Lord Xie: [auto/] Every bet I place carries the weight of three hundred years of Xie family honour. What does yours carry? Desperation, I presume.
+//END: casual11
+===
+
+title: LordXie_Casual_12
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual12
+Lord Xie: [auto/] The cards are merely instruments. The true game is played between minds of quality. I do hope at least one such mind is present tonight.
+//END: casual12
+===
+
+title: LordXie_Casual_13
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual13
+Lord Xie: [auto/] The Xie estate sprawled across three valleys. Gardens that took forty servants to maintain. Now it rots, and I sit here. Wealth means nothing to the worms.
+//END: casual13
+===
+
+title: LordXie_Casual_14
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual14
+Lord Xie: [auto/] I summoned every physician in the province. Then the next. Then the capital. Not one could name what was killing me. My gold bought only bewildered faces.
+//END: casual14
+===
+
+title: LordXie_Casual_15
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual15
+Lord Xie: [auto/] The cruelest truth of death is this: it does not care what your name was. A lord and a beggar rot at the same pace. I have never forgiven it for that.
+//END: casual15
+===
+
+title: LordXie_Casual_16
+tags: casual
+speaker: lord_xie
+category: casual
+target: any
+phase: any
+requires:
+priority: 1
+---
+//START: casual16
+Lord Xie: [auto/] In the end, the disease took everything my title could not protect. My dignity. My voice. My certainty that I was better than the dirt they buried me in.
+//END: casual16
+===
+
+// ================================
+// GAME STATES
+// ================================
+
+title: LordXie_ReactAction_Raise_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction01
+Lord Xie: [auto/] What a positively boorish raise. One does not simply fling wealth at a problem. That is how peasants think.
+//END: reactaction01
+===
+
+title: LordXie_ReactAction_Fold_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction02
+Lord Xie: [auto/] A fold? How sensible. One should know one's station and withdraw when outmatched by superior play.
+//END: reactaction02
+===
+
+title: LordXie_ReactAction_AllIn_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction03
+Lord Xie: [auto/] All in. How crass. A true nobleman never risks everything at once. That is what expendable servants are for.
+//END: reactaction03
+===
+
+title: LordXie_ReactAction_Any_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction04
+Lord Xie: [auto/] Hmph. A passable move, I suppose. Even a blind pig finds a truffle now and again. No offense intended. Well. Some offense.
+//END: reactaction04
+===
+
+title: LordXie_ReactAction_Raise_02
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction05
+Lord Xie: [auto/] That raise had a whiff of strategy about it. Surprising. I did not think anyone here capable.
+//END: reactaction05
+===
+
+title: LordXie_ReactAction_Call_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction06
+Lord Xie: [auto/] A call. How dreadfully passive. One either commits or withdraws — hovering in between had people roll their eyes.
+//END: reactaction06
+===
+
+title: LordXie_ReactAction_Check_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: any
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction07
+Lord Xie: [auto/] Checking. A meek little gesture. In my day such hesitation would have been mistaken for poor upbringing, never for cleverness.
+//END: reactaction07
+===
+
+title: LordXie_ReactAction_SelfFold_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: fold
+---
+//START: reactaction08
+Lord Xie: [auto/] I fold — a Xie would not dare accept such a stupid loss.
+//END: reactaction08
+===
+
+title: LordXie_ReactAction_SelfAllIn_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: all_in
+---
+//START: reactaction09
+Lord Xie: [auto/] Everything, then, all at once. A true lord does not gamble — he simply reclaims what fate had misplaced in lesser hands.
+//END: reactaction09
+===
+
+title: LordXie_ReactAction_SelfRaise_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: raise
+---
+//START: reactaction10
+Lord Xie: [auto/] I raise, of course. Being timid is a luxury for men with no ancestry to answer for.
+//END: reactaction10
+===
+
+title: LordXie_ReactAction_SelfCall_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: call
+---
+//START: reactaction11
+Lord Xie: [auto/] I call. Not from curiosity — merely to grant you the brief and unearned privilege of losing to me directly.
+//END: reactaction11
+===
+
+title: LordXie_ReactAction_SelfCheck_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: check
+---
+//START: reactaction12
+Lord Xie: [auto/] I check. A momentary pause, nothing more. Even emperors paused before affixing their seal to lesser matters.
+//END: reactaction12
+===
+
+title: LordXie_ReactAction_SelfGeneral_01
+tags: react_action
+speaker: lord_xie
+category: react_action
+target: self
+phase: any
+requires:
+priority: 1
+react_to: any
+---
+//START: reactaction13
+Lord Xie: [auto/] Every motion of my hand at this table carries three centuries of instinct bred into finer stock than what surrounds me.
+//END: reactaction13
+===
+
+// ============================================================
+// SHOWDOWNS
+// ============================================================
+
+title: LordXie_Showdown_Win_01
+tags: showdown
+speaker: lord_xie
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown01
+Lord Xie: [auto/] As expected. The Xie bloodline does not lose to commoners.
+//END: showdown01
+===
+
+title: LordXie_Showdown_Win_02
+tags: showdown
+speaker: lord_xie
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: win
+---
+//START: showdown02
+Lord Xie: [auto/] Victory. The natural order asserts itself once more. Let no one claim luck played a part — this was pure pedigree.
+//END: showdown02
+===
+
+title: LordXie_Showdown_Lose_01
+tags: showdown
+speaker: lord_xie
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown03
+Lord Xie: [auto/] Preposterous. These cards are clearly defective. In life I would have had the deck maker flogged for such craftsmanship.
+//END: showdown03
+===
+
+title: LordXie_Showdown_Lose_02
+tags: showdown
+speaker: lord_xie
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown04
+Lord Xie: [auto/] I refuse to accept this outcome. A Xie does not lose — circumstances merely conspire against him temporarily.
+//END: showdown04
+===
+
+title: LordXie_Showdown_Lose_03
+tags: showdown
+speaker: lord_xie
+category: showdown
+target: any
+phase: showdown
+requires:
+priority: 1
+outcome: lose
+---
+//START: showdown05
+Lord Xie: [auto/] Defeated by this rabble. If my ancestors could see this, they would die of shame... again.
+//END: showdown05
+===
+
+// ============================================================
+// CHEATING
+// ============================================================
+
+title: LordXie_Cheating_Innocent_01
+tags: cheating
+speaker: lord_xie
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: innocent
+---
+//START: cheating01
+Lord Xie: [auto/] How dare you accuse a Xie of cheating. My family does not cheat. We simply arrange outcomes in our favor.
+//END: cheating01
+===
+title: LordXie_Cheating_Guilty_01
+tags: cheating
+speaker: lord_xie
+category: cheating
+target: any
+phase: any
+requires:
+priority: 1
+verdict: guilty
+---
+//START: cheating02
+Lord Xie: [auto/] Preposterous— fine, yes, I cheated. A Xie does what a Xie must to avoid the indignity of losing.
+//END: cheating02
+===
