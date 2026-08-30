@@ -16,20 +16,20 @@ MonoBehaviour:
   - id: mus_gameplay
     eventReference:
       Guid:
-        Data1: 344482475
-        Data2: 1165932514
-        Data3: -436502105
-        Data4: 313702428
+        Data1: -2027868828
+        Data2: 1114154360
+        Data3: 993018272
+        Data4: -397923865
       Path: event:/Music/Mus_Gameplay
     category: 0
   - id: mus_main_menu
     eventReference:
       Guid:
-        Data1: -2027868828
-        Data2: 1114154360
-        Data3: 993018272
-        Data4: -397923865
-      Path: event:/Music/Mus_MainMenu
+        Data1: 344482475
+        Data2: 1165932514
+        Data3: -436502105
+        Data4: 313702428
+      Path: event:/Music/Mus_StartMenu
     category: 0
   - id: card_deal
     eventReference:

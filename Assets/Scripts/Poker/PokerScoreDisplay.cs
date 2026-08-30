@@ -14,7 +14,7 @@ public class PokerScoreDisplay : MonoBehaviour
     {
         if (pokerGameManager == null) return;
 
-        currentScoreText.text = $"Score: ${pokerGameManager.GetCurrentScore()}";
-        bestScoreText.text = $"Best: ${pokerGameManager.GetBestScore()}";
+        currentScoreText.text = $"${pokerGameManager.GetCurrentScore()}";
+        bestScoreText.text = $"${pokerGameManager.GetBestScore()}";
     }
 }

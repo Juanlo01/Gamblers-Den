@@ -128,7 +128,7 @@ public class CPU_Animator : MonoBehaviour{
         yield return new WaitForSeconds(2.0f);
         catchOpportunity = false; // Times up! Can no longer be caught
         if (!caughtCheating){
-            CheatState.Active = true; // Got away with it - the poker engine gets a one-shot edge
+            CheatState.Active = true;
         }
         isCheating = false; // Can start cheating again
         ClearStates();

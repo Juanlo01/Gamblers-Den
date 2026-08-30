@@ -2032,7 +2032,7 @@ MonoBehaviour:
   - {fileID: 1311764000}
   - {fileID: 1293868546}
   stageExit: {x: 4, y: 0, z: 0}
-  moveDuration: 3
+  moveDuration: 5
   yarnFile: {fileID: 0}
   Nameplate: {fileID: 1700602253}
   DialogueText: {fileID: 83004024}
@@ -4210,7 +4210,7 @@ MonoBehaviour:
   - {fileID: 189674401}
   - {fileID: 915628239}
   stageExit: {x: 8, y: 0, z: 0}
-  moveDuration: 3
+  moveDuration: 5
   yarnFile: {fileID: 0}
   Nameplate: {fileID: 990817570}
   DialogueText: {fileID: 268040916}
@@ -12023,7 +12023,7 @@ MonoBehaviour:
   - {fileID: 286420753}
   - {fileID: 379075617}
   stageExit: {x: -4, y: 0, z: 0}
-  moveDuration: 3
+  moveDuration: 5
   yarnFile: {fileID: 0}
   Nameplate: {fileID: 1496970569}
   DialogueText: {fileID: 1024384961}
