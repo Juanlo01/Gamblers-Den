@@ -5,7 +5,9 @@ using UnityEngine;
 public class CPU_Controller : MonoBehaviour{
 
     public bool caught = false;
+    public int nextIndex;
     public GameObject[] npcs; // List of NPCs
+    private Vector3 startPosition;
     public Vector3 stageExit = new Vector3(3, 0, 0); // Position at which NPC will exit when caught
 
     // Index into npcs[]/CA1..CA5 of whichever NPC currently occupies this seat.
@@ -93,6 +95,9 @@ public class CPU_Controller : MonoBehaviour{
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
+
+        startPosition = transform.position; // grab starting position when game starts
+
         CA1 = npcs[0].GetComponent<CPU_Animator>();
         CA2 = npcs[1].GetComponent<CPU_Animator>();
         CA3 = npcs[2].GetComponent<CPU_Animator>();
@@ -214,7 +219,10 @@ public class CPU_Controller : MonoBehaviour{
 
     public void Replenish(){
         if (caught){
+            npcs[nextIndex].SetActive(true); // set next NPC to be active when replenishing
+            _activeIndex = nextIndex;
             StartCoroutine(Move(-stageExit, moveDuration)); // New character gets brought in
+            //transform.position = startPosition; // Auto correct if position is wrong
             caught = false;
 
             // The engine seat resumes playing normally as of this hand - matched
@@ -243,7 +251,9 @@ public class CPU_Controller : MonoBehaviour{
                 npcs[i].SetActive(false);
             }
         }
-        npcs[randomIndex].SetActive(true);
+
+        nextIndex = randomIndex;
+        //npcs[randomIndex].SetActive(true);
         _activeIndex = randomIndex;
     }
 
@@ -259,7 +269,7 @@ public class CPU_Controller : MonoBehaviour{
             transform.position = Vector3.Lerp(position, position - target, smoothedT);
             yield return null;
         }
-        
+        //yield return new WaitForSeconds(3f);
     }
 
 

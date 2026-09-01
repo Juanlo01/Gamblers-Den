@@ -104,7 +104,12 @@ public class PokerGameManager : MonoBehaviour
     // the atomics feature, so the link fails).
     private IEnumerator RunGame(TexasHoldemGame game)
     {
-        yield return game.Start();
+        while (true){
+            Debug.Log("Game Start!");
+            yield return game.Start();
+            Debug.Log("Game Limit Reached, Starting again!");
+        }
+        
 
         Debug.Log($"Game over. Winner: {(game.Winner != null ? game.Winner.Name : "nobody")}");
     }
