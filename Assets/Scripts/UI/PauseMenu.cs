@@ -32,11 +32,22 @@ public class PauseMenu : MonoBehaviour
     private bool isMenuOpen;
     private bool pauseAllowed = true;
 
+    // ModalGroup also switches every child Graphic's raycastTarget, so a hidden
+    // panel cannot be clicked through even if a child overrides the CanvasGroup.
+    private ModalGroup pauseModal;
+    private ModalGroup scoreModal;
+
     private void Awake()
     {
+        // Resolve BEFORE hiding: ModalGroup captures each child's authored
+        // raycastTarget on first use, and capturing that after a hide would
+        // record the hidden state as the original.
+        pauseModal = ModalGroup.For(pauseCanvasGroup);
+        scoreModal = ModalGroup.For(scoreCanvasGroup);
+
         // Start closed and hidden, regardless of how it was left in the editor.
-        SetGroupVisible(pauseCanvasGroup, pauseHideImage, false);
-        SetGroupVisible(scoreCanvasGroup, scoreHideImage, false);
+        SetGroupVisible(pauseModal, pauseHideImage, false);
+        SetGroupVisible(scoreModal, scoreHideImage, false);
     }
 
     private void Update()
@@ -53,7 +64,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!pauseAllowed || isMenuOpen) return;
 
-        SetGroupVisible(pauseCanvasGroup, pauseHideImage, true);
+        SetGroupVisible(pauseModal, pauseHideImage, true);
         Time.timeScale = 0f;
         isMenuOpen = true;
     }
@@ -63,7 +74,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!isMenuOpen) return;
 
-        SetGroupVisible(pauseCanvasGroup, pauseHideImage, false);
+        SetGroupVisible(pauseModal, pauseHideImage, false);
         Time.timeScale = 1f;
         isMenuOpen = false;
     }
@@ -76,17 +87,15 @@ public class PauseMenu : MonoBehaviour
     {
         pauseAllowed = false;
         Time.timeScale = 0f;
-        SetGroupVisible(scoreCanvasGroup, scoreHideImage, true);
+        SetGroupVisible(scoreModal, scoreHideImage, true);
     }
 
-    private static void SetGroupVisible(CanvasGroup group, Image hideImage, bool visible)
+    // hideImage is handled separately from the ModalGroup because it may sit
+    // OUTSIDE the CanvasGroup (it is a backdrop). When it is inside, ModalGroup
+    // already covers it and this just sets the same value again - harmless.
+    private static void SetGroupVisible(ModalGroup modal, Image hideImage, bool visible)
     {
-        if (group != null)
-        {
-            group.alpha = visible ? 1f : 0f;
-            group.interactable = visible;
-            group.blocksRaycasts = visible;
-        }
+        modal?.SetVisible(visible);
 
         if (hideImage != null)
         {
