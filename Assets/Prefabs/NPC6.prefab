@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CPU_Animator
   <Name>k__BackingField: General Tian
-  <YarnId>k__BackingField: 
+  <YarnId>k__BackingField: general_tian
   sweatOpportunity: 31
   dartOpportunity: 26
   shakeOpportunity: 21

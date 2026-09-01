@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51f82dd75738504cac14070996058f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  <Name>k__BackingField: 
-  <YarnId>k__BackingField: 
+  <Name>k__BackingField: Shaman
+  <YarnId>k__BackingField: shaman
   sweatOpportunity: 31
   dartOpportunity: 26
   shakeOpportunity: 21

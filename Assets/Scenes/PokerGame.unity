@@ -599,9 +599,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1663638235}
     m_Modifications:
+    - target: {fileID: 1424977939714766562, guid: b15e97275650857409c33bcc441e5497, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: YuSen Zhou
+      objectReference: {fileID: 0}
+    - target: {fileID: 1424977939714766562, guid: b15e97275650857409c33bcc441e5497, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: yusen_zhou
+      objectReference: {fileID: 0}
     - target: {fileID: 4393307072195629899, guid: b15e97275650857409c33bcc441e5497, type: 3}
       propertyPath: m_Name
       value: NPC15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393307072195629899, guid: b15e97275650857409c33bcc441e5497, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9133565983066103755, guid: b15e97275650857409c33bcc441e5497, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4058,6 +4070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC14
       objectReference: {fileID: 0}
+    - target: {fileID: 2023198842345079423, guid: 32e9c73d4ceb3864889871e6680fb724, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2816288131891478466, guid: 32e9c73d4ceb3864889871e6680fb724, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4097,6 +4113,14 @@ PrefabInstance:
     - target: {fileID: 2816288131891478466, guid: 32e9c73d4ceb3864889871e6680fb724, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185392352402387905, guid: 32e9c73d4ceb3864889871e6680fb724, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Lord Xie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185392352402387905, guid: 32e9c73d4ceb3864889871e6680fb724, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: lord_xie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5051,6 +5075,18 @@ PrefabInstance:
     - target: {fileID: 137061229078648116, guid: 7dee3a470a789bb41b95b7430566b927, type: 3}
       propertyPath: m_Name
       value: NPC9
+      objectReference: {fileID: 0}
+    - target: {fileID: 137061229078648116, guid: 7dee3a470a789bb41b95b7430566b927, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245364694676540489, guid: 7dee3a470a789bb41b95b7430566b927, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Mr. Li
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245364694676540489, guid: 7dee3a470a789bb41b95b7430566b927, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: mr_li
       objectReference: {fileID: 0}
     - target: {fileID: 3517780399477685375, guid: 7dee3a470a789bb41b95b7430566b927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7695,6 +7731,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 495188166}
     m_Modifications:
+    - target: {fileID: 6740226388325984186, guid: 5b0a3bb4a7b1d2643a25c602c0bd2fda, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Mr. Zhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740226388325984186, guid: 5b0a3bb4a7b1d2643a25c602c0bd2fda, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: mr_zhu
+      objectReference: {fileID: 0}
     - target: {fileID: 7440767007110376195, guid: 5b0a3bb4a7b1d2643a25c602c0bd2fda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7738,6 +7782,10 @@ PrefabInstance:
     - target: {fileID: 7753413382035781369, guid: 5b0a3bb4a7b1d2643a25c602c0bd2fda, type: 3}
       propertyPath: m_Name
       value: NPC13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753413382035781369, guid: 5b0a3bb4a7b1d2643a25c602c0bd2fda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8159,6 +8207,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 237728521}
     m_Modifications:
+    - target: {fileID: 1738701330877033589, guid: fe66cd4c01bf8144c811cca34249c41f, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Shaman
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738701330877033589, guid: fe66cd4c01bf8144c811cca34249c41f, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: shaman
+      objectReference: {fileID: 0}
     - target: {fileID: 2299835646731884022, guid: fe66cd4c01bf8144c811cca34249c41f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8202,6 +8258,10 @@ PrefabInstance:
     - target: {fileID: 7172785272050695655, guid: fe66cd4c01bf8144c811cca34249c41f, type: 3}
       propertyPath: m_Name
       value: NPC11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172785272050695655, guid: fe66cd4c01bf8144c811cca34249c41f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8633,9 +8693,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 237728521}
     m_Modifications:
+    - target: {fileID: 1323495844100650995, guid: 5bf87890fdce91f44b5b725eeeab4d6c, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Eunuch Cai
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323495844100650995, guid: 5bf87890fdce91f44b5b725eeeab4d6c, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: eunuch_cai
+      objectReference: {fileID: 0}
     - target: {fileID: 4316445154898472597, guid: 5bf87890fdce91f44b5b725eeeab4d6c, type: 3}
       propertyPath: m_Name
       value: NPC8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316445154898472597, guid: 5bf87890fdce91f44b5b725eeeab4d6c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7802811209427510174, guid: 5bf87890fdce91f44b5b725eeeab4d6c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12302,6 +12374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC10
       objectReference: {fileID: 0}
+    - target: {fileID: 3334331312170264063, guid: 002487e8c2bbfaf4b9846b6aeaf8ce48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3710462520576670653, guid: 002487e8c2bbfaf4b9846b6aeaf8ce48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12341,6 +12417,14 @@ PrefabInstance:
     - target: {fileID: 3710462520576670653, guid: 002487e8c2bbfaf4b9846b6aeaf8ce48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828627427950391973, guid: 002487e8c2bbfaf4b9846b6aeaf8ce48, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Beauty Xu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828627427950391973, guid: 002487e8c2bbfaf4b9846b6aeaf8ce48, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: beauty_xu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13057,6 +13141,18 @@ PrefabInstance:
     - target: {fileID: 75475782588987583, guid: d9c1c58c44006c348b31e3f293610284, type: 3}
       propertyPath: m_Name
       value: NPC12
+      objectReference: {fileID: 0}
+    - target: {fileID: 75475782588987583, guid: d9c1c58c44006c348b31e3f293610284, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171973995920667747, guid: d9c1c58c44006c348b31e3f293610284, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171973995920667747, guid: d9c1c58c44006c348b31e3f293610284, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: guard
       objectReference: {fileID: 0}
     - target: {fileID: 8641048191051047888, guid: d9c1c58c44006c348b31e3f293610284, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14081,6 +14177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC7
       objectReference: {fileID: 0}
+    - target: {fileID: 1412699321204645232, guid: 5848d913d156a574cb32255b2b367b45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6378115928689116419, guid: 5848d913d156a574cb32255b2b367b45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14120,6 +14220,14 @@ PrefabInstance:
     - target: {fileID: 6378115928689116419, guid: 5848d913d156a574cb32255b2b367b45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281271856870477780, guid: 5848d913d156a574cb32255b2b367b45, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Rogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281271856870477780, guid: 5848d913d156a574cb32255b2b367b45, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: rogue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14359,6 +14467,18 @@ MonoBehaviour:
   - {fileID: 1042094116111776886, guid: 0fab87cc1c35d39488832ea8700936ea, type: 3}
   - {fileID: 1042094116111776886, guid: bfbbee5a5438113429913eeb30af8826, type: 3}
   - {fileID: 1042094116111776886, guid: 273f9d7e6db27ac4b96ebae263d23755, type: 3}
+  - {fileID: 1042094116111776886, guid: 21ed2465fc692cc4ebaa9753fb4c262d, type: 3}
+  - {fileID: 1042094116111776886, guid: b1bb971961f126743a20143830670ef1, type: 3}
+  - {fileID: 1042094116111776886, guid: be145fe6797de2f429a91471adc08a98, type: 3}
+  - {fileID: 1042094116111776886, guid: 38d1fa4fad0ebcf498b6666395b0b2c4, type: 3}
+  - {fileID: 1042094116111776886, guid: 3b1751b59558bc946951c0ff9db6c714, type: 3}
+  - {fileID: 1042094116111776886, guid: 41ce63e81212fd4469c541d5f1d82458, type: 3}
+  - {fileID: 1042094116111776886, guid: edf5ba05b2f6def49acab596846372f6, type: 3}
+  - {fileID: 1042094116111776886, guid: 59fea4d0949dcb04e9301aa6e20e83e6, type: 3}
+  - {fileID: 1042094116111776886, guid: f25f79740c2b8774b85e8ab0a0fb1aee, type: 3}
+  - {fileID: 1042094116111776886, guid: a1143530bc5c6a74daca6bf950c7c360, type: 3}
+  - {fileID: 1042094116111776886, guid: 6e9b6a33f8d3fc047bb281207098c9a9, type: 3}
+  - {fileID: 1042094116111776886, guid: 23fbb417b708b3941bf458c0ab32043c, type: 3}
   cooldownSize: 20
   dialogueChance: 0.4
   verboseLogging: 1
@@ -16611,6 +16731,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC6
       objectReference: {fileID: 0}
+    - target: {fileID: 5846561406613284573, guid: 1ccac32dacc5873458e8cf6e43af6419, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086624321255511882, guid: 1ccac32dacc5873458e8cf6e43af6419, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: general_tian
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16632,6 +16760,14 @@ PrefabInstance:
     - target: {fileID: 1549210370081978472, guid: eb7fd695cd71c3544ac8696a1e5ab3d6, type: 3}
       propertyPath: m_Name
       value: NPC4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549210370081978472, guid: eb7fd695cd71c3544ac8696a1e5ab3d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135119907468282049, guid: eb7fd695cd71c3544ac8696a1e5ab3d6, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: poet
       objectReference: {fileID: 0}
     - target: {fileID: 5961777916159732951, guid: eb7fd695cd71c3544ac8696a1e5ab3d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16672,6 +16808,10 @@ PrefabInstance:
     - target: {fileID: 5961777916159732951, guid: eb7fd695cd71c3544ac8696a1e5ab3d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978723555447966034, guid: eb7fd695cd71c3544ac8696a1e5ab3d6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16748,9 +16888,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 237728521}
     m_Modifications:
+    - target: {fileID: 98378437634135154, guid: e394381644ae6894d9b17ae57b5dca38, type: 3}
+      propertyPath: <YarnId>k__BackingField
+      value: madam_song
+      objectReference: {fileID: 0}
     - target: {fileID: 974255442996071893, guid: e394381644ae6894d9b17ae57b5dca38, type: 3}
       propertyPath: m_Name
       value: NPC5
+      objectReference: {fileID: 0}
+    - target: {fileID: 974255442996071893, guid: e394381644ae6894d9b17ae57b5dca38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7249647638411875653, guid: e394381644ae6894d9b17ae57b5dca38, type: 3}
       propertyPath: m_LocalPosition.x

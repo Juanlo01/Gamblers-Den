@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   <Name>k__BackingField: Madam Song
-  <YarnId>k__BackingField: 
+  <YarnId>k__BackingField: madam_song
   sweatOpportunity: 31
   dartOpportunity: 26
   shakeOpportunity: 21
