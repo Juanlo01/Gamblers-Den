@@ -33,6 +33,7 @@ public class CPU_Animator : MonoBehaviour{
     void Start(){
         _animator.SetBool("isCaught", false);
         ClearStates();
+        StartCoroutine(WaitALittle());
         //StartCoroutine(TryCheat());
     }
 
@@ -62,6 +63,10 @@ public class CPU_Animator : MonoBehaviour{
         _animator.SetBool("isCoughing", false);
         _animator.SetBool("isBlinking", false);
         //_animator.SetBool("isCaught", false);
+    }
+
+    public IEnumerator WaitALittle(){
+        yield return new WaitForSeconds(5f);
     }
 
     public IEnumerator TryCheat(){
