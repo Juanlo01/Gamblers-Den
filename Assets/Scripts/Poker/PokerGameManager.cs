@@ -7,6 +7,7 @@ using TexasHoldem.Logic.Players;
 using TexasHoldem.AI.SmartPlayer;
 using TexasHoldem.AI.DummyPlayer;
 using SimpleAudioSystem;
+using GamblersDen.Leaderboards;
 
 public class PokerGameManager : MonoBehaviour
 {
@@ -34,6 +35,15 @@ public class PokerGameManager : MonoBehaviour
     private int currentScore;
     private int bestScore;
     private bool gameOverTriggered;
+
+    // Separate from gameOverTriggered: a run can end by busting out OR by the
+    // table finishing, and only the first sets that flag. This guards the
+    // leaderboard write against firing twice when both paths run.
+    private bool runSubmitted;
+
+    // Name this run is posted under. Set via SetSubmittedPlayerName from a
+    // name-entry screen; falls back to a placeholder when left unset.
+    private string submittedPlayerName;
 
     // Seat order the table was dealt in, used to work out each player's
     // position relative to whoever holds the button in the current hand.
@@ -431,6 +441,7 @@ public class PokerGameManager : MonoBehaviour
         if (gameOverTriggered || moneyAfterHand > minimumBuyIn) return;
 
         gameOverTriggered = true;
+        SubmitRunToLeaderboards(moneyAfterHand);
 
         if (pauseMenu != null)
         {
@@ -441,6 +452,49 @@ public class PokerGameManager : MonoBehaviour
             Debug.LogWarning("[PokerGameManager] Player is out of money but no PauseMenu is assigned.", this);
         }
     }
+
+    /// <summary>
+    /// The run finished with the table decided rather than the player busting -
+    /// they either won outright or were eliminated. Called from
+    /// HumanPlayer.EndGame so a winning run is recorded too, not just a bust.
+    /// </summary>
+    public void OnGameEnded()
+    {
+        SubmitRunToLeaderboards(currentScore);
+    }
+
+    // Records the finished run on both leaderboards. Guarded separately from
+    // gameOverTriggered because a run can end two ways - busting out, or the
+    // table finishing - and only the first of those sets that flag.
+    private void SubmitRunToLeaderboards(int finalMoney)
+    {
+        if (runSubmitted) return;
+        runSubmitted = true;
+
+        // No name-entry UI exists yet, so fall back to a placeholder. Replace
+        // this argument with whatever the player types once that screen exists;
+        // the service clamps it to 12 characters and assigns the sub id.
+        var name = string.IsNullOrEmpty(submittedPlayerName) ? "Player" : submittedPlayerName;
+
+        Debug.Log($"[Leaderboards] Submitting run for '{name}': best ${bestScore}, end ${finalMoney}.");
+        Leaderboards.SubmitRun(name, bestScore, finalMoney, (ok, run) =>
+        {
+            if (ok)
+            {
+                Debug.Log($"[Leaderboards] Run recorded as {run}.");
+            }
+            else
+            {
+                Debug.LogWarning("[Leaderboards] Run submission did not fully succeed.");
+            }
+        });
+    }
+
+    /// <summary>
+    /// Name the next finished run is submitted under. Set this from a name-entry
+    /// screen before the run ends; it is clamped to 12 characters on submit.
+    /// </summary>
+    public void SetSubmittedPlayerName(string name) => submittedPlayerName = name;
 
     public int GetCurrentScore() => currentScore;
 

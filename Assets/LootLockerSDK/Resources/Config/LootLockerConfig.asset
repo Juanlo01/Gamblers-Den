@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182cd195a28310e479cddf7ff82822f8, type: 3}
+  m_Name: LootLockerConfig
+  m_EditorClassIdentifier: lootlocker.lootlockersdk.runtime::LootLocker.LootLockerConfig
+  apiKey: dev_b9e2b1bb3a1c4b479f80ec985d4cec73
+  adminToken: 5ea643f7ef225ec52622b4520d5bdd7142b3066c
+  domainKey: 73wit3ov
+  game_version: 1.0.0.0
+  sdk_version: 8.1.1
+  logLevel: 2
+  prettifyJson: 1
+  obfuscateLogs: 1
+  logErrorsAsWarnings: 0
+  logInBuilds: 0
+  allowTokenRefresh: 1
+  enablePresence: 0
+  enablePresenceAutoConnect: 1
+  enablePresenceAutoDisconnectOnFocusChange: 0
+  enablePresenceInEditor: 1
+  multiUserSessionMode: 2
+  enableEditorAdminExtension: 1
+  url: https://api.lootlocker.com/v1
+  adminUrl: https://73wit3ov.api.lootlocker.com/admin
+  playerUrl: https://73wit3ov.api.lootlocker.com/player
+  userUrl: https://73wit3ov.api.lootlocker.com/game
+  webSocketBaseUrl: wss://73wit3ov.api.lootlocker.com/game
+  baseUrl: https://73wit3ov.api.lootlocker.com
+  clientSideRequestTimeOut: 180

@@ -83,6 +83,10 @@ public class HumanPlayer : BasePlayer
     public override void EndGame(IEndGameContext context)
     {
         PokerUIController.Instance.ShowGameOver(context.WinnerName);
+
+        // Records the run even when it ends by the table finishing rather than
+        // by busting out - otherwise a winning run would never reach the board.
+        PokerGameManager.Instance.OnGameEnded();
     }
 
     public override PlayerAction PostingBlind(IPostingBlindContext context)
