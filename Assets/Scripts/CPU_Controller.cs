@@ -27,6 +27,13 @@ public class CPU_Controller : MonoBehaviour{
         }
     }
 
+    // True from the moment this seat's active NPC is caught cheating (Transition)
+    // until the next hand replenishes the seat (Replenish). While true, the
+    // poker engine's KickedOutPlayer decorator folds this seat unconditionally
+    // instead of letting the wrapped bot decide - the seat is visually empty
+    // or mid-swap, so it must not keep playing normally.
+    public bool IsKickedOutThisHand { get; private set; }
+
     public float moveDuration = 5.0f;
 
     // Total number of cheaters caught across all seats this session. Read by
@@ -167,26 +174,31 @@ public class CPU_Controller : MonoBehaviour{
     public void Transition(){ // Handles which NPC was caught and that they do the caught animation
         if (CA1.caughtCheating == true && npcs[0].activeSelf){
                 CheatersCaught++;
+                IsKickedOutThisHand = true;
                 StartCoroutine(Caught());
                 CA1._animator.SetBool("isCaught", true);
             }
         else if (CA2.caughtCheating == true && npcs[1].activeSelf){
                 CheatersCaught++;
+                IsKickedOutThisHand = true;
                 CA2._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
         else if (CA3.caughtCheating == true && npcs[2].activeSelf){
                 CheatersCaught++;
+                IsKickedOutThisHand = true;
                 CA3._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
         else if (CA4.caughtCheating == true && npcs[3].activeSelf){
                 CheatersCaught++;
+                IsKickedOutThisHand = true;
                 CA4._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
         else if (CA5.caughtCheating == true && npcs[4].activeSelf){
                 CheatersCaught++;
+                IsKickedOutThisHand = true;
                 CA5._animator.SetBool("isCaught", true);
                 StartCoroutine(Caught());
             }
@@ -204,6 +216,13 @@ public class CPU_Controller : MonoBehaviour{
         if (caught){
             StartCoroutine(Move(-stageExit, moveDuration)); // New character gets brought in
             caught = false;
+
+            // The engine seat resumes playing normally as of this hand - matched
+            // to the same condition as the visual swap-back-in, not to hand start
+            // in general, so a hand that starts mid-Caught() (still sliding off,
+            // not yet swapped) correctly leaves the seat kicked out one more hand
+            // rather than un-folding a seat that visually hasn't returned yet.
+            IsKickedOutThisHand = false;
         }
     }
 

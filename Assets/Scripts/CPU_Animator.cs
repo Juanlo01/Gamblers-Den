@@ -67,9 +67,9 @@ public class CPU_Animator : MonoBehaviour{
     public IEnumerator TryCheat(){
         //yield return new WaitForSeconds(cheatInterval); // Waiting before attempting to cheat first time
         //while (true){
-            cheatChance = Random.Range (0, 26);
+            cheatChance = Random.Range (0, 100);
             Debug.Log("Cheat Chance: " + cheatChance);
-            if (cheatChance >= 17){ // 9/26 (~35%) chance to cheat - 50% more often than the original 6/26 (~23%)
+            if (cheatChance < 50){ // flat 50% chance to cheat
                 Debug.Log("Cheat Succeeded");
                 cheatingOpportunity = Random.Range(0, 31);
                 yield return StartCoroutine(Cheat(cheatingOpportunity));

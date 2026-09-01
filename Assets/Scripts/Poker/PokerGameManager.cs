@@ -97,7 +97,9 @@ public class PokerGameManager : MonoBehaviour
 
     private static IPlayer MakeBot(CPU_Controller seat, HumanPlayer human)
     {
-        return new CheatingPlayer(new SmartPlayer(), seat, human);
+        // KickedOutPlayer wraps outermost so a seat caught cheating folds
+        // unconditionally, regardless of what CheatingPlayer would otherwise do.
+        return new KickedOutPlayer(new CheatingPlayer(new SmartPlayer(), seat, human), seat);
     }
     // Works out playerName's position for the current hand, given the name of
     // whoever holds the button (IStartHandContext.FirstPlayerName).
