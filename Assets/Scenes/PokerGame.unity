@@ -854,7 +854,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &73235229
 GameObject:
@@ -2995,7 +2995,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &286706463
 RectTransform:
@@ -14414,7 +14414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643158d3dc57ee649ba050316959afc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PokerGameManager
-  npcActionDelaySeconds: 5
+  npcActionDelaySeconds: 2.5
   initialMoney: 1000
   bot1Controller: {fileID: 237728520}
   bot2Controller: {fileID: 495188167}

@@ -13,7 +13,7 @@ public class PokerGameManager : MonoBehaviour
     public static PokerGameManager Instance { get; private set; }
 
     [Tooltip("How long each CPU's turn is held on screen after it decides, in seconds. Consumed by SlowedPlayer.Announce().")]
-    [SerializeField] private float npcActionDelaySeconds = 5f;
+    [SerializeField] private float npcActionDelaySeconds = 2.5f;
     [SerializeField] private int initialMoney = 100;
 
     [Header("CPU Seats")]
