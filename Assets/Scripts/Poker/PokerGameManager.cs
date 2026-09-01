@@ -7,6 +7,7 @@ using TexasHoldem.Logic.Players;
 using TexasHoldem.AI.SmartPlayer;
 using TexasHoldem.AI.DummyPlayer;
 using SimpleAudioSystem;
+using GamblersDen.Leaderboards;
 
 public class PokerGameManager : MonoBehaviour
 {
@@ -34,6 +35,19 @@ public class PokerGameManager : MonoBehaviour
     private int currentScore;
     private int bestScore;
     private bool gameOverTriggered;
+
+    // Separate from gameOverTriggered: a run can end by busting out OR by the
+    // table finishing, and only the first sets that flag. This guards the
+    // leaderboard write against firing twice when both paths run.
+    private bool runSubmitted;
+
+    // Name this run is posted under. Set via SetSubmittedPlayerName from the
+    // leaderboard screen's input field.
+    private string submittedPlayerName;
+
+    // Money the player finished the run with, frozen when the run ends so the
+    // leaderboard screen posts the true final figure rather than a later value.
+    private int finalScore;
 
     // Seat order the table was dealt in, used to work out each player's
     // position relative to whoever holds the button in the current hand.
@@ -436,6 +450,7 @@ public class PokerGameManager : MonoBehaviour
         if (gameOverTriggered || moneyAfterHand > minimumBuyIn) return;
 
         gameOverTriggered = true;
+        SubmitRunToLeaderboards(moneyAfterHand);
 
         if (pauseMenu != null)
         {
@@ -447,7 +462,59 @@ public class PokerGameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The run finished with the table decided rather than the player busting -
+    /// they either won outright or were eliminated. Called from
+    /// HumanPlayer.EndGame so a winning run is recorded too, not just a bust.
+    /// </summary>
+    public void OnGameEnded()
+    {
+        SubmitRunToLeaderboards(currentScore);
+    }
+
+    // Freezes the finished run's numbers so the leaderboard UI can post them
+    // once the player has entered a name.
+    //
+    // This deliberately does NOT post. Submitting needs a name, and the player
+    // has not been asked for one yet at this point - posting here would file
+    // every run under a placeholder and, worse, consume the one-shot submit
+    // before LeaderboardUI.SubmitUser() ever gets the chance. Guarded separately
+    // from gameOverTriggered because a run can end two ways (busting out, or the
+    // table finishing) and only the first of those sets that flag.
+    private void SubmitRunToLeaderboards(int finalMoney)
+    {
+        if (runSubmitted) return;
+        runSubmitted = true;
+
+        finalScore = finalMoney;
+        HasFinishedRun = true;
+
+        Debug.Log($"[Leaderboards] Run finished - best ${bestScore}, end ${finalMoney}. " +
+                  "Waiting for the player to enter a name on the leaderboard screen.");
+    }
+
+    /// <summary>
+    /// True once a run has ended and its scores are frozen, so the leaderboard
+    /// screen knows there is something worth submitting.
+    /// </summary>
+    public bool HasFinishedRun { get; private set; }
+
+    /// <summary>
+    /// Name the finished run is posted under. LeaderboardUI sets this from its
+    /// input field; the service clamps it to 12 characters on submit.
+    /// </summary>
+    public void SetSubmittedPlayerName(string name) => submittedPlayerName = name;
+
+    /// <summary>The name last set for submission, or empty.</summary>
+    public string GetSubmittedPlayerName() => submittedPlayerName ?? string.Empty;
+
     public int GetCurrentScore() => currentScore;
 
     public int GetBestScore() => bestScore;
+
+    /// <summary>
+    /// Money the player ended the run with. Falls back to the live score while a
+    /// run is still going, so this is always safe to read.
+    /// </summary>
+    public int GetFinalScore() => HasFinishedRun ? finalScore : currentScore;
 }
